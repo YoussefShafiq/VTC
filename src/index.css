@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@source "../index.html";
+@source "./**/*.{js,jsx}";
+
+@theme {
+  --color-white: #ffffff;
+  --color-aliceBlue: #dfeeff;
+  --color-racingRed: #ea1622;
+  --color-twilightIndigo: #1f3258;
+
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: #1f3258;
+    background: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    min-height: 100svh;
+  }
+
+  ::selection {
+    background: rgba(234, 22, 34, 0.15);
+    color: #1f3258;
+  }
+}
