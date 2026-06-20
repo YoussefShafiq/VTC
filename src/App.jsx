@@ -1,4 +1,4 @@
-import Header from './components/layout/Header'
+import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import Hero from './components/sections/Hero'
 import IntroCards from './components/sections/IntroCards'
@@ -12,7 +12,7 @@ import CtaBanner from './components/sections/CtaBanner'
 function App() {
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      <Navbar />
       <main>
         <Hero />
         <IntroCards />

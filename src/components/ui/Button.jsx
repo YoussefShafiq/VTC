@@ -19,7 +19,7 @@ export default function Button({
 
   if (href) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} {...props}>
         {children}
       </a>
     )

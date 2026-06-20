@@ -1,4 +1,4 @@
-const MODEL_SRC = '/models/shipping-containers.glb'
+const MODEL_SRC = '/models/20ft_container.glb'
 
 export default function HeroModel() {
   return (
