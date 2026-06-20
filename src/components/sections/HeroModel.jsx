@@ -14,7 +14,7 @@ export default function HeroModel() {
       shadow-intensity="0.85"
       exposure="1.05"
       environment-image="neutral"
-      className="hero-model-viewer block h-full w-full"
+      className="hero-model-viewer block h-full w-full p-4"
     />
   )
 }

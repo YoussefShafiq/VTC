@@ -8,7 +8,7 @@ export default function Hero() {
       <div className="absolute inset-y-0 left-0 w-px bg-white/10" aria-hidden />
       <div className="absolute inset-x-0 top-0 h-px bg-racingRed" aria-hidden />
 
-      <div className="relative mx-auto grid max-w-7xl gap-16 px-6 py-24 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-20 lg:px-8 lg:py-32">
+      <div className="relative mx-auto grid max-w-7xl gap-16 px-6 py-24 lg:grid-cols-[1fr_1.05fr] lg:items-start lg:gap-20 lg:px-8 lg:py-32">
         <div className="max-w-xl lg:max-w-none">
           <p className="mb-8 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-aliceBlue/80">
             <span className="h-px w-8 bg-racingRed" aria-hidden />
@@ -61,8 +61,8 @@ export default function Hero() {
           </dl>
         </div>
 
-        <div className="relative">
-          <div className="aspect-[4/3] w-full overflow-hidden">
+        <div className="relative -mx-2 lg:-mx-2 ">
+          <div className="hero-model-frame">
             <HeroModel />
           </div>
         </div>

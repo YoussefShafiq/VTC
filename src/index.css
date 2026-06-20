@@ -38,8 +38,23 @@
 
   model-viewer.hero-model-viewer {
     --poster-color: transparent;
-    --progress-bar-color: #ea1622;
-    --progress-bar-height: 2px;
+    --progress-bar-height: 0;
+    --progress-bar-color: transparent;
+    --progress-mask: transparent;
+    display: block;
+    width: 100%;
+    height: 100%;
     background-color: transparent;
+  }
+
+  .hero-model-frame {
+    width: 100%;
+    height: clamp(280px, 42vw, 480px);
+    overflow: hidden;
+  }
+
+  .hero-model-frame model-viewer.hero-model-viewer {
+    transform: scale(1.55);
+    transform-origin: center center;
   }
 }
