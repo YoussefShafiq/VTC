@@ -35,4 +35,11 @@
     background: rgba(234, 22, 34, 0.15);
     color: #1f3258;
   }
+
+  model-viewer.hero-model-viewer {
+    --poster-color: transparent;
+    --progress-bar-color: #ea1622;
+    --progress-bar-height: 2px;
+    background-color: transparent;
+  }
 }
