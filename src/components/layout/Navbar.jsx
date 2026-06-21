@@ -45,18 +45,14 @@ export default function Navbar() {
     >
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between lg:h-20">
-          <a href="#" className="group flex shrink-0 items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-racingRed text-lg font-bold text-white shadow-lg shadow-racingRed/30">
-              V
-            </span>
-            <div className="text-left">
-              <p className="font-display text-lg font-semibold leading-none text-white">
-                {company.shortName}
-              </p>
-              <p className="mt-0.5 text-[10px] font-medium uppercase tracking-[0.18em] text-white/50">
-                Transportation Corp.
-              </p>
-            </div>
+          <a href="#" className="shrink-0">
+            <img
+              src="/logo.png"
+              alt={company.name}
+              width={140}
+              height={40}
+              className="h-auto w-[100px] md:w-[120px] lg:w-[140px]"
+            />
           </a>
 
           <div className="hidden items-center gap-8 md:flex">
