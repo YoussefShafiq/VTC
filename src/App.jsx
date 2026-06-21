@@ -1,5 +1,6 @@
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
+import SectionFade from './components/ui/SectionFade'
 import Hero from './components/sections/Hero'
 import IntroCards from './components/sections/IntroCards'
 import About from './components/sections/About'
@@ -14,15 +15,35 @@ function App() {
     <div className="min-h-screen bg-white">
       <Navbar />
       <main>
-        <Hero />
-        <IntroCards />
-        <About />
-        <Services />
+        <SectionFade animate={false}>
+          <Hero />
+        </SectionFade>
+
+        <SectionFade fadeBottom="light">
+          <IntroCards />
+        </SectionFade>
+
+        <SectionFade>
+          <About />
+        </SectionFade>
+
+        <SectionFade fadeBottom="dark" animate={false}>
+          <Services />
+        </SectionFade>
+
         <WhyVital />
-        <Leadership />
+
+        <SectionFade fadeBottom="dark">
+          <Leadership />
+        </SectionFade>
+
+        {/* <SectionFade fadeBottom="light"> */}
         <Resources />
+        {/* </SectionFade> */}
+
         <CtaBanner />
       </main>
+
       <Footer />
     </div>
   )

@@ -1,40 +1,60 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { services } from '../../data/content'
+import { FLEET_IMAGE, fleetImagePositions } from '../../lib/images'
 import SectionHeading from '../ui/SectionHeading'
 
-function ServiceContent({ service, isActive }) {
+function ServiceContent({ service, index, isActive }) {
   return (
     <article
-      className={`overflow-hidden rounded-3xl border border-twilightIndigo/10 bg-gradient-to-br from-white to-aliceBlue/30 shadow-xl shadow-twilightIndigo/5 transition-all duration-700 ease-out ${
+      className={`absolute inset-0 overflow-hidden rounded-2xl border border-twilightIndigo/10 bg-white transition-all duration-700 ease-out ${
         isActive
-          ? 'translate-y-0 opacity-100'
-          : 'pointer-events-none absolute inset-0 translate-y-6 opacity-0'
+          ? 'z-10 translate-y-0 opacity-100'
+          : 'pointer-events-none z-0 translate-y-8 opacity-0'
       }`}
       aria-hidden={!isActive}
     >
-      <div className="grid lg:grid-cols-2">
-        <div className="flex min-h-[220px] flex-col justify-end bg-twilightIndigo p-8 text-white md:min-h-[320px] lg:min-h-[400px]">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-racingRed">
-            Photo placeholder
-          </p>
-          <p className="mt-3 font-display text-xl font-semibold leading-tight md:text-2xl">
-            {service.title}
-          </p>
-          <p className="mt-3 text-sm leading-relaxed text-white/65">
-            {service.summary}
-          </p>
+      <div className="grid h-full lg:grid-cols-[1fr_1.1fr]">
+        <div className="relative flex min-h-[260px] flex-col justify-end overflow-hidden p-8 text-white md:min-h-[340px] lg:min-h-full lg:p-10">
+          <img
+            src={FLEET_IMAGE}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: fleetImagePositions[index % fleetImagePositions.length] }}
+            aria-hidden
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-twilightIndigo via-twilightIndigo/80 to-twilightIndigo/55" aria-hidden />
+          <span
+            className="pointer-events-none absolute -left-2 bottom-0 font-display text-[9rem] font-semibold leading-none text-white/[0.04] md:text-[11rem]"
+            aria-hidden
+          >
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <div className="relative">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-racingRed">
+              Service {String(index + 1).padStart(2, '0')}
+            </p>
+            <h3 className="mt-3 font-display text-2xl font-semibold leading-tight md:text-3xl">
+              {service.title}
+            </h3>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-white/60 md:text-base">
+              {service.summary}
+            </p>
+          </div>
         </div>
-        <div className="max-h-[320px] overflow-y-auto p-6 md:max-h-none md:p-8 lg:p-10">
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-twilightIndigo/45">
+
+        <div className="flex flex-col justify-center overflow-y-auto p-8 lg:p-10">
+          <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.2em] text-twilightIndigo/40">
             Capabilities
           </p>
-          <ul className="space-y-2.5">
-            {service.items.map((item) => (
+          <ul className="space-y-3">
+            {service.items.map((item, i) => (
               <li
                 key={item}
-                className="flex gap-3 text-sm leading-relaxed text-twilightIndigo/80"
+                className="flex gap-4 border-b border-twilightIndigo/6 pb-3 text-sm leading-relaxed text-twilightIndigo/80 last:border-0 last:pb-0"
               >
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-racingRed" />
+                <span className="mt-0.5 shrink-0 font-display text-xs font-semibold text-racingRed/70">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
                 {item}
               </li>
             ))}
@@ -47,6 +67,7 @@ function ServiceContent({ service, isActive }) {
 
 export default function Services() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const scrollAreaRef = useRef(null)
   const stepRefs = useRef([])
   const isScrollingToStep = useRef(false)
 
@@ -56,61 +77,72 @@ export default function Services() {
 
     isScrollingToStep.current = true
     setActiveIndex(index)
-
     step.scrollIntoView({ behavior: 'smooth', block: 'center' })
 
     window.setTimeout(() => {
       isScrollingToStep.current = false
-    }, 800)
+    }, 900)
   }, [])
 
   useEffect(() => {
-    const observers = []
+    let observers = []
+    let rafId = 0
 
-    stepRefs.current.forEach((step, index) => {
-      if (!step) return
+    const setup = () => {
+      const steps = stepRefs.current.filter(Boolean)
+      if (steps.length !== services.length) {
+        rafId = requestAnimationFrame(setup)
+        return
+      }
 
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (isScrollingToStep.current) return
-          if (entry.isIntersecting) {
-            setActiveIndex(index)
-          }
-        },
-        {
-          root: null,
-          rootMargin: '-42% 0px -42% 0px',
-          threshold: 0,
-        },
-      )
+      observers = steps.map((step, index) => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (isScrollingToStep.current) return
+            if (entry.isIntersecting) {
+              setActiveIndex(index)
+            }
+          },
+          {
+            root: null,
+            rootMargin: '-42% 0px -42% 0px',
+            threshold: 0,
+          },
+        )
+        observer.observe(step)
+        return observer
+      })
+    }
 
-      observer.observe(step)
-      observers.push(observer)
-    })
+    setup()
 
-    return () => observers.forEach((observer) => observer.disconnect())
+    return () => {
+      cancelAnimationFrame(rafId)
+      observers.forEach((observer) => observer.disconnect())
+    }
   }, [])
 
   return (
-    <section id="solutions" className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 pt-20 md:pt-28 lg:px-8">
+    <section id="solutions" className="relative bg-white">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-cover bg-no-repeat opacity-[0.06]"
+        style={{ backgroundImage: `url(${FLEET_IMAGE})`, backgroundPosition: 'center 30%' }}
+        aria-hidden
+      />
+
+      <div className="mx-auto max-w-7xl px-6 pt-24 md:pt-32 lg:px-8">
         <SectionHeading
           eyebrow="Core Services"
           title="End-to-end solutions for the NY/NJ supply chain"
-          description="Scroll to explore each capability — the section stays in place while services update."
+          description="Scroll to explore each capability — the panel stays in place while services update."
           align="center"
         />
-        <p className="-mt-8 mb-4 text-center text-xs font-medium uppercase tracking-[0.2em] text-twilightIndigo/40">
-          Scroll to explore
-        </p>
       </div>
 
-      <div className="relative">
-        {/* Pinned panel — stays on screen while step divs scroll beneath */}
-        <div className="sticky top-0 z-10 flex min-h-svh items-center bg-white py-20 pt-24 md:py-24 md:pt-28">
+      <div ref={scrollAreaRef} className="relative">
+        <div className="sticky top-24 z-10 flex min-h-svh items-center bg-white py-20 pt-24 md:top-28 md:py-24 md:pt-28">
           <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
             <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
-              {/* Service nav + progress */}
               <div className="flex flex-col gap-4">
                 <div className="hidden lg:block">
                   <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-twilightIndigo/45">
@@ -151,12 +183,12 @@ export default function Services() {
                 </nav>
               </div>
 
-              {/* Crossfading service panels */}
               <div className="relative min-h-[420px] md:min-h-[400px]">
                 {services.map((service, index) => (
                   <ServiceContent
                     key={service.id}
                     service={service}
+                    index={index}
                     isActive={activeIndex === index}
                   />
                 ))}
@@ -165,7 +197,6 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Invisible scroll steps — each one viewport tall */}
         {services.map((service, index) => (
           <div
             key={service.id}
