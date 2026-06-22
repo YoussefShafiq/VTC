@@ -3,18 +3,22 @@ import { services } from '../../data/content'
 import { FLEET_IMAGE, fleetImagePositions } from '../../lib/images'
 import SectionHeading from '../ui/SectionHeading'
 
+const TRACK_VH = 38
+
+function getStickyOffset() {
+  return window.matchMedia('(min-width: 768px)').matches ? 96 : 80
+}
+
 function ServiceContent({ service, index, isActive }) {
   return (
     <article
-      className={`absolute inset-0 overflow-hidden rounded-2xl border border-twilightIndigo/10 bg-white transition-all duration-700 ease-out ${
-        isActive
-          ? 'z-10 translate-y-0 opacity-100'
-          : 'pointer-events-none z-0 translate-y-8 opacity-0'
+      className={`absolute inset-0 overflow-hidden rounded-2xl border border-twilightIndigo/10 bg-white shadow-sm transition-all duration-500 ease-out ${
+        isActive ? 'z-10 opacity-100' : 'pointer-events-none z-0 opacity-0'
       }`}
       aria-hidden={!isActive}
     >
-      <div className="grid h-full lg:grid-cols-[1fr_1.1fr]">
-        <div className="relative flex min-h-[260px] flex-col justify-end overflow-hidden p-8 text-white md:min-h-[340px] lg:min-h-full lg:p-10">
+      <div className="grid h-full grid-rows-[8.5rem_1fr] lg:grid-cols-2 lg:grid-rows-1">
+        <div className="relative flex flex-col justify-end overflow-hidden px-4 pb-3 pt-4 text-white lg:px-8 lg:pb-4 lg:pt-8">
           <img
             src={FLEET_IMAGE}
             alt=""
@@ -22,39 +26,31 @@ function ServiceContent({ service, index, isActive }) {
             style={{ objectPosition: fleetImagePositions[index % fleetImagePositions.length] }}
             aria-hidden
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-twilightIndigo via-twilightIndigo/80 to-twilightIndigo/55" aria-hidden />
-          <span
-            className="pointer-events-none absolute -left-2 bottom-0 font-display text-[9rem] font-semibold leading-none text-white/[0.04] md:text-[11rem]"
-            aria-hidden
-          >
-            {String(index + 1).padStart(2, '0')}
-          </span>
+          <div className="absolute inset-0 bg-gradient-to-t from-twilightIndigo via-twilightIndigo/85 to-twilightIndigo/50" aria-hidden />
           <div className="relative">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-racingRed">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-racingRed">
               Service {String(index + 1).padStart(2, '0')}
             </p>
-            <h3 className="mt-3 font-display text-2xl font-semibold leading-tight md:text-3xl">
+            <h3 className="mt-1.5 line-clamp-2 font-display text-base font-semibold leading-snug lg:mt-2 lg:text-2xl lg:line-clamp-none">
               {service.title}
             </h3>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-white/60 md:text-base">
+            <p className="mt-1.5 hidden text-xs leading-relaxed text-white/60 sm:line-clamp-2 sm:block lg:mt-2 lg:text-sm">
               {service.summary}
             </p>
           </div>
         </div>
 
-        <div className="flex flex-col justify-center overflow-y-auto p-8 lg:p-10">
-          <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.2em] text-twilightIndigo/40">
+        <div className="min-h-0 overflow-y-auto px-4 py-3 lg:p-8">
+          <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-twilightIndigo/40">
             Capabilities
           </p>
-          <ul className="space-y-3">
-            {service.items.map((item, i) => (
+          <ul className="space-y-1.5 lg:space-y-2">
+            {service.items.map((item) => (
               <li
                 key={item}
-                className="flex gap-4 border-b border-twilightIndigo/6 pb-3 text-sm leading-relaxed text-twilightIndigo/80 last:border-0 last:pb-0"
+                className="flex gap-2 text-xs leading-relaxed text-twilightIndigo/80 lg:text-sm"
               >
-                <span className="mt-0.5 shrink-0 font-display text-xs font-semibold text-racingRed/70">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
+                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-racingRed" />
                 {item}
               </li>
             ))}
@@ -67,91 +63,103 @@ function ServiceContent({ service, index, isActive }) {
 
 export default function Services() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const scrollAreaRef = useRef(null)
-  const stepRefs = useRef([])
+  const scrollRootRef = useRef(null)
   const isScrollingToStep = useRef(false)
 
-  const scrollToStep = useCallback((index) => {
-    const step = stepRefs.current[index]
-    if (!step) return
+  const updateActiveIndex = useCallback(() => {
+    if (isScrollingToStep.current) return
 
-    isScrollingToStep.current = true
+    const root = scrollRootRef.current
+    if (!root) return
+
+    const rect = root.getBoundingClientRect()
+    const stickyTop = getStickyOffset()
+    const totalScroll = root.offsetHeight - window.innerHeight
+
+    if (totalScroll <= 0) return
+
+    if (rect.bottom < stickyTop) {
+      setActiveIndex(services.length - 1)
+      return
+    }
+    if (rect.top > window.innerHeight) return
+
+    const scrolled = Math.min(Math.max(stickyTop - rect.top, 0), totalScroll)
+    const progress = scrolled / totalScroll
+    const index = Math.min(
+      services.length - 1,
+      Math.max(0, Math.floor(progress * services.length)),
+    )
+
     setActiveIndex(index)
-    step.scrollIntoView({ behavior: 'smooth', block: 'center' })
-
-    window.setTimeout(() => {
-      isScrollingToStep.current = false
-    }, 900)
   }, [])
+
+  const scrollToStep = useCallback(
+    (index) => {
+      const root = scrollRootRef.current
+      if (!root) return
+
+      isScrollingToStep.current = true
+      setActiveIndex(index)
+
+      const totalScroll = root.offsetHeight - window.innerHeight
+      const segment = totalScroll / services.length
+      const target = root.offsetTop + segment * index + segment * 0.5 - window.innerHeight / 2
+
+      window.scrollTo({ top: Math.max(0, target), behavior: 'smooth' })
+
+      window.setTimeout(() => {
+        isScrollingToStep.current = false
+      }, 900)
+    },
+    [],
+  )
 
   useEffect(() => {
-    let observers = []
-    let rafId = 0
-
-    const setup = () => {
-      const steps = stepRefs.current.filter(Boolean)
-      if (steps.length !== services.length) {
-        rafId = requestAnimationFrame(setup)
-        return
-      }
-
-      observers = steps.map((step, index) => {
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            if (isScrollingToStep.current) return
-            if (entry.isIntersecting) {
-              setActiveIndex(index)
-            }
-          },
-          {
-            root: null,
-            rootMargin: '-42% 0px -42% 0px',
-            threshold: 0,
-          },
-        )
-        observer.observe(step)
-        return observer
-      })
-    }
-
-    setup()
+    window.addEventListener('scroll', updateActiveIndex, { passive: true })
+    window.addEventListener('resize', updateActiveIndex)
+    updateActiveIndex()
 
     return () => {
-      cancelAnimationFrame(rafId)
-      observers.forEach((observer) => observer.disconnect())
+      window.removeEventListener('scroll', updateActiveIndex)
+      window.removeEventListener('resize', updateActiveIndex)
     }
-  }, [])
+  }, [updateActiveIndex])
 
   return (
     <section id="solutions" className="relative bg-white">
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-cover bg-no-repeat opacity-[0.06]"
-        style={{ backgroundImage: `url(${FLEET_IMAGE})`, backgroundPosition: 'center 30%' }}
-        aria-hidden
-      />
-
-      <div className="mx-auto max-w-7xl px-6 pt-24 md:pt-32 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:hidden lg:px-8">
         <SectionHeading
           eyebrow="Core Services"
           title="End-to-end solutions for the NY/NJ supply chain"
-          description="Scroll to explore each capability — the panel stays in place while services update."
           align="center"
+          className="!mb-0"
         />
       </div>
 
-      <div ref={scrollAreaRef} className="relative">
-        <div className="sticky top-24 z-10 flex min-h-svh items-center bg-white py-20 pt-24 md:top-28 md:py-24 md:pt-28">
-          <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
-            <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
-              <div className="flex flex-col gap-4">
-                <div className="hidden lg:block">
-                  <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-twilightIndigo/45">
+      <div ref={scrollRootRef} className="relative">
+        <div className="sticky top-20 z-10 bg-white pb-8 md:top-24 md:pb-10 lg:pb-12">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 lg:pt-10">
+            <div className="hidden lg:block">
+              <SectionHeading
+                eyebrow="Core Services"
+                title="End-to-end solutions for the NY/NJ supply chain"
+                description="Scroll to explore each capability — the panel stays in place while services update."
+                align="center"
+                className="!mb-6"
+              />
+            </div>
+
+            <div className="mt-5 space-y-3 lg:mt-0 lg:grid lg:grid-cols-[220px_1fr] lg:gap-8 lg:space-y-0">
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <p className="shrink-0 text-xs font-bold uppercase tracking-[0.18em] text-twilightIndigo/45">
                     {String(activeIndex + 1).padStart(2, '0')} /{' '}
                     {String(services.length).padStart(2, '0')}
                   </p>
-                  <div className="h-1 overflow-hidden rounded-full bg-aliceBlue">
+                  <div className="h-1 min-w-0 flex-1 overflow-hidden rounded-full bg-aliceBlue">
                     <div
-                      className="h-full rounded-full bg-racingRed transition-all duration-500 ease-out"
+                      className="h-full rounded-full bg-racingRed transition-all duration-500"
                       style={{
                         width: `${((activeIndex + 1) / services.length) * 100}%`,
                       }}
@@ -159,8 +167,12 @@ export default function Services() {
                   </div>
                 </div>
 
+                <p className="truncate text-sm font-semibold text-twilightIndigo lg:hidden">
+                  {services[activeIndex].title}
+                </p>
+
                 <nav
-                  className="flex gap-2 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0"
+                  className="flex gap-1.5 overflow-x-auto pb-0.5 scrollbar-none lg:flex-col lg:gap-1 lg:overflow-visible"
                   aria-label="Core services"
                 >
                   {services.map((service, index) => (
@@ -168,22 +180,22 @@ export default function Services() {
                       key={service.id}
                       type="button"
                       onClick={() => scrollToStep(index)}
-                      className={`min-w-[220px] rounded-2xl border px-4 py-3.5 text-left transition-all duration-300 lg:min-w-0 ${
+                      className={`shrink-0 transition-all duration-300 lg:shrink lg:rounded-xl lg:border lg:px-3 lg:py-2.5 lg:text-left ${
                         activeIndex === index
-                          ? 'border-racingRed/30 bg-twilightIndigo text-white shadow-lg shadow-twilightIndigo/20'
-                          : 'border-twilightIndigo/10 bg-aliceBlue/20 text-twilightIndigo hover:bg-aliceBlue/40'
+                          ? 'flex h-9 w-9 items-center justify-center rounded-full bg-twilightIndigo text-xs font-bold text-white lg:h-auto lg:w-auto lg:rounded-xl lg:border-racingRed/30 lg:bg-twilightIndigo lg:text-sm lg:font-semibold lg:shadow-md'
+                          : 'flex h-9 w-9 items-center justify-center rounded-full border border-twilightIndigo/15 bg-aliceBlue/30 text-xs font-bold text-twilightIndigo lg:h-auto lg:w-auto lg:rounded-xl lg:border-transparent lg:bg-transparent lg:font-semibold lg:hover:bg-aliceBlue/40'
                       }`}
                       aria-current={activeIndex === index ? 'true' : undefined}
+                      aria-label={service.title}
                     >
-                      <p className="text-sm font-semibold leading-snug">
-                        {service.title}
-                      </p>
+                      <span className="lg:hidden">{String(index + 1).padStart(2, '0')}</span>
+                      <span className="hidden text-sm leading-snug lg:block">{service.title}</span>
                     </button>
                   ))}
                 </nav>
               </div>
 
-              <div className="relative min-h-[420px] md:min-h-[400px]">
+              <div className="services-panel relative">
                 {services.map((service, index) => (
                   <ServiceContent
                     key={service.id}
@@ -197,16 +209,10 @@ export default function Services() {
           </div>
         </div>
 
-        {services.map((service, index) => (
-          <div
-            key={service.id}
-            ref={(el) => {
-              stepRefs.current[index] = el
-            }}
-            className="h-[75svh] md:h-screen"
-            aria-hidden="true"
-          />
-        ))}
+        <div
+          style={{ height: `${services.length * TRACK_VH}vh` }}
+          aria-hidden="true"
+        />
       </div>
     </section>
   )

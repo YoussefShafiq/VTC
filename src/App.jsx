@@ -27,9 +27,7 @@ function App() {
           <About />
         </SectionFade>
 
-        <SectionFade fadeBottom="dark" animate={false}>
-          <Services />
-        </SectionFade>
+        <Services />
 
         <WhyVital />
 
