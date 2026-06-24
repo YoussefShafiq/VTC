@@ -1,9 +1,15 @@
-import { company, navLinks, regions } from '../../data/content'
+import { Link } from 'react-router-dom'
+import { company, navLinks, regions, routes, services } from '../../data/content'
 import { FLEET_IMAGE } from '../../lib/images'
+
+const serviceLinks = services.map((service) => ({
+  label: service.title,
+  href: `${routes.services}#${service.id}`,
+}))
 
 export default function Footer() {
   return (
-    <footer id="contact" className="relative overflow-hidden text-white">
+    <footer className="relative overflow-hidden text-white">
       <div
         className="absolute inset-0 bg-cover bg-[center_35%] bg-no-repeat"
         style={{ backgroundImage: `url(${FLEET_IMAGE})` }}
@@ -15,15 +21,15 @@ export default function Footer() {
       <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-5">
-            <a href="#" className="inline-block">
+            <Link to={routes.home} className="inline-block">
               <img
-                src="/logo.png"
+                src="/logoWhite.png"
                 alt={company.name}
                 width={140}
                 height={40}
                 className="h-auto w-[120px] md:w-[140px]"
               />
-            </a>
+            </Link>
             <p className="mt-6 max-w-md text-sm leading-relaxed text-white/55">
               Asset-based logistics serving the NY/NJ port region with drayage, intermodal, OTR, LTL, and warehouse-backed distribution — since {company.since}.
             </p>
@@ -46,14 +52,31 @@ export default function Footer() {
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm text-white/60 transition-colors hover:text-white"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
+              <li>
+                <p className="pt-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/35">
+                  Services
+                </p>
+                <ul className="mt-2 space-y-2">
+                  {serviceLinks.map((child) => (
+                    <li key={child.href}>
+                      <Link
+                        to={child.href}
+                        className="text-sm text-white/45 transition-colors hover:text-white/80"
+                      >
+                        {child.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
             </ul>
           </div>
 

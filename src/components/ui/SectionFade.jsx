@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
+import { fadeUp, transition, viewport } from '../../lib/motion'
 
 export default function SectionFade({
   children,
@@ -7,18 +8,22 @@ export default function SectionFade({
   animate = true,
   className = '',
 }) {
-  const content = animate ? (
-    <div
-      // initial={{ opacity: 0 }}
-      // whileInView={{ opacity: 1 }}
-      // viewport={{ once: true, amount: 0.08 }}
-      // transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {children}
-    </div>
-  ) : (
-    children
-  )
+  const reduceMotion = useReducedMotion()
+
+  const content =
+    animate && !reduceMotion ? (
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+        variants={fadeUp}
+        transition={transition}
+      >
+        {children}
+      </motion.div>
+    ) : (
+      children
+    )
 
   return (
     <div className={`relative ${className}`}>

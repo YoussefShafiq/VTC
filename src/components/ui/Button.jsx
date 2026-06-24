@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const variants = {
   primary:
     'bg-racingRed text-white hover:bg-racingRed/90 shadow-lg shadow-racingRed/20',
@@ -12,10 +14,20 @@ export default function Button({
   children,
   variant = 'primary',
   href,
+  to,
   className = '',
+  type = 'button',
   ...props
 }) {
   const classes = `inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-300 ${variants[variant]} ${className}`
+
+  if (to) {
+    return (
+      <Link to={to} className={classes} {...props}>
+        {children}
+      </Link>
+    )
+  }
 
   if (href) {
     return (
@@ -26,7 +38,7 @@ export default function Button({
   }
 
   return (
-    <button type="button" className={classes} {...props}>
+    <button type={type} className={classes} {...props}>
       {children}
     </button>
   )

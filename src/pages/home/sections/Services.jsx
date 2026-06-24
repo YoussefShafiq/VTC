@@ -1,9 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { services } from '../../data/content'
-import { FLEET_IMAGE, fleetImagePositions } from '../../lib/images'
-import SectionHeading from '../ui/SectionHeading'
+import { services } from '../../../data/content'
+import { FLEET_IMAGE, fleetImagePositions } from '../../../lib/images'
+import SectionHeading from '../../../components/ui/SectionHeading'
+import AnimateOnScroll from '../../../components/ui/AnimateOnScroll'
 
-const TRACK_VH = 38
+const STEP_VH = 34
+const START_BUFFER_VH = 18
+const END_BUFFER_VH = 12
 
 function getStickyOffset() {
   return window.matchMedia('(min-width: 768px)').matches ? 96 : 80
@@ -12,6 +15,7 @@ function getStickyOffset() {
 function ServiceContent({ service, index, isActive }) {
   return (
     <article
+      id={service.id}
       className={`absolute inset-0 overflow-hidden rounded-2xl border border-twilightIndigo/10 bg-white shadow-sm transition-all duration-500 ease-out ${
         isActive ? 'z-10 opacity-100' : 'pointer-events-none z-0 opacity-0'
       }`}
@@ -40,7 +44,7 @@ function ServiceContent({ service, index, isActive }) {
           </div>
         </div>
 
-        <div className="min-h-0 overflow-y-auto px-4 py-3 lg:p-8">
+        <div className="min-h-0 overflow-y-hidden px-4 py-3 lg:overflow-y-auto lg:p-8">
           <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-twilightIndigo/40">
             Capabilities
           </p>
@@ -66,6 +70,8 @@ export default function Services() {
   const scrollRootRef = useRef(null)
   const isScrollingToStep = useRef(false)
 
+  const totalTrackVh = START_BUFFER_VH + services.length * STEP_VH + END_BUFFER_VH
+
   const updateActiveIndex = useCallback(() => {
     if (isScrollingToStep.current) return
 
@@ -85,14 +91,18 @@ export default function Services() {
     if (rect.top > window.innerHeight) return
 
     const scrolled = Math.min(Math.max(stickyTop - rect.top, 0), totalScroll)
-    const progress = scrolled / totalScroll
+    const startPx = root.offsetHeight * (START_BUFFER_VH / totalTrackVh)
+    const endPx = root.offsetHeight * (END_BUFFER_VH / totalTrackVh)
+    const usableScroll = Math.max(totalScroll - startPx - endPx, 1)
+    const normalized = Math.min(Math.max(scrolled - startPx, 0), usableScroll)
+    const progress = normalized / usableScroll
     const index = Math.min(
       services.length - 1,
       Math.max(0, Math.floor(progress * services.length)),
     )
 
     setActiveIndex(index)
-  }, [])
+  }, [totalTrackVh])
 
   const scrollToStep = useCallback(
     (index) => {
@@ -104,7 +114,10 @@ export default function Services() {
 
       const totalScroll = root.offsetHeight - window.innerHeight
       const segment = totalScroll / services.length
-      const target = root.offsetTop + segment * index + segment * 0.5 - window.innerHeight / 2
+      const rootTop = root.getBoundingClientRect().top + window.scrollY
+      const startPx = root.offsetHeight * (START_BUFFER_VH / totalTrackVh)
+      const target =
+        rootTop + startPx + segment * index + segment * 0.5 - window.innerHeight / 2
 
       window.scrollTo({ top: Math.max(0, target), behavior: 'smooth' })
 
@@ -112,8 +125,25 @@ export default function Services() {
         isScrollingToStep.current = false
       }, 900)
     },
-    [],
+    [totalTrackVh],
   )
+
+  useEffect(() => {
+    const syncHash = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (!hash) return
+
+      const index = services.findIndex((service) => service.id === hash)
+      if (index >= 0) {
+        window.requestAnimationFrame(() => scrollToStep(index))
+      }
+    }
+
+    syncHash()
+    window.addEventListener('hashchange', syncHash)
+
+    return () => window.removeEventListener('hashchange', syncHash)
+  }, [scrollToStep])
 
   useEffect(() => {
     window.addEventListener('scroll', updateActiveIndex, { passive: true })
@@ -127,7 +157,7 @@ export default function Services() {
   }, [updateActiveIndex])
 
   return (
-    <section id="solutions" className="relative bg-white">
+    <section id="services" className="relative bg-white pt-24 md:pt-28">
       <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:hidden lg:px-8">
         <SectionHeading
           eyebrow="Core Services"
@@ -195,7 +225,7 @@ export default function Services() {
                 </nav>
               </div>
 
-              <div className="services-panel relative">
+            <AnimateOnScroll variant="scaleUp" className="services-panel relative">
                 {services.map((service, index) => (
                   <ServiceContent
                     key={service.id}
@@ -204,13 +234,13 @@ export default function Services() {
                     isActive={activeIndex === index}
                   />
                 ))}
-              </div>
+            </AnimateOnScroll>
             </div>
           </div>
         </div>
 
         <div
-          style={{ height: `${services.length * TRACK_VH}vh` }}
+          style={{ height: `${totalTrackVh}vh` }}
           aria-hidden="true"
         />
       </div>

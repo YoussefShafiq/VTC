@@ -1,49 +1,36 @@
-import Navbar from './components/layout/Navbar'
-import Footer from './components/layout/Footer'
-import SectionFade from './components/ui/SectionFade'
-import Hero from './components/sections/Hero'
-import IntroCards from './components/sections/IntroCards'
-import About from './components/sections/About'
-import Services from './components/sections/Services'
-import WhyVital from './components/sections/WhyVital'
-import Leadership from './components/sections/Leadership'
-import Resources from './components/sections/Resources'
-import CtaBanner from './components/sections/CtaBanner'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Layout from './components/layout/Layout'
+import HomePage from './pages/home'
+import ServicesPage from './pages/services'
+import AboutPage from './pages/about'
+import ResourcesPage from './pages/resources'
+import NotFoundPage from './pages/errors/NotFoundPage'
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 function App() {
+
+  // Scroll to top when route changes
+
+  function ScrollToTop() {
+    const { pathname } = useLocation();
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+    return null;
+  }
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
-      <main>
-        <SectionFade animate={false}>
-          <Hero />
-        </SectionFade>
-
-        <SectionFade fadeBottom="light">
-          <IntroCards />
-        </SectionFade>
-
-        <SectionFade>
-          <About />
-        </SectionFade>
-
-        <Services />
-
-        <WhyVital />
-
-        <SectionFade fadeBottom="dark">
-          <Leadership />
-        </SectionFade>
-
-        {/* <SectionFade fadeBottom="light"> */}
-        <Resources />
-        {/* </SectionFade> */}
-
-        <CtaBanner />
-      </main>
-
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<HomePage />} />
+          {/* <Route path="services" element={<ServicesPage />} /> */}
+          {/* <Route path="about" element={<AboutPage />} /> */}
+          {/* <Route path="resources" element={<ResourcesPage />} /> */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

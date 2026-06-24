@@ -1,6 +1,8 @@
-import { leadership } from '../../data/content'
-import { FLEET_IMAGE } from '../../lib/images'
-import SectionHeading from '../ui/SectionHeading'
+import { leadership } from '../../../data/content'
+import { FLEET_IMAGE } from '../../../lib/images'
+import SectionHeading from '../../../components/ui/SectionHeading'
+import AnimateOnScroll from '../../../components/ui/AnimateOnScroll'
+import { Stagger, StaggerItem } from '../../../components/ui/Stagger'
 
 function MemberAvatar({ member, index, size = 'md' }) {
   const initials = member.name
@@ -70,6 +72,7 @@ export default function Leadership() {
           description={leadership.subtitle}
         />
 
+        <AnimateOnScroll>
         <article className="overflow-hidden rounded-2xl border border-twilightIndigo/10 bg-aliceBlue/15">
           <div className="flex flex-col gap-6 p-6 md:flex-row md:items-center md:gap-8 md:p-8">
             <MemberAvatar member={ceo} index={0} size="lg" />
@@ -86,13 +89,14 @@ export default function Leadership() {
             </div>
           </div>
         </article>
+        </AnimateOnScroll>
 
         {team.length > 0 && (
-          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          <Stagger className="mt-4 grid gap-4 sm:grid-cols-2">
             {team.map((member, index) => (
+              <StaggerItem key={`${member.name}-${index}`}>
               <article
-                key={`${member.name}-${index}`}
-                className="flex items-start gap-4 rounded-2xl border border-twilightIndigo/8 bg-white p-5 md:p-6"
+                className="flex h-full items-start gap-4 rounded-2xl border border-twilightIndigo/8 bg-white p-5 md:p-6"
               >
                 <MemberAvatar member={member} index={index + 1} size="sm" />
                 <div className="min-w-0">
@@ -107,8 +111,9 @@ export default function Leadership() {
                   </p>
                 </div>
               </article>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         )}
       </div>
     </section>

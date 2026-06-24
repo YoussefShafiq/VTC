@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
-import { introCards } from '../../data/content'
-import { FLEET_IMAGE } from '../../lib/images'
+import { introCards } from '../../../data/content'
+import { FLEET_IMAGE } from '../../../lib/images'
+import { Stagger, StaggerItem } from '../../../components/ui/Stagger'
 
 const cardMeta = [
   { icon: 'mdi:anchor', accent: 'from-racingRed/20 to-transparent' },
@@ -21,15 +23,18 @@ export default function IntroCards() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="-mt-16 grid gap-5 sm:grid-cols-2 md:-mt-24 lg:grid-cols-3 lg:gap-6">
+        <Stagger className="-mt-16 grid gap-5 sm:grid-cols-2 md:-mt-24 lg:grid-cols-3 lg:gap-6">
           {introCards.map((card, index) => {
             const isFeatured = index === 0
             const { icon, accent } = cardMeta[index]
 
             return (
-              <article
+              <StaggerItem
                 key={card.title}
-                className={`group relative flex min-h-[320px] flex-col justify-between overflow-hidden rounded-2xl border p-8 transition-all duration-500 md:min-h-[340px] md:p-9 ${
+                className={isFeatured ? 'sm:col-span-2 lg:col-span-1' : ''}
+              >
+              <article
+                className={`group relative flex h-full min-h-[320px] flex-col justify-between overflow-hidden rounded-2xl border p-8 transition-all duration-500 md:min-h-[340px] md:p-9 ${
                   isFeatured
                     ? 'border-racingRed/30 bg-twilightIndigo/80 shadow-[0_32px_80px_-24px_rgba(0,0,0,0.55)] backdrop-blur-md sm:col-span-2 lg:col-span-1 lg:min-h-[380px]'
                     : 'border-white/10 bg-white/[0.08] shadow-[0_24px_60px_-20px_rgba(0,0,0,0.4)] backdrop-blur-md hover:border-white/20 hover:bg-white/[0.12]'
@@ -64,8 +69,8 @@ export default function IntroCards() {
                   </p>
                 </div>
 
-                <a
-                  href={card.href}
+                <Link
+                  to={card.href}
                   className={`relative mt-9 inline-flex items-center gap-3 text-sm font-semibold transition-all duration-300 group-hover:gap-4 ${
                     isFeatured ? 'text-aliceBlue' : 'text-white/70 group-hover:text-white'
                   }`}
@@ -78,11 +83,12 @@ export default function IntroCards() {
                   >
                     →
                   </span>
-                </a>
+                </Link>
               </article>
+              </StaggerItem>
             )
           })}
-        </div>
+        </Stagger>
       </div>
     </section>
   )

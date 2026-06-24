@@ -1,6 +1,8 @@
-import { about, company } from '../../data/content'
-import { FLEET_IMAGE } from '../../lib/images'
-import SectionHeading from '../ui/SectionHeading'
+import { about, company } from '../../../data/content'
+import { FLEET_IMAGE } from '../../../lib/images'
+import SectionHeading from '../../../components/ui/SectionHeading'
+import AnimateOnScroll from '../../../components/ui/AnimateOnScroll'
+import { Stagger, StaggerItem } from '../../../components/ui/Stagger'
 
 export default function About() {
   return (
@@ -14,16 +16,16 @@ export default function About() {
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
-          <div className="order-2 lg:order-1">
+          <AnimateOnScroll variant="fadeRight" className="order-2 lg:order-1">
             <SectionHeading
               eyebrow="About Vital"
               title={about.title}
               description={about.paragraphs[0]}
             />
 
-            <div className="space-y-6">
+            <Stagger className="space-y-6">
               {about.paragraphs.slice(1).map((paragraph, index) => (
-                <div key={paragraph.slice(0, 40)} className="flex gap-5">
+                <StaggerItem key={paragraph.slice(0, 40)} className="flex gap-5">
                   <span
                     className="mt-1.5 shrink-0 font-display text-xs font-semibold text-racingRed"
                     aria-hidden
@@ -33,14 +35,14 @@ export default function About() {
                   <p className="text-sm leading-relaxed text-twilightIndigo/75 md:text-base">
                     {paragraph}
                   </p>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
 
-            <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+            <Stagger className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
               {about.stats.map((stat) => (
+                <StaggerItem key={stat.label}>
                 <div
-                  key={stat.label}
                   className="group rounded-xl border border-twilightIndigo/8 bg-aliceBlue/20 px-4 py-5 transition-all duration-300 hover:border-racingRed/25 hover:bg-aliceBlue/40"
                 >
                   <p className="font-display text-2xl font-semibold text-twilightIndigo transition-colors duration-300 group-hover:text-racingRed md:text-3xl">
@@ -50,11 +52,12 @@ export default function About() {
                     {stat.label}
                   </p>
                 </div>
+                </StaggerItem>
               ))}
-            </div>
-          </div>
+            </Stagger>
+          </AnimateOnScroll>
 
-          <div className="order-1 lg:order-2">
+          <AnimateOnScroll variant="fadeLeft" delay={0.1} className="order-1 lg:order-2">
             <div className="relative">
               <div className="absolute -inset-3 rounded-3xl border border-twilightIndigo/8 lg:-inset-4" aria-hidden />
               <div className="absolute -right-2 -top-2 h-16 w-16 border-r-2 border-t-2 border-racingRed lg:-right-4 lg:-top-4 lg:h-24 lg:w-24" aria-hidden />
@@ -84,7 +87,7 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="absolute -bottom-5 -left-4 hidden rounded-xl border border-twilightIndigo/10 bg-white px-5 py-4 shadow-xl shadow-twilightIndigo/10 md:block lg:-left-8">
+              <div className="absolute -bottom-10 -left-4 hidden rounded-xl border border-twilightIndigo/10 bg-white px-5 py-4 shadow-xl shadow-twilightIndigo/10 md:block lg:-left-8">
                 <p className="font-display text-3xl font-semibold text-twilightIndigo">
                   Since {company.since}
                 </p>
@@ -93,7 +96,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

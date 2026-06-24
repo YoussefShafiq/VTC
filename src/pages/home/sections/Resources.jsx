@@ -1,6 +1,8 @@
-import { resourceLinks } from '../../data/content'
-import { FLEET_IMAGE } from '../../lib/images'
-import SectionHeading from '../ui/SectionHeading'
+import { Link } from 'react-router-dom'
+import { resourceLinks } from '../../../data/content'
+import { FLEET_IMAGE } from '../../../lib/images'
+import SectionHeading from '../../../components/ui/SectionHeading'
+import { Stagger, StaggerItem } from '../../../components/ui/Stagger'
 
 export default function Resources() {
   return (
@@ -22,11 +24,11 @@ export default function Resources() {
           light
         />
 
-        <div className="mx-auto max-w-4xl divide-y divide-white/10">
+        <Stagger className="mx-auto max-w-4xl divide-y divide-white/10">
           {resourceLinks.map((resource, index) => (
+            <StaggerItem key={resource.title}>
             <article
-              key={resource.title}
-              className="group flex flex-col gap-4 py-8 transition-colors duration-300 first:pt-0 last:pb-0 md:flex-row md:items-center md:gap-10"
+              className="group flex flex-col gap-4 my-6 transition-colors duration-300 first:pt-0 last:pb-0 md:flex-row md:items-center md:gap-10"
             >
               <span className="shrink-0 font-display text-4xl font-semibold text-white/10 transition-colors duration-300 group-hover:text-racingRed/40 md:w-16 md:text-5xl">
                 {String(index + 1).padStart(2, '0')}
@@ -46,18 +48,19 @@ export default function Resources() {
                 </p>
               </div>
 
-              <a
-                href={resource.href}
+              <Link
+                to={resource.href}
                 className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-aliceBlue/80 transition-all duration-300 group-hover:gap-3 group-hover:text-white md:self-center"
               >
                 Learn more
                 <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 text-xs transition-all duration-300 group-hover:border-racingRed group-hover:bg-racingRed group-hover:text-white">
                   →
                 </span>
-              </a>
+              </Link>
             </article>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   )

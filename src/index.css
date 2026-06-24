@@ -58,6 +58,11 @@
     transform-origin: center center;
   }
 
+  .hero-model-frame .hero-truck-image {
+    transform: scale(1.15);
+    transform-origin: center center;
+  }
+
   .section-blend-top,
   .section-blend-bottom {
     pointer-events: none;
@@ -124,14 +129,20 @@
   }
 
   .services-panel {
-    height: min(21rem, calc(100dvh - 14rem));
-    margin-bottom: 2rem;
+    height: min(20rem, calc(100dvh - 16rem));
+    margin-bottom: 1rem;
   }
 
   @media (min-width: 1024px) {
     .services-panel {
-      height: min(25rem, calc(100dvh - 12rem));
+      height: min(24rem, calc(100dvh - 13rem));
       margin-bottom: 1.5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
     }
   }
 }
