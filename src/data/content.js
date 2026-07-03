@@ -202,6 +202,102 @@ export const leadership = {
   ],
 }
 
+export const aboutPage = {
+  hero: {
+    eyebrow: 'Our story · Since 2011',
+    title: 'Growing as a team',
+    subtitle:
+      'What started as a single truck and a shared vision has grown into a fleet-backed logistics powerhouse trusted by importers, retailers, and distribution networks across the NY/NJ region.',
+    stats: [
+      { value: '2011', label: 'Founded' },
+      { value: '100+', label: 'Trailers' },
+      { value: '50+', label: 'Drivers' },
+      { value: 'Top 100', label: 'Rated carrier' },
+    ],
+  },
+  story: {
+    lead: 'An exceptional team of logistics veterans laid the foundation of what would become not just another trucking company, but an industry powerhouse — leading through exceptional service and career-changing opportunities.',
+    paragraphs: [
+      'With previous experience at J.B. Hunt and more than 45 years of combined trucking industry wisdom, the founding team entered the logistics industry with a vision to revolutionize it.',
+      'What started with a single truck turned into a fleet of over 100 tractor-trailers, 25 tractors, 50 adept drivers, and 4 box trucks — a true story of resilience, innovation, and an unwavering focus on customer satisfaction.',
+      'In 2017, the company expanded into warehouse operations, providing storage, assembly, and transloading services. Vital has since managed programs for leading brands including CVS Pharmacy, Famous Footwear, and Old Navy.',
+      'Today, Vital has earned the trust of its customers and cemented its reputation by consistently ranking among the top 100 carriers for industry leaders like Trinity, C.H. Robinson, and Total Quality Logistics.',
+    ],
+    milestones: [
+      { year: '2011', label: 'Company founded', detail: 'Launched with a single truck and a vision to build a better logistics partner.' },
+      { year: '2017', label: 'Warehouse expansion', detail: 'Grew into full warehouse operations — storage, assembly, and transloading for major retail brands.' },
+      { year: 'Today', label: 'Regional leader', detail: 'Top-100 rated carrier with 100+ trailers, 50+ professional drivers, and growing.' },
+    ],
+  },
+  values: {
+    eyebrow: 'Our values',
+    title: 'Where everything is vital',
+    subtitle: 'What sets Vital Transportation apart is our commitment driven by a singular vision: your success. Our core values are the pillars driving us to deliver services that go beyond expectations.',
+    items: [
+      {
+        id: 'reliability',
+        number: '01',
+        title: 'Reliability',
+        description: 'Every move we make and every strategy we implement is aligned with one goal — your complete satisfaction. We choose excellence as our benchmark, ensuring your freight arrives on time, every time.',
+        icon: 'shield-check',
+      },
+      {
+        id: 'innovation',
+        number: '02',
+        title: 'Innovation',
+        description: 'GPS-enabled fleet monitoring, a modern Transportation Management System, and continuously refined SOPs keep Vital adaptable and efficient — well-equipped to embrace new opportunities.',
+        icon: 'lightning-bolt',
+      },
+      {
+        id: 'trust',
+        number: '03',
+        title: 'Trust',
+        description: 'Customers work directly with knowledgeable professionals who understand their freight. We earn trust through steady communication, accessible support, and reliable follow-through.',
+        icon: 'handshake',
+      },
+    ],
+  },
+  safety: {
+    eyebrow: 'Safety',
+    title: 'Our goal is clear',
+    subtitle: 'Safety Without Compromise — at Vital, safety is not just a policy; it\'s our promise. We ensure our staff is protected and your deliveries arrive on time, every time.',
+    commitments: [
+      'Hands-on driver training and highest safety standards',
+      'HazMat certified drivers and compliant documentation',
+      'GPS-enabled fleet monitoring across all vehicles',
+      'Secure yard and warehouse infrastructure',
+      'Zero-accident environment as a core operational goal',
+      'Continuously evolving safety methods across all departments',
+    ],
+    quote: 'We\'re constantly evolving, enhancing our methods across all departments — from our offices to the open road — to serve you better.',
+  },
+  founders: {
+    eyebrow: 'Leadership',
+    title: 'Meet the team',
+    subtitle: 'Three founders. Over 45 years of combined industry wisdom. One shared commitment to delivering peace of mind with every shipment.',
+    members: [
+      {
+        name: 'Mohamed Koura',
+        role: 'Founder & Chief Executive Officer',
+        bio: 'The mastermind behind Vital Transportation Corp., Mohamed\'s great leadership, operational, and management skills steer the company\'s exponential growth. With more than a decade of logistics experience, including a background as an Operations Supervisor at J.B. Hunt, he leads a nimble and adaptable company committed to customer success. He is bilingual in Arabic and English, which strengthens communication across a diverse workforce and customer base.',
+        initials: 'MK',
+      },
+      {
+        name: 'Ahmed Koura',
+        role: 'Founder & Chief Executive Officer',
+        bio: 'Ahmed is the backbone of all operations and the driving force behind Vital\'s innovative and technological advancement. His vast operational skills and logistical insights ensure supply chains run smoothly. With a decade of experience at J.B. Hunt and a deep understanding of logistics technology, he optimizes every process — making Vital a reliable and efficient choice in the industry.',
+        initials: 'AK',
+      },
+      {
+        name: 'Hamid K. Hassan',
+        role: 'Founder & Chief Executive Officer',
+        bio: 'Hamid is the mastermind behind Vital\'s strategic success. His forward-thinking strategies keep Vital adaptable and well-equipped to tackle challenges and embrace new opportunities. Hamid\'s commitment to innovation and risk management ensures Vital stays ahead of traditional logistics, making it a reliable and innovative partner for all freight needs.',
+        initials: 'HH',
+      },
+    ],
+  },
+}
+
 export const regions = [
   'New Jersey',
   'New York',

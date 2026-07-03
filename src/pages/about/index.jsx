@@ -1,21 +1,34 @@
 import SectionFade from '../../components/ui/SectionFade'
-import About from '../home/sections/About'
-import WhyVital from '../home/sections/WhyVital'
-import Leadership from '../home/sections/Leadership'
+import AboutHero from './sections/AboutHero'
+import OurStory from './sections/OurStory'
+import Values from './sections/Values'
+import Safety from './sections/Safety'
+import Founders from './sections/Founders'
+import AboutCta from './sections/AboutCta'
 
 export default function AboutPage() {
   return (
     <>
+      <AboutHero />
+
       <SectionFade>
-        <About />
+        <OurStory />
       </SectionFade>
 
       <SectionFade>
-        <WhyVital />
+        <Values />
+      </SectionFade>
+
+      <SectionFade>
+        <Safety />
+      </SectionFade>
+
+      <SectionFade>
+        <Founders />
       </SectionFade>
 
       <SectionFade fadeBottom="dark">
-        <Leadership />
+        <AboutCta />
       </SectionFade>
     </>
   )
