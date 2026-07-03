@@ -4,7 +4,7 @@ import { FLEET_IMAGE } from '../../lib/images'
 
 const serviceLinks = services.map((service) => ({
   label: service.title,
-  href: `${routes.services}#${service.id}`,
+  href: `${routes.services}/${service.id}`,
 }))
 
 export default function Footer() {

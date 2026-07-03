@@ -83,6 +83,23 @@ export const services = [
     title: 'Port Drayage & Container Transport',
     summary:
       'Import and export container movement with terminal retrieval, specialized handling, and port-to-warehouse delivery.',
+    description:
+      'Vital manages the complete cycle of import and export container movement from NY/NJ port terminals to warehouses and end customers. With real-time dispatch visibility and a team that knows the ports, we eliminate friction between vessel discharge and final delivery — keeping your supply chain moving without delays.',
+    imagePosition: 'center 35%',
+    highlights: [
+      {
+        title: 'Terminal expertise',
+        body: 'Deep familiarity with NY and NJ port terminals ensures faster retrieval, accurate documentation, and minimal dwell time on every container move.',
+      },
+      {
+        title: 'Specialized handling',
+        body: 'Overweight, out-of-gauge, and hazardous containers handled with the right equipment and certified personnel — no job too complex.',
+      },
+      {
+        title: 'End-to-end visibility',
+        body: 'Real-time dispatch updates keep you informed at every handoff, from terminal gate to final delivery, with direct access to your dispatch team.',
+      },
+    ],
     items: [
       'Import and export container movement',
       'Terminal retrieval and returns',
@@ -97,6 +114,23 @@ export const services = [
     title: 'Intermodal & Rail-Connected Services',
     summary:
       'Seamless rail ramp drayage and Class I carrier coordination for long-haul freight integration.',
+    description:
+      'Vital bridges the gap between rail and road — handling ramp drayage, container repositioning, and coordination with Class I carriers to keep long-haul freight flowing seamlessly. Our intermodal capabilities give shippers a reliable, cost-effective alternative for longer corridors without sacrificing service quality.',
+    imagePosition: 'center 50%',
+    highlights: [
+      {
+        title: 'Rail ramp efficiency',
+        body: 'Rapid drayage from rail ramps to your distribution point minimizes dwell time and keeps freight on schedule across major eastern corridors.',
+      },
+      {
+        title: 'Class I coordination',
+        body: 'Established relationships with Class I rail carriers allow Vital to integrate seamlessly into larger intermodal programs and routing solutions.',
+      },
+      {
+        title: 'Flexible repositioning',
+        body: 'Container repositioning and chassis management across rail and port locations to optimize equipment availability and reduce empty moves.',
+      },
+    ],
     items: [
       'Rail ramp drayage',
       'Container repositioning',
@@ -110,6 +144,23 @@ export const services = [
     title: 'Over the Road Truckload (OTR)',
     summary:
       'Regional and long-haul dry van, temperature-controlled, and time-critical shipments with dedicated fleet options.',
+    description:
+      "Vital's OTR capabilities cover the full spectrum of truckload freight — from regional dry van runs to temperature-controlled and expedited shipments across major interstate corridors. Our company-owned fleet and professional driver network deliver dependable capacity whether you need a one-time move or a long-term dedicated program.",
+    imagePosition: 'center 40%',
+    highlights: [
+      {
+        title: 'Dedicated fleet programs',
+        body: 'Recurring freight lanes benefit from dedicated fleet arrangements that provide guaranteed capacity, consistent drivers, and predictable costs.',
+      },
+      {
+        title: 'Temperature-controlled capability',
+        body: 'Reefer-equipped options for temperature-sensitive freight ensuring product integrity from pickup through delivery.',
+      },
+      {
+        title: 'Expedited service',
+        body: 'When timing is critical, our expedited truckload service prioritizes your freight with direct routing and real-time communication throughout.',
+      },
+    ],
     items: [
       'Regional and long-haul dry van service',
       'Temperature controlled truckload',
@@ -123,6 +174,23 @@ export const services = [
     title: 'LTL & Partial Trucking',
     summary:
       'Cost-efficient palletized freight with appointment-based routing for retail and distribution centers.',
+    description:
+      'When a full truckload is more than you need, Vital\'s LTL and partial truckload options deliver cost-effective movement for palletized freight across retail, distribution, and e-commerce networks. Appointment-based routing and reliable scheduling ensure your freight reaches its destination on your timeline — not ours.',
+    imagePosition: 'center 20%',
+    highlights: [
+      {
+        title: 'Retail-ready scheduling',
+        body: 'Appointment-based LTL routing designed for strict retail and distribution center receiving windows — we coordinate the paperwork so you don\'t have to.',
+      },
+      {
+        title: 'Cost-efficient consolidation',
+        body: 'Freight consolidation and deconsolidation programs reduce per-unit shipping costs and improve inventory flow for importers and e-commerce operations.',
+      },
+      {
+        title: 'Partial truckload flexibility',
+        body: 'For shipments too large for standard LTL but not quite a full load, partial truckload options offer the space you need at a price that works.',
+      },
+    ],
     items: [
       'Scheduled LTL service for palletized freight',
       'Partial truckload options for cost efficiency',
@@ -136,6 +204,23 @@ export const services = [
     title: 'Warehouse & Distribution',
     summary:
       'Short and long-term storage, cross-docking, transloading, and value-added services for importers and e-commerce.',
+    description:
+      "Vital's Piscataway, NJ warehouse facility supports the full range of storage and distribution needs — from short-term overflow to long-term inventory management. We have successfully managed storage, assembly, and transloading programs for major retail brands including CVS Pharmacy, Famous Footwear, and Old Navy.",
+    imagePosition: 'center 65%',
+    highlights: [
+      {
+        title: 'Flexible storage terms',
+        body: 'Short and long-term storage solutions designed to scale with your inventory needs — ideal for importers managing seasonal volume and e-commerce overflow.',
+      },
+      {
+        title: 'Value-added services',
+        body: 'Palletizing, labeling, display assembly, and custom packaging services that prepare your product for retail distribution without a separate stop.',
+      },
+      {
+        title: 'Cross-dock & transload',
+        body: 'Rapid cross-docking and transloading programs reduce handling costs and transit time by moving freight efficiently between modes and carriers.',
+      },
+    ],
     items: [
       'Short-term and long-term storage',
       'Cross-docking and transloading',
@@ -150,6 +235,23 @@ export const services = [
     title: 'Specialized & Final Mile',
     summary:
       'HazMat-certified transport, final mile delivery, and tailored logistics support for complex operations.',
+    description:
+      "Vital's specialized and final mile capabilities handle the freight that requires more than standard equipment or expertise. From HazMat-certified moves with compliant documentation to residential and commercial final mile delivery with liftgate service, we support complex logistics programs with the care they demand.",
+    imagePosition: 'center 25%',
+    highlights: [
+      {
+        title: 'HazMat certified',
+        body: 'Certified drivers, compliant documentation, and secure chain-of-custody handling ensure your hazardous materials move safely and in full regulatory compliance.',
+      },
+      {
+        title: 'Final mile precision',
+        body: 'Retail and commercial final mile delivery with liftgate-equipped vehicles and appointment-based windows to meet strict delivery requirements.',
+      },
+      {
+        title: 'Tailored SOPs',
+        body: 'Customer-specific standard operating procedures built around your freight requirements — whether that means customs support, surge coverage, or specialized communication.',
+      },
+    ],
     items: [
       'Certified HazMat drivers and compliant documentation',
       'Retail and commercial final mile with liftgate delivery',

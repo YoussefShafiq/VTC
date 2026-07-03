@@ -28,7 +28,7 @@ const mobileMenuVariants = {
 
 const serviceLinks = services.map((service) => ({
   label: service.title,
-  href: `${routes.services}#${service.id}`,
+  href: `${routes.services}/${service.id}`,
 }))
 
 function NavItem({ link, pathname }) {
