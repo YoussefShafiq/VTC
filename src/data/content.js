@@ -19,7 +19,16 @@ export const routes = {
   about: '/about',
   careers: '/careers',
   resources: '/resources',
+  termsOfUse: '/legal/terms-of-use',
+  privacyPolicy: '/legal/privacy-policy',
+  smsTerms: '/legal/sms-terms',
 }
+
+export const legalLinks = [
+  { label: 'Terms of use', href: routes.termsOfUse },
+  { label: 'Privacy Policy', href: routes.privacyPolicy },
+  { label: 'SMS Terms & Conditions', href: routes.smsTerms },
+]
 
 export const navLinks = [
   {
@@ -657,4 +666,312 @@ export const faqs = {
         'Absolutely, Vital boasts its own dedicated fleet of drivers and vehicles. This allows us to maintain high standards of service, ensure consistent quality, and provide reliable, timely deliveries. Our fleet is comprised of well-maintained, modern vehicles operated by professional, trained drivers.',
     },
   ],
+}
+
+export const legalContact = {
+  email: 'dispatch@vitaltransportcorp.com',
+  phone: '(732) 515-9361',
+  address: '91 New England Ave, Piscataway, NJ 08854, USA',
+}
+
+export const legalPages = {
+  termsOfUse: {
+    title: 'Terms of use',
+    eyebrow: 'Legal',
+    intro: [
+      'Welcome to Vital Transportation Corp.',
+      'By accessing and using this website (the "Site"), you agree to the following terms and conditions (the "Terms of Use"). Please read them carefully as they form a binding legal agreement between you and Vital Transportation Corp. ("Vital", "we", "us"). With years of dedicated service in the logistics sector, we pledge to maintain transparency, efficiency, and reliability in every aspect of our operations.',
+    ],
+    sections: [
+      {
+        heading: '1. Acceptance of Terms',
+        paragraphs: [
+          'Your access to and use of the Site is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users, and others who access or use the Site. By accessing or using the Site, you signify your agreement to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Site.',
+        ],
+      },
+      {
+        heading: '2. Modification of Terms',
+        paragraphs: [
+          'Vital reserves the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days\' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Site after those revisions become effective, you agree to be bound by the revised terms.',
+        ],
+      },
+      {
+        heading: '3. Use of the Site',
+        paragraphs: [
+          'The Site is intended to provide you with information about our logistics services, and you may use it for this purpose in accordance with these Terms. You agree not to misuse the Site or its services. Misuse includes, but is not limited to, using the Site data to harm others, to distribute unsolicited advertising or spam, or to engage in illegal activities. You may not disrupt the Site\'s operations or integrity with harmful code or actions that impose an unreasonable load on the Site\'s infrastructure.',
+        ],
+        note: 'By attempting any unauthorized use, including but not limited to the misuse of the Site data, distribution of unsolicited advertising or spam, engaging in illegal activities, or any other actions that compromise the integrity and operations of the company, you acknowledge and accept that you will be held accountable for your actions to the fullest extent permitted by law.',
+      },
+      {
+        heading: '4. Intellectual Property',
+        paragraphs: [
+          'All content on this Site, including text, graphics, logos, icons, images, is the property of Vital or its content suppliers and protected by United States and international copyright laws. You may use the Site content for your personal, non-commercial informational purpose. Any other use, including reproduction, modification, distribution, transmission, or display of the content of the Site is strictly prohibited without our express written consent.',
+        ],
+      },
+      {
+        heading: '5. User Conduct',
+        paragraphs: [
+          'You are solely responsible for your interactions with the Site and other users. You agree to use the Site for lawful purposes only and to respect all applicable laws and regulations while using the Site. Your use of the Site is a privilege, not a right, and we reserve the right to take any action we consider if you believe you have violated these Terms, including suspending your access to the Site.',
+        ],
+      },
+      {
+        heading: '6. Disclaimer of Warranties',
+        paragraphs: [
+          'The Site and all information, content, materials, products, and services included on or otherwise made available to you through the Site are provided by Vital on an "as is" and "as available" basis. Vital makes no representations or warranties of any kind, express or implied, as to the operation of the Site or the information, content, materials, products, or services included on or otherwise made available to you through the Site.',
+        ],
+      },
+      {
+        heading: '7. Limitation of Liability',
+        paragraphs: [
+          'To the full extent permissible by applicable law, Vital will not be liable for any damages of any kind arising from the use of the Site or from any information, content, materials, products, or services included on or otherwise made available to you through the Site, including, but not limited to direct, indirect, incidental, punitive, and consequential damages.',
+        ],
+      },
+      {
+        heading: '8. Indemnification',
+        paragraphs: [
+          'You agree to indemnify, defend, and hold harmless Vital, its officers, directors, employees, agents, licensors, and suppliers from and against all losses, expenses, damages, and costs, including reasonable attorneys\' fees, resulting from any violation of these Terms or any activity related to your use of the Site (including negligent or wrongful conduct).',
+        ],
+      },
+      {
+        heading: '9. Privacy',
+        paragraphs: [
+          'Your use of the Site is also governed by our Privacy Policy, which is incorporated into these Terms by reference. Please read the Privacy Policy carefully to understand how we collect, use, and protect your personal information.',
+        ],
+      },
+      {
+        heading: '10. Governing Law',
+        paragraphs: [
+          'These Terms and your use of the Site are governed by and construed in accordance with the laws of the State in which Vital is headquartered, without regard to its conflict of law principles.',
+        ],
+      },
+      {
+        heading: '11. Dispute Resolution',
+        paragraphs: [
+          'Any dispute relating in any way to your visit to the Site or to products or services sold or distributed by Vital shall be adjudicated in the jurisdiction of the company\'s headquarters, and you consent to exclusive jurisdiction and venue in such courts.',
+        ],
+      },
+      {
+        heading: '12. Miscellaneous',
+        paragraphs: [
+          'Should any part of these Terms be held invalid or unenforceable by a court, such a decision does not affect the validity of the remaining portions of these Terms. The remaining clauses would continue to be fully effective. Furthermore, if Vital does not enforce any particular provision, it is not to be construed as waiving any right to do so at any time. A waiver of any term is only effective if it is in writing and signed by Vital.',
+        ],
+      },
+      {
+        heading: 'Contact Information',
+        paragraphs: [
+          'For any questions or concerns regarding these Terms or the Site, please contact us at:',
+          'Vital Transportation Corp.',
+        ],
+        contact: true,
+      },
+    ],
+    closing:
+      'Your use of the Site signifies your understanding and agreement to comply with the entire Terms of Use agreement.',
+  },
+  privacyPolicy: {
+    title: 'Privacy Policy',
+    eyebrow: 'Legal',
+    intro: [
+      'Welcome to Vital Transportation, where trust and commitment to our clients\' privacy is not only the priority but the foundation of our every operation. We recognize the importance of safeguarding your personal information and are committed to transparently managing and protecting it with the highest industry standards.',
+    ],
+    sections: [
+      {
+        heading: 'Scope of Privacy Policy',
+        paragraphs: [
+          'At Vital Transportation Corporation ("Vital," "we," "us," or "our"), your privacy is important to us. This Privacy Policy describes how we collect, use, store, and protect your personal information when you visit our website ("Site"), contact us, or use our logistics and warehousing services.',
+          'By using our website or services, you agree to the terms in this Privacy Policy.',
+        ],
+      },
+      {
+        heading: '1. Information We Collect',
+        paragraphs: ['We may collect the following types of personal information:'],
+        bullets: [
+          'Full name, email address, postal address, phone number',
+          'Company name and position',
+          'Payment and billing information',
+          'Communications or messages you send to us',
+          'IP address, browser type, and usage data (collected via cookies and analytics tools)',
+        ],
+      },
+      {
+        heading: '2. How We Use Your Information',
+        paragraphs: ['We use the information we collect for the following purposes:'],
+        bullets: [
+          'To provide, improve, and personalize our logistics and warehousing services',
+          'To schedule pickups, deliveries, and warehouse tasks',
+          'To process invoices and account information',
+          'To send operational communications (e.g., appointment reminders, updates)',
+        ],
+      },
+      {
+        heading: '3. Sharing Your Information',
+        paragraphs: [
+          'We do not sell or rent your personal information.',
+          'We may share your information only with trusted third-party service providers (e.g., payment processors, IT service vendors), solely for the purpose of performing business operations on our behalf. These providers are bound by confidentiality agreements.',
+        ],
+        note: 'Mobile Opt-in, SMS Consent, and phone numbers collected for SMS communication purposes will not be shared with any third party and affiliates for marketing purposes.',
+      },
+      {
+        heading: '4. Cookies and Tracking Technologies',
+        paragraphs: [
+          'We use cookies and similar technologies to improve site functionality, analyze usage patterns, and personalize content. Users can manage cookie preferences via their browser settings.',
+        ],
+      },
+      {
+        heading: '5. Data Retention',
+        paragraphs: [
+          'We retain personal information only as long as necessary to fulfill the purposes stated above or as required by law.',
+        ],
+      },
+      {
+        heading: '6. Your Rights and Choices',
+        paragraphs: [
+          'You may request access, correction, or deletion of your personal data by contacting us. You also have the right to opt out of marketing communications at any time.',
+        ],
+      },
+      {
+        heading: '7. Data Security',
+        paragraphs: [
+          'We implement industry-standard security measures to protect your information from unauthorized access, disclosure, alteration, or destruction.',
+          'However, no online transmission is ever 100% secure. Please take care when submitting personal data.',
+        ],
+      },
+      {
+        heading: '8. Your Rights and Choices',
+        paragraphs: ['You have the right to:'],
+        bullets: [
+          'Access the personal information we hold about you',
+          'Request correction or deletion of your data',
+          'Withdraw consent for communications (including SMS) at any time',
+          'Disable cookies through browser settings',
+        ],
+      },
+      {
+        heading: '9. Children\'s Privacy',
+        paragraphs: [
+          'Our website and services are not directed to children under 13, and we do not knowingly collect personal data from minors.',
+        ],
+      },
+      {
+        heading: '10. Changes to This Policy',
+        paragraphs: [
+          'We may update this Privacy Policy from time to time. When changes are made, we will revise the "Effective Date" at the top. Continued use of our Site indicates acceptance of the updated policy.',
+        ],
+      },
+      {
+        heading: '11. Contact Information',
+        paragraphs: [
+          'If you have any questions or concerns regarding this Privacy Policy, please contact us:',
+          'Vital Transportation Corporation',
+        ],
+        contact: true,
+      },
+    ],
+  },
+  smsTerms: {
+    title: 'SMS Terms & Conditions',
+    eyebrow: 'Legal',
+    intro: [
+      'Vital Transportation Corporation ("Vital," "we," "our," or "us") is committed to protecting the privacy of all customers who consent to receive SMS messages from us. The following SMS Terms & Conditions outline how we handle SMS communications with our customers, in accordance with industry standards and regulatory requirements.',
+    ],
+    sections: [
+      {
+        heading: '1. SMS Consent Communication',
+        paragraphs: [
+          'To comply with industry requirements and ensure transparent communication, Vital Transportation Corporation obtains clear permission before sending any SMS messages.',
+          'We obtain consent verbally by asking:',
+          '"Do you agree to receive text messages from Vital Transportation Corporation regarding scheduling, service updates, or account-related information? Message and data rates may apply based on your mobile plan. Message frequency may vary. You can reply STOP at any time to opt out or HELP for support. For details, please visit our Privacy Policy and SMS Terms."',
+          'Consent to receive SMS messages is collected verbally during a conversation with the customer and we do not send messages without a confirmed opt-in.',
+        ],
+        note: 'The information (Phone Numbers) obtained as part of the SMS consent process will not be shared with third parties or affiliates for marketing purposes.',
+      },
+      {
+        heading: '2. Types of SMS Communications',
+        paragraphs: [
+          'If you have consented to receive text messages from Vital Transportation Corporation, you may receive messages related to:',
+        ],
+        bullets: [
+          'Appointment reminders',
+          'Follow-up messages',
+          'Billing inquiries',
+          'Dispatch updates or delivery confirmations',
+        ],
+      },
+      {
+        heading: '3. Examples of SMS Messages',
+        paragraphs: ['You may receive texts like:'],
+        examples: [
+          {
+            label: 'Appointment Reminder',
+            text: 'Reminder: Your pickup with Vital Transportation is scheduled for June 15 at 2:00 PM at 91 New England Ave, Piscataway, NJ. Reply STOP to unsubscribe. HELP for support.',
+          },
+          {
+            label: 'Billing Notification',
+            text: 'Vital Transportation: Your invoice is ready. View details or contact billing. STOP to cancel. HELP for assistance.',
+          },
+          {
+            label: 'Dispatch Confirmation',
+            text: 'Your vehicle is on route for today\'s pickup. Arrival expected at 3:30 PM. Reply STOP to opt out, HELP for support.',
+          },
+          {
+            label: 'Follow-up',
+            text: 'Thank you for choosing Vital Transportation. If you have questions or feedback, reply HELP. To stop messages, reply STOP.',
+          },
+          {
+            label: 'Service Update',
+            text: 'Service update: Your scheduled delivery is confirmed for Monday, July 1. STOP to cancel messages. HELP for support.',
+          },
+        ],
+      },
+      {
+        heading: '4. Message Frequency',
+        paragraphs: [
+          'Message frequency may vary based on the type of service or communication.',
+          'Example: "Message frequency may vary. You may receive up to 2 SMS messages per week regarding your appointments or account status."',
+        ],
+      },
+      {
+        heading: '5. Potential Fees for SMS Messaging',
+        paragraphs: [
+          'Standard message and data rates may apply. These charges depend on your mobile carrier\'s pricing plan and may vary for domestic or international messages.',
+        ],
+      },
+      {
+        heading: '6. Opt-In Method',
+        paragraphs: [
+          'You may opt-in to receive SMS messages from Vital Transportation Corporation in the following way:',
+        ],
+        bullets: ['Verbally, during a conversation'],
+        paragraphsAfter: [
+          'This is the only method currently used for SMS opt-in. No SMS messages are sent without this verbal consent.',
+        ],
+      },
+      {
+        heading: '7. Opt-Out Method',
+        paragraphs: ['You may opt out of SMS communications at any time:'],
+        bullets: [
+          'Reply "STOP" to any SMS message you receive',
+          'Alternatively, contact us at dispatch@vitaltransportcorp.com or call (732) 515-9361 to be removed from our SMS list',
+        ],
+      },
+      {
+        heading: '8. Help',
+        paragraphs: ['If you need assistance regarding SMS messages:'],
+        bullets: [
+          'Reply "HELP" to any SMS you receive',
+          'Or contact us directly at dispatch@vitaltransportcorp.com or (732) 515-9361',
+        ],
+      },
+      {
+        heading: '9. Standard Messaging Disclosures',
+        bullets: [
+          'Message and data rates may apply',
+          'Message frequency may vary',
+          'You may opt out at any time by texting "STOP"',
+          'For assistance, text HELP or visit our website',
+          'Visit our Privacy Policy to review how we collect, use, and protect your personal information',
+        ],
+      },
+    ],
+  },
 }

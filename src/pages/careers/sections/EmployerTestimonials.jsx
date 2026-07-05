@@ -1,6 +1,5 @@
 import { careerPage } from '../../../data/content'
 import SectionHeading from '../../../components/ui/SectionHeading'
-import { Stagger, StaggerItem } from '../../../components/ui/Stagger'
 
 function StarRating({ rating }) {
   return (
@@ -36,11 +35,12 @@ export default function EmployerTestimonials() {
           description={testimonials.subtitle}
           align="center"
           light
+          animate={false}
         />
 
-        <Stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.items.map((item, index) => (
-            <StaggerItem key={item.id}>
+            <div key={item.id}>
               <blockquote className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.1] md:p-7">
                 <span className="absolute right-5 top-4 font-display text-4xl font-semibold text-white/[0.04] transition-colors duration-300 group-hover:text-racingRed/10">
                   {String(index + 1).padStart(2, '0')}
@@ -64,9 +64,9 @@ export default function EmployerTestimonials() {
                   </div>
                 </footer>
               </blockquote>
-            </StaggerItem>
+            </div>
           ))}
-        </Stagger>
+        </div>
       </div>
     </section>
   )

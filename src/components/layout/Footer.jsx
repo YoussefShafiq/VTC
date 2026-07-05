@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { company, navLinks, regions, routes, services } from '../../data/content'
+import { company, legalLinks, navLinks, regions, routes, services } from '../../data/content'
 import { FLEET_IMAGE } from '../../lib/images'
 
 const serviceLinks = services.map((service) => ({
@@ -20,7 +20,7 @@ export default function Footer() {
 
       <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-4">
             <Link to={routes.home} className="inline-block">
               <img
                 src="/logoWhite.png"
@@ -60,27 +60,43 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <p className="pt-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/35">
-                  Services
-                </p>
-                <ul className="mt-2 space-y-2">
-                  {serviceLinks.map((child) => (
-                    <li key={child.href}>
-                      <Link
-                        to={child.href}
-                        className="text-sm text-white/45 transition-colors hover:text-white/80"
-                      >
-                        {child.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </li>
+            </ul>
+            <p className="mb-3 mt-6 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/35">
+              Services
+            </p>
+            <ul className="space-y-2">
+              {serviceLinks.map((child) => (
+                <li key={child.href}>
+                  <Link
+                    to={child.href}
+                    className="text-sm text-white/45 transition-colors hover:text-white/80"
+                  >
+                    {child.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-2">
+            <p className="mb-5 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-aliceBlue/60">
+              Legal
+            </p>
+            <ul className="space-y-3">
+              {legalLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="text-sm text-white/60 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-3">
             <p className="mb-5 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-aliceBlue/60">
               Contact
             </p>

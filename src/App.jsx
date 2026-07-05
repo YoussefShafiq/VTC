@@ -6,6 +6,9 @@ import ServiceDetailPage from './pages/services/detail'
 import AboutPage from './pages/about'
 import CareersPage from './pages/careers'
 import ResourcesPage from './pages/resources'
+import TermsOfUsePage from './pages/legal/terms-of-use'
+import PrivacyPolicyPage from './pages/legal/privacy-policy'
+import SmsTermsPage from './pages/legal/sms-terms'
 import NotFoundPage from './pages/errors/NotFoundPage'
 
 function App() {
@@ -19,6 +22,9 @@ function App() {
           <Route path="about" element={<AboutPage />} />
           <Route path="careers" element={<CareersPage />} />
           <Route path="resources" element={<ResourcesPage />} />
+          <Route path="legal/terms-of-use" element={<TermsOfUsePage />} />
+          <Route path="legal/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="legal/sms-terms" element={<SmsTermsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

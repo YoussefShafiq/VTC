@@ -1,7 +1,6 @@
 import { careerPage, company } from '../../../data/content'
 import SectionHeading from '../../../components/ui/SectionHeading'
 import Button from '../../../components/ui/Button'
-import { Stagger, StaggerItem } from '../../../components/ui/Stagger'
 
 const roleIcons = {
   truck: (
@@ -48,11 +47,12 @@ export default function JobRoles() {
           title={opportunities.title}
           description={opportunities.subtitle}
           align="center"
+          animate={false}
         />
 
-        <Stagger className="space-y-5">
+        <div className="space-y-5">
           {roles.map((role, index) => (
-            <StaggerItem key={role.id}>
+            <div key={role.id}>
               <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-twilightIndigo/8 bg-white transition-all duration-500 hover:border-twilightIndigo/15 hover:shadow-[0_20px_50px_-16px_rgba(31,50,88,0.18)] lg:flex lg:flex-row lg:items-stretch">
                 <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-racingRed/60 via-racingRed/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden />
 
@@ -93,9 +93,9 @@ export default function JobRoles() {
                   </div>
                 </div>
               </article>
-            </StaggerItem>
+            </div>
           ))}
-        </Stagger>
+        </div>
       </div>
     </section>
   )

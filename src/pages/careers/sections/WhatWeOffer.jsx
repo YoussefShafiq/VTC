@@ -1,6 +1,5 @@
 import { careerPage } from '../../../data/content'
 import SectionHeading from '../../../components/ui/SectionHeading'
-import { Stagger, StaggerItem } from '../../../components/ui/Stagger'
 
 const benefitIcons = {
   currency: (
@@ -34,11 +33,12 @@ export default function WhatWeOffer() {
           title={benefits.title}
           description={benefits.subtitle}
           align="center"
+          animate={false}
         />
 
-        <Stagger className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           {benefits.items.map((item) => (
-            <StaggerItem key={item.id}>
+            <div key={item.id}>
               <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-twilightIndigo/8 bg-white p-8 shadow-[0_8px_32px_-12px_rgba(31,50,88,0.12)] transition-all duration-500 hover:-translate-y-1 hover:border-twilightIndigo/15 hover:shadow-[0_20px_50px_-16px_rgba(31,50,88,0.22)] md:p-9">
                 <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-racingRed/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden />
 
@@ -60,9 +60,9 @@ export default function WhatWeOffer() {
 
                 <span className="mt-8 block h-px w-8 bg-racingRed transition-all duration-500 group-hover:w-14" aria-hidden />
               </article>
-            </StaggerItem>
+            </div>
           ))}
-        </Stagger>
+        </div>
       </div>
     </section>
   )

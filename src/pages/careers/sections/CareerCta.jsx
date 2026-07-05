@@ -1,7 +1,6 @@
 import { company, routes } from '../../../data/content'
 import { FLEET_IMAGE } from '../../../lib/images'
 import Button from '../../../components/ui/Button'
-import AnimateOnScroll from '../../../components/ui/AnimateOnScroll'
 
 export default function CareerCta() {
   return (
@@ -15,8 +14,7 @@ export default function CareerCta() {
       <div className="absolute inset-0 bg-gradient-to-b from-twilightIndigo/60 via-twilightIndigo/80 to-twilightIndigo/95" aria-hidden />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <AnimateOnScroll variant="fadeUp">
-          <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl text-center">
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-aliceBlue/60">
               Ready to join?
             </p>
@@ -60,8 +58,7 @@ export default function CareerCta() {
                 {company.email}
               </a>
             </div>
-          </div>
-        </AnimateOnScroll>
+        </div>
       </div>
     </section>
   )
