@@ -16,9 +16,8 @@ function ServiceContent({ service, index, isActive }) {
   return (
     <article
       id={service.id}
-      className={`absolute inset-0 overflow-hidden rounded-2xl border border-twilightIndigo/10 bg-white shadow-sm transition-all duration-500 ease-out ${
-        isActive ? 'z-10 opacity-100' : 'pointer-events-none z-0 opacity-0'
-      }`}
+      className={`absolute inset-0 overflow-hidden rounded-2xl border border-twilightIndigo/10 bg-white shadow-sm transition-all duration-500 ease-out ${isActive ? 'z-10 opacity-100' : 'pointer-events-none z-0 opacity-0'
+        }`}
       aria-hidden={!isActive}
     >
       <div className="grid h-full grid-rows-[8.5rem_1fr] lg:grid-cols-2 lg:grid-rows-1">
@@ -210,11 +209,10 @@ export default function Services() {
                       key={service.id}
                       type="button"
                       onClick={() => scrollToStep(index)}
-                      className={`shrink-0 transition-all duration-300 lg:shrink lg:rounded-xl lg:border lg:px-3 lg:py-2.5 lg:text-left ${
-                        activeIndex === index
-                          ? 'flex h-9 w-9 items-center justify-center rounded-full bg-twilightIndigo text-xs font-bold text-white lg:h-auto lg:w-auto lg:rounded-xl lg:border-racingRed/30 lg:bg-twilightIndigo lg:text-sm lg:font-semibold lg:shadow-md'
-                          : 'flex h-9 w-9 items-center justify-center rounded-full border border-twilightIndigo/15 bg-aliceBlue/30 text-xs font-bold text-twilightIndigo lg:h-auto lg:w-auto lg:rounded-xl lg:border-transparent lg:bg-transparent lg:font-semibold lg:hover:bg-aliceBlue/40'
-                      }`}
+                      className={`shrink-0 transition-all duration-300 lg:shrink lg:rounded-xl lg:border lg:px-3 lg:py-2.5 lg:text-left ${activeIndex === index
+                        ? 'flex h-9 w-9 items-center rounded-full bg-twilightIndigo text-xs font-bold text-white lg:h-auto lg:w-auto lg:rounded-xl lg:border-racingRed/30 lg:bg-twilightIndigo lg:text-sm lg:font-semibold lg:shadow-md'
+                        : 'flex h-9 w-9 items-center rounded-full border border-twilightIndigo/15 bg-aliceBlue/30 text-xs font-bold text-twilightIndigo lg:h-auto lg:w-auto lg:rounded-xl lg:border-transparent lg:bg-transparent lg:font-semibold lg:hover:bg-aliceBlue/40'
+                        }`}
                       aria-current={activeIndex === index ? 'true' : undefined}
                       aria-label={service.title}
                     >
@@ -225,7 +223,7 @@ export default function Services() {
                 </nav>
               </div>
 
-            <AnimateOnScroll variant="scaleUp" className="services-panel relative">
+              <AnimateOnScroll variant="scaleUp" className="services-panel relative">
                 {services.map((service, index) => (
                   <ServiceContent
                     key={service.id}
@@ -234,7 +232,7 @@ export default function Services() {
                     isActive={activeIndex === index}
                   />
                 ))}
-            </AnimateOnScroll>
+              </AnimateOnScroll>
             </div>
           </div>
         </div>

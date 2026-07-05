@@ -2,10 +2,10 @@ export const company = {
   name: 'Vital Transportation Corp.',
   shortName: 'Vital',
   tagline: 'Asset-based logistics with personal accountability.',
-  phone: '+1 (888) 000-0000',
+  phone: '(732) 515-9361',
   email: 'info@vitaltransport.com',
   address: {
-    line1: '91 New England Ave',
+    line1: '91 New England Avenue',
     city: 'Piscataway',
     state: 'NJ',
     zip: '08854',
@@ -15,7 +15,7 @@ export const company = {
 
 export const routes = {
   home: '/',
-  services: '/#services',
+  services: '/services',
   about: '/about',
   careers: '/careers',
   resources: '/resources',
@@ -272,7 +272,7 @@ export const services = [
       'Customer-specific SOP development',
     ],
   },
-]
+].sort((a, b) => a.title.localeCompare(b.title));
 
 export const whyVital = {
   title: 'Why is it Vital?',
