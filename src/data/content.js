@@ -15,8 +15,9 @@ export const company = {
 
 export const routes = {
   home: '/',
-  services: '/services',
+  services: '/#services',
   about: '/about',
+  careers: '/careers',
   resources: '/resources',
 }
 
@@ -26,6 +27,7 @@ export const navLinks = [
     href: routes.services,
   },
   { label: 'About Us', href: routes.about },
+  { label: 'Careers', href: routes.careers },
   { label: 'Resources', href: routes.resources },
 ]
 
@@ -395,6 +397,149 @@ export const aboutPage = {
         role: 'Founder & Chief Executive Officer',
         bio: 'Hamid is the mastermind behind Vital\'s strategic success. His forward-thinking strategies keep Vital adaptable and well-equipped to tackle challenges and embrace new opportunities. Hamid\'s commitment to innovation and risk management ensures Vital stays ahead of traditional logistics, making it a reliable and innovative partner for all freight needs.',
         initials: 'HH',
+      },
+    ],
+  },
+}
+
+export const careerPage = {
+  hero: {
+    eyebrow: 'Join our team',
+    title: 'Career opportunities',
+    subtitle:
+      "Join Vital's team and drive your future forward with a company that values growth, innovation, and your success.",
+    stats: [
+      { value: '50+', label: 'Professional drivers' },
+      { value: '5', label: 'Career paths' },
+      { value: 'NJ', label: 'Headquarters' },
+      { value: '2011', label: 'Growing since' },
+    ],
+  },
+  benefits: {
+    eyebrow: 'What we offer',
+    title: 'Built for your growth',
+    subtitle:
+      'At Vital, we invest in people the same way we invest in our fleet — with care, consistency, and a long-term view of success.',
+    items: [
+      {
+        id: 'pay',
+        number: '01',
+        title: 'Competitive pay and benefits',
+        description:
+          "At Vital, we always ensure to recognize and reward your hard work with competitive pay and a benefits package to support you achieving all your life's milestones.",
+        icon: 'currency',
+      },
+      {
+        id: 'growth',
+        number: '02',
+        title: 'Career growth',
+        description:
+          'At Vital, we invest in you and in your future by offering constant learning opportunities and clear paths to promotion, celebrating each milestone you reach with us.',
+        icon: 'trending',
+      },
+      {
+        id: 'balance',
+        number: '03',
+        title: 'Work-life balance',
+        description:
+          'At Vital, we prioritize your well-being, ensuring a flexible work environment that allows you to have a balanced work and personal life.',
+        icon: 'balance',
+      },
+    ],
+  },
+  opportunities: {
+    eyebrow: 'Open roles',
+    title: 'Various kinds of opportunities',
+    subtitle:
+      'Explore roles at Vital, from driving and diesel technician to office and warehouse positions, and join our community of highly talented professionals.',
+  },
+  roles: [
+    {
+      id: 'drivers',
+      title: 'Drivers',
+      description:
+        "Join Vital Transportation's diverse team with opportunities from local New Jersey routes to regional East Coast drives. Open to both new and experienced drivers, find the perfect fit for your career ambitions with us.",
+      ctaLine: 'Apply now and steer your future in the right direction!',
+      applySubject: 'Driver Application',
+      icon: 'truck',
+    },
+    {
+      id: 'diesel-technician',
+      title: 'Diesel technician',
+      description:
+        'Join Vital Transportation and become the backbone of our safety and reliability. Your expertise is not just needed — it\'s celebrated.',
+      ctaLine: 'Apply now and power the success that keeps America moving!',
+      applySubject: 'Diesel Technician Application',
+      icon: 'wrench',
+    },
+    {
+      id: 'office',
+      title: 'Office associates',
+      description:
+        "Power the core of Vital Transportation's delivery network. Dive into a range of office roles where your skills drive our behind-the-scenes success. Explore and match with the position that best fits your career goals and grow with us.",
+      ctaLine: 'Join us now and become a part of this amazing journey.',
+      applySubject: 'Office Associate Application',
+      icon: 'briefcase',
+    },
+    {
+      id: 'warehouse',
+      title: 'Warehouse associates',
+      description:
+        'Join the core of Vital Transportation and play a pivotal role in loading and unloading our fleet. We value and reward your contributions.',
+      ctaLine: 'Explore positions and become an essential part of our team.',
+      applySubject: 'Warehouse Associate Application',
+      icon: 'warehouse',
+    },
+    {
+      id: 'owner-operators',
+      title: 'Independent owner operators',
+      description:
+        'We appreciate the experience behind independent owner operators. Team up with Vital for our mission of dependable support, consistent service excellence, and a commitment to safe, timely deliveries. Grow with a team that respects your independence.',
+      ctaLine: 'Apply now and see how collaboration can drive success.',
+      applySubject: 'Owner Operator Application',
+      icon: 'partnership',
+    },
+  ],
+  testimonials: {
+    eyebrow: 'Our team',
+    title: 'Employer testimonials',
+    subtitle:
+      'Hear from the people who power Vital every day — drivers, technicians, and operations professionals who chose to build their careers with us.',
+    items: [
+      {
+        id: 'review-1',
+        quote:
+          'Great company to work for. Management is supportive and the equipment is well maintained. I feel valued every day on the road.',
+        rating: 5,
+        source: 'Driver review',
+      },
+      {
+        id: 'review-2',
+        quote:
+          'Vital offers real growth opportunities. I started in the warehouse and moved into dispatch — they invest in their people.',
+        rating: 5,
+        source: 'Operations review',
+      },
+      {
+        id: 'review-3',
+        quote:
+          'Competitive pay, consistent miles, and a team that actually listens. One of the best decisions I made for my driving career.',
+        rating: 5,
+        source: 'Driver review',
+      },
+      {
+        id: 'review-4',
+        quote:
+          'The shop culture here is top-notch. Safety comes first and technicians are treated with respect.',
+        rating: 5,
+        source: 'Technician review',
+      },
+      {
+        id: 'review-5',
+        quote:
+          'Flexible scheduling and a family-oriented environment. Vital understands that work-life balance matters.',
+        rating: 5,
+        source: 'Team member review',
       },
     ],
   },

@@ -14,9 +14,7 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <SectionFade fadeBottom="light">
-        <IntroCards />
-      </SectionFade>
+      <IntroCards />
 
       <SectionFade>
         <About />

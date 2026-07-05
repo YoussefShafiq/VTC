@@ -4,6 +4,7 @@ import HomePage from './pages/home'
 import ServicesPage from './pages/services'
 import ServiceDetailPage from './pages/services/detail'
 import AboutPage from './pages/about'
+import CareersPage from './pages/careers'
 import ResourcesPage from './pages/resources'
 import NotFoundPage from './pages/errors/NotFoundPage'
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="services" element={<ServicesPage />} />
           <Route path="services/:slug" element={<ServiceDetailPage />} />
           <Route path="about" element={<AboutPage />} />
+          <Route path="careers" element={<CareersPage />} />
           <Route path="resources" element={<ResourcesPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
