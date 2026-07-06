@@ -326,23 +326,21 @@ export default function ResourcesFaq() {
 
         <div className="mt-6 grid items-start gap-8 lg:mt-12 lg:grid-cols-[minmax(0,280px)_minmax(0,1fr)] lg:gap-12">
           {/* Desktop: sticky sidebar */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-28 z-10">
-              <div className="max-h-[calc(100dvh-8rem)] overflow-y-auto overscroll-contain rounded-2xl border border-twilightIndigo/10 bg-[#f4f8ff] p-6 scrollbar-none">
-                <SearchField
-                  id="faq-search-desktop"
-                  value={searchQuery}
-                  onChange={handleSearchChange}
-                />
-                <CategoryFilters
-                  categories={resourcesCategories}
-                  activeCategory={activeCategory}
-                  categoryCounts={categoryCounts}
-                  onSelect={handleCategorySelect}
-                  variant="stacked"
-                />
-                <HelpCard className="mt-6" />
-              </div>
+          <aside className="hidden lg:sticky lg:top-28 lg:z-10 lg:block lg:self-start">
+            <div className="max-h-[calc(100dvh-8rem)] overflow-y-auto overscroll-contain rounded-2xl border border-twilightIndigo/10 bg-[#f4f8ff] p-6 scrollbar-none">
+              <SearchField
+                id="faq-search-desktop"
+                value={searchQuery}
+                onChange={handleSearchChange}
+              />
+              <CategoryFilters
+                categories={resourcesCategories}
+                activeCategory={activeCategory}
+                categoryCounts={categoryCounts}
+                onSelect={handleCategorySelect}
+                variant="stacked"
+              />
+              <HelpCard className="mt-6" />
             </div>
           </aside>
 
