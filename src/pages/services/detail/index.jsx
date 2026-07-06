@@ -18,7 +18,7 @@ export default function ServiceDetailPage() {
   const service = services[index]
 
   return (
-    <>
+    <div key={slug}>
       <ServiceHero service={service} index={index} total={services.length} />
 
       <SectionFade>
@@ -32,6 +32,6 @@ export default function ServiceDetailPage() {
       <SectionFade fadeBottom="dark">
         <ServiceCta service={service} />
       </SectionFade>
-    </>
+    </div>
   )
 }
