@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { routes, services } from '../../../data/content'
 import { FLEET_IMAGE, fleetImagePositions } from '../../../lib/images'
 import SectionHeading from '../../../components/ui/SectionHeading'
-import AnimateOnScroll from '../../../components/ui/AnimateOnScroll'
 
 const STEP_VH = 34
 const START_BUFFER_VH = 18
@@ -231,7 +230,7 @@ export default function Services() {
                 </nav>
               </div>
 
-              <AnimateOnScroll variant="scaleUp" className="services-panel relative">
+              <div className="services-panel relative">
                 {services.map((service, index) => (
                   <ServiceContent
                     key={service.id}
@@ -240,7 +239,7 @@ export default function Services() {
                     isActive={activeIndex === index}
                   />
                 ))}
-              </AnimateOnScroll>
+              </div>
             </div>
           </div>
         </div>
