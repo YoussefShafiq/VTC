@@ -30,6 +30,14 @@ export const legalLinks = [
   { label: 'SMS Terms & Conditions', href: routes.smsTerms },
 ]
 
+export const socialMedia = [
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/company/vital-transportation-corp',
+    icon: 'mdi:linkedin',
+  },
+]
+
 export const navLinks = [
   {
     label: 'Services',
