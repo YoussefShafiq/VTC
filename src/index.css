@@ -31,11 +31,6 @@
     min-height: 100svh;
   }
 
-  ::selection {
-    background: rgba(234, 22, 34, 0.15);
-    color: #1f3258;
-  }
-
   model-viewer.hero-model-viewer {
     --poster-color: transparent;
     --progress-bar-height: 0;
@@ -82,41 +77,33 @@
   }
 
   .section-blend-top--dark {
-    background: linear-gradient(
-      to bottom,
-      #1f3258 0%,
-      rgba(31, 50, 88, 0.65) 35%,
-      rgba(31, 50, 88, 0.2) 65%,
-      transparent 100%
-    );
+    background: linear-gradient(to bottom,
+        #1f3258 0%,
+        rgba(31, 50, 88, 0.65) 35%,
+        rgba(31, 50, 88, 0.2) 65%,
+        transparent 100%);
   }
 
   .section-blend-top--light {
-    background: linear-gradient(
-      to bottom,
-      #ffffff 0%,
-      rgba(255, 255, 255, 0.75) 40%,
-      transparent 100%
-    );
+    background: linear-gradient(to bottom,
+        #ffffff 0%,
+        rgba(255, 255, 255, 0.75) 40%,
+        transparent 100%);
   }
 
   .section-blend-bottom--dark {
-    background: linear-gradient(
-      to top,
-      #1f3258 0%,
-      rgba(31, 50, 88, 0.6) 35%,
-      rgba(31, 50, 88, 0.15) 70%,
-      transparent 100%
-    );
+    background: linear-gradient(to top,
+        #1f3258 0%,
+        rgba(31, 50, 88, 0.6) 35%,
+        rgba(31, 50, 88, 0.15) 70%,
+        transparent 100%);
   }
 
   .section-blend-bottom--light {
-    background: linear-gradient(
-      to top,
-      #ffffff 0%,
-      rgba(255, 255, 255, 0.8) 40%,
-      transparent 100%
-    );
+    background: linear-gradient(to top,
+        #ffffff 0%,
+        rgba(255, 255, 255, 0.8) 40%,
+        transparent 100%);
   }
 
   .scrollbar-none {

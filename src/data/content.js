@@ -296,20 +296,20 @@ export const leadership = {
   members: [
     {
       name: 'Mohamed Koura',
-      role: 'Chief Executive Officer',
-      bio: 'Mr. Koura has been the CEO of Vital since 2011 after serving as an Operations Supervisor at JB Hunt. His background in large-scale transportation and hands-on operations allows him to lead a nimble and adaptable company that responds to the needs of its customers. He is bilingual in Arabic and English, which strengthens communication across a diverse workforce and customer base.',
+      role: 'Founder & Chief Executive Officer',
+      bio: 'The mastermind behind Vital Transportation Corp., Mohamed\'s great leadership, operational, and management skills steer the company\'s exponential growth. With more than a decade of logistics experience, including a background as an Operations Supervisor at J.B. Hunt, he leads a nimble and adaptable company committed to customer success. He is bilingual in Arabic and English, which strengthens communication across a diverse workforce and customer base.',
       placeholder: true,
     },
     {
-      name: 'Leadership Team Member',
-      role: 'Operations',
-      bio: 'Additional leadership profiles will be added as the team expands.',
+      name: 'Ahmed Koura',
+      role: 'Founder & Chief Executive Officer',
+      bio: 'Ahmed is the backbone of all operations and the driving force behind Vital\'s innovative and technological advancement. His vast operational skills and logistical insights ensure supply chains run smoothly. With a decade of experience at J.B. Hunt and a deep understanding of logistics technology, he optimizes every process — making Vital a reliable and efficient choice in the industry.',
       placeholder: true,
     },
     {
-      name: 'Leadership Team Member',
-      role: 'Dispatch & Fleet',
-      bio: 'Additional leadership profiles will be added as the team expands.',
+      name: 'Hamid K. Hassan',
+      role: 'Founder & Chief Executive Officer',
+      bio: 'Hamid is the mastermind behind Vital\'s strategic success. His forward-thinking strategies keep Vital adaptable and well-equipped to tackle challenges and embrace new opportunities. Hamid\'s commitment to innovation and risk management ensures Vital stays ahead of traditional logistics, making it a reliable and innovative partner for all freight needs.',
       placeholder: true,
     },
   ],

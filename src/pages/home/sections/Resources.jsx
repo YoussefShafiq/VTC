@@ -1,8 +1,29 @@
 import { Link } from 'react-router-dom'
-import { resourceLinks } from '../../../data/content'
+import { routes } from '../../../data/content'
 import { FLEET_IMAGE } from '../../../lib/images'
 import SectionHeading from '../../../components/ui/SectionHeading'
 import { Stagger, StaggerItem } from '../../../components/ui/Stagger'
+
+const highlights = [
+  {
+    title: 'FAQ library',
+    description: '30+ answers across general, shipment, service, billing, and preparation topics — searchable and filterable.',
+    href: `${routes.resources}#faq`,
+    status: 'Live',
+  },
+  {
+    title: 'Sustainability',
+    description: 'How Vital reduces emissions through route planning, a modern fleet, and energy-conscious warehouse operations.',
+    href: routes.resources,
+    status: 'Overview',
+  },
+  {
+    title: 'Case studies',
+    description: 'Real-world examples of how Vital solves problems and delivers measurable results for shippers.',
+    href: routes.resources,
+    status: 'Coming soon',
+  },
+]
 
 export default function Resources() {
   return (
@@ -25,7 +46,7 @@ export default function Resources() {
         />
 
         <Stagger className="mx-auto max-w-4xl divide-y divide-white/10">
-          {resourceLinks.map((resource, index) => (
+          {highlights.map((resource, index) => (
             <StaggerItem key={resource.title}>
             <article
               className="group flex flex-col gap-4 my-6 transition-colors duration-300 first:pt-0 last:pb-0 md:flex-row md:items-center md:gap-10"
