@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { company, legalLinks, navLinks, regions, routes, services } from '../../data/content'
+import { Icon } from '@iconify/react'
+import { company, legalLinks, navLinks, regions, routes, services, socialMedia } from '../../data/content'
 import { FLEET_IMAGE } from '../../lib/images'
 
 const serviceLinks = services.map((service) => ({
@@ -119,6 +120,22 @@ export default function Footer() {
                 {company.email}
               </a>
             </div>
+            {socialMedia.length > 0 && (
+              <div className="mt-6 flex items-center gap-2.5">
+                {socialMedia.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={item.name}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] text-white/60 transition-colors hover:border-white/20 hover:bg-white/10 hover:text-white"
+                  >
+                    <Icon icon={item.icon} className="h-5 w-5" aria-hidden />
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
