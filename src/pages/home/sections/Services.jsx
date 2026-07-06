@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { services } from '../../../data/content'
+import { Link } from 'react-router-dom'
+import { routes, services } from '../../../data/content'
 import { FLEET_IMAGE, fleetImagePositions } from '../../../lib/images'
 import SectionHeading from '../../../components/ui/SectionHeading'
 import AnimateOnScroll from '../../../components/ui/AnimateOnScroll'
@@ -58,6 +59,13 @@ function ServiceContent({ service, index, isActive }) {
               </li>
             ))}
           </ul>
+          <Link
+            to={`${routes.services}/${service.id}`}
+            className="mt-4 inline-flex items-center gap-2 rounded-full border border-twilightIndigo/15 bg-aliceBlue/30 px-4 py-2 text-xs font-semibold text-twilightIndigo transition-all duration-300 hover:border-twilightIndigo/25 hover:bg-aliceBlue/50 lg:mt-6 lg:text-sm"
+          >
+            View details
+            <span aria-hidden>→</span>
+          </Link>
         </div>
       </div>
     </article>
