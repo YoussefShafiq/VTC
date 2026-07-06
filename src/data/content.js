@@ -282,6 +282,34 @@ export const services = [
   },
 ].sort((a, b) => a.title.localeCompare(b.title));
 
+export const servicesPage = {
+  hero: {
+    eyebrow: 'Our capabilities',
+    title: 'Logistics services built for the NY/NJ supply chain',
+    subtitle:
+      'From port drayage and intermodal to OTR, LTL, warehouse distribution, and specialized final mile — Vital delivers asset-backed capacity with direct accountability on every move.',
+    stats: [
+      { value: String(services.length), label: 'Core services' },
+      { value: '24/7', label: 'Dispatch' },
+      { value: 'NY/NJ', label: 'Port region' },
+      { value: 'HazMat', label: 'Certified' },
+    ],
+  },
+  overview: {
+    eyebrow: 'What we offer',
+    title: 'One partner across the full freight lifecycle',
+    description:
+      'Each capability is designed to integrate with the rest of your supply chain — whether you need a single lane or a fully coordinated port-to-door program.',
+  },
+  cta: {
+    eyebrow: 'Get started',
+    title: 'Not sure which service fits your freight?',
+    description:
+      'Tell us about your shipment and we\'ll recommend the right solution — or build a custom program around your operations.',
+    primaryCta: 'Request a quote',
+  },
+}
+
 export const whyVital = {
   title: 'Why is it Vital?',
   description:

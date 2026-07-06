@@ -1,10 +1,20 @@
 import SectionFade from '../../components/ui/SectionFade'
-import Services from '../home/sections/Services'
+import ServicesHero from './sections/ServicesHero'
+import ServicesList from './sections/ServicesList'
+import ServicesCta from './sections/ServicesCta'
 
 export default function ServicesPage() {
   return (
-    <SectionFade>
-      <Services />
-    </SectionFade>
+    <>
+      <ServicesHero />
+
+      <SectionFade>
+        <ServicesList />
+      </SectionFade>
+
+      <SectionFade fadeBottom="dark">
+        <ServicesCta />
+      </SectionFade>
+    </>
   )
 }

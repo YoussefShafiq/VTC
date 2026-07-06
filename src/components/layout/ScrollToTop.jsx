@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { routes, services } from '../../data/content'
 
 export default function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -8,10 +7,6 @@ export default function ScrollToTop() {
   useEffect(() => {
     if (hash) {
       const id = hash.replace('#', '')
-
-      if (pathname === routes.services && services.some((service) => service.id === id)) {
-        return
-      }
 
       window.requestAnimationFrame(() => {
         const element = document.getElementById(id)
