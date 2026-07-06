@@ -39,6 +39,111 @@ const categoryStyles = {
   },
 }
 
+function getCategoryChipStyle(categoryId, isActive) {
+  if (categoryId === 'all') {
+    return isActive
+      ? 'border-twilightIndigo bg-twilightIndigo text-white shadow-md'
+      : 'border-twilightIndigo/15 bg-white text-twilightIndigo hover:border-twilightIndigo/25'
+  }
+
+  return isActive
+    ? categoryStyles[categoryId]?.chipActive
+    : categoryStyles[categoryId]?.chip
+}
+
+function SearchField({ id, value, onChange, className = '' }) {
+  return (
+    <div className={className}>
+      <label htmlFor={id} className="text-[11px] font-semibold uppercase tracking-[0.18em] text-twilightIndigo/45">
+        Search
+      </label>
+      <div className="relative mt-3">
+        <svg
+          className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-twilightIndigo/35"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          aria-hidden
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+        </svg>
+        <input
+          id={id}
+          type="search"
+          value={value}
+          onChange={onChange}
+          placeholder="Search questions..."
+          className="w-full rounded-xl border border-twilightIndigo/10 bg-white py-3 pl-10 pr-4 text-sm text-twilightIndigo outline-none transition-colors placeholder:text-twilightIndigo/35 focus:border-twilightIndigo/25 focus:ring-2 focus:ring-aliceBlue"
+        />
+      </div>
+    </div>
+  )
+}
+
+function CategoryFilters({ categories, activeCategory, categoryCounts, onSelect, variant }) {
+  const isCompact = variant === 'compact'
+
+  return (
+    <div className={isCompact ? 'mt-4' : 'mt-6'}>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-twilightIndigo/45">
+        Categories
+      </p>
+      <div
+        className={
+          isCompact
+            ? 'mt-3 flex gap-2 overflow-x-auto pb-1 scrollbar-none'
+            : 'mt-3 flex flex-col gap-1.5'
+        }
+      >
+        {categories.map((category) => {
+          const isActive = activeCategory === category.id
+          const count = categoryCounts[category.id] ?? 0
+          const chipStyle = getCategoryChipStyle(category.id, isActive)
+
+          return (
+            <button
+              key={category.id}
+              type="button"
+              onClick={() => onSelect(category.id)}
+              className={`flex items-center justify-between gap-2 rounded-xl border text-sm font-semibold transition-all duration-300 ${
+                isCompact
+                  ? `shrink-0 whitespace-nowrap px-3.5 py-2 ${chipStyle}`
+                  : `w-full px-3 py-2.5 text-left ${chipStyle}`
+              }`}
+            >
+              <span>{category.label}</span>
+              <span className={`text-xs font-bold ${isActive ? 'text-white/70' : 'text-twilightIndigo/40'}`}>
+                {count}
+              </span>
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+function HelpCard({ className = '' }) {
+  return (
+    <div className={`rounded-xl border border-twilightIndigo/10 bg-white p-4 ${className}`}>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-twilightIndigo/45">
+        Still need help?
+      </p>
+      <p className="mt-2 text-sm leading-relaxed text-twilightIndigo/65">
+        Our dispatch team is available for direct support on shipments, leasing, and warehouse programs.
+      </p>
+      <Link
+        to={{ pathname: routes.home, hash: 'contact' }}
+        className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-racingRed transition-colors hover:text-racingRed/80"
+      >
+        Request a quote
+        <span aria-hidden>→</span>
+      </Link>
+    </div>
+  )
+}
+
 function getCategoryMeta(categoryId) {
   return resourcesCategories.find((c) => c.id === categoryId) ?? resourcesCategories[1]
 }
@@ -181,6 +286,15 @@ export default function ResourcesFaq() {
     return counts
   }, [])
 
+  const handleCategorySelect = (categoryId) => {
+    setActiveCategory(categoryId)
+    setOpenId(null)
+  }
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value)
+  }
+
   return (
     <section id="faq" className="relative bg-white py-24 md:py-32">
       <div className="absolute inset-x-0 top-0 h-px bg-twilightIndigo/10" aria-hidden />
@@ -194,87 +308,45 @@ export default function ResourcesFaq() {
           animate={false}
         />
 
-        <div className="mt-12 grid items-start gap-8 lg:grid-cols-[280px_1fr] lg:gap-12">
-          <aside className="sticky top-20 z-10 self-start sm:top-24 lg:top-28">
-            <div className="max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain rounded-2xl border border-twilightIndigo/10 bg-[#f4f8ff] p-5 scrollbar-none md:p-6 sm:max-h-[calc(100dvh-7rem)] lg:max-h-[calc(100dvh-8rem)]">
-              <label htmlFor="faq-search" className="text-[11px] font-semibold uppercase tracking-[0.18em] text-twilightIndigo/45">
-                Search
-              </label>
-              <div className="relative mt-3">
-                <svg
-                  className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-twilightIndigo/35"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.75"
-                  aria-hidden
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                </svg>
-                <input
-                  id="faq-search"
-                  type="search"
+        {/* Mobile / tablet: compact sticky filter bar */}
+        <div className="sticky top-[4.75rem] z-20 -mx-6 mt-10 border-b border-twilightIndigo/10 bg-white/95 px-6 py-4 shadow-[0_12px_40px_-24px_rgba(31,50,88,0.35)] backdrop-blur-md sm:top-[6.25rem] lg:hidden">
+          <SearchField
+            id="faq-search-mobile"
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+          <CategoryFilters
+            categories={resourcesCategories}
+            activeCategory={activeCategory}
+            categoryCounts={categoryCounts}
+            onSelect={handleCategorySelect}
+            variant="compact"
+          />
+        </div>
+
+        <div className="mt-6 grid items-start gap-8 lg:mt-12 lg:grid-cols-[minmax(0,280px)_minmax(0,1fr)] lg:gap-12">
+          {/* Desktop: sticky sidebar */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-28 z-10">
+              <div className="max-h-[calc(100dvh-8rem)] overflow-y-auto overscroll-contain rounded-2xl border border-twilightIndigo/10 bg-[#f4f8ff] p-6 scrollbar-none">
+                <SearchField
+                  id="faq-search-desktop"
                   value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search questions..."
-                  className="w-full rounded-xl border border-twilightIndigo/10 bg-white py-3 pl-10 pr-4 text-sm text-twilightIndigo outline-none transition-colors placeholder:text-twilightIndigo/35 focus:border-twilightIndigo/25 focus:ring-2 focus:ring-aliceBlue"
+                  onChange={handleSearchChange}
                 />
-              </div>
-
-              <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-twilightIndigo/45">
-                Categories
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2 lg:flex-col lg:gap-1.5">
-                {resourcesCategories.map((category) => {
-                  const isActive = activeCategory === category.id
-                  const count = categoryCounts[category.id] ?? 0
-                  const chipStyle =
-                    category.id === 'all'
-                      ? isActive
-                        ? 'border-twilightIndigo bg-twilightIndigo text-white shadow-md'
-                        : 'border-twilightIndigo/15 bg-white text-twilightIndigo hover:border-twilightIndigo/25'
-                      : isActive
-                        ? categoryStyles[category.id]?.chipActive
-                        : categoryStyles[category.id]?.chip
-
-                  return (
-                    <button
-                      key={category.id}
-                      type="button"
-                      onClick={() => {
-                        setActiveCategory(category.id)
-                        setOpenId(null)
-                      }}
-                      className={`flex w-full items-center justify-between gap-2 rounded-xl border px-3 py-2.5 text-left text-sm font-semibold transition-all duration-300 ${chipStyle}`}
-                    >
-                      <span>{category.label}</span>
-                      <span className={`text-xs font-bold ${isActive ? 'text-white/70' : 'text-twilightIndigo/40'}`}>
-                        {count}
-                      </span>
-                    </button>
-                  )
-                })}
-              </div>
-
-              <div className="mt-6 hidden rounded-xl border border-twilightIndigo/10 bg-white p-4 lg:block">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-twilightIndigo/45">
-                  Still need help?
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-twilightIndigo/65">
-                  Our dispatch team is available for direct support on shipments, leasing, and warehouse programs.
-                </p>
-                <Link
-                  to={{ pathname: routes.home, hash: 'contact' }}
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-racingRed transition-colors hover:text-racingRed/80"
-                >
-                  Request a quote
-                  <span aria-hidden>→</span>
-                </Link>
+                <CategoryFilters
+                  categories={resourcesCategories}
+                  activeCategory={activeCategory}
+                  categoryCounts={categoryCounts}
+                  onSelect={handleCategorySelect}
+                  variant="stacked"
+                />
+                <HelpCard className="mt-6" />
               </div>
             </div>
           </aside>
 
-          <div>
+          <div className="min-w-0">
             <div className="mb-6 flex flex-col gap-3 border-b border-twilightIndigo/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-racingRed">
@@ -318,6 +390,8 @@ export default function ResourcesFaq() {
                 ))}
               </div>
             )}
+
+            <HelpCard className="mt-8 lg:hidden" />
           </div>
         </div>
       </div>
