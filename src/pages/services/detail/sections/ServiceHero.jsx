@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { routes } from '../../../../data/content'
-import { getServiceImage } from '../../../../lib/images'
+import { TOP_VIEW_IMAGE } from '../../../../lib/images'
 import { fadeUp, staggerContainer, transition } from '../../../../lib/motion'
 
 export default function ServiceHero({ service, index, total }) {
@@ -10,8 +10,8 @@ export default function ServiceHero({ service, index, total }) {
       <div
         className="absolute inset-0 bg-cover bg-no-repeat"
         style={{
-          backgroundImage: `url(${getServiceImage(service.id)})`,
-          backgroundPosition: service.imagePosition ?? 'center 40%',
+          backgroundImage: `url(${TOP_VIEW_IMAGE})`,
+          backgroundPosition: 'center 35%',
         }}
         aria-hidden
       />
