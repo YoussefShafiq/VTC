@@ -1,7 +1,8 @@
 import { useId, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { faqs, routes } from '../../../data/content'
+import { routes } from '../../../data/content'
+import { homeFaqSection, resourcesFaqs } from '../../../data/resources'
 import SectionHeading from '../../../components/ui/SectionHeading'
 import AnimateOnScroll from '../../../components/ui/AnimateOnScroll'
 import { Stagger, StaggerItem } from '../../../components/ui/Stagger'
@@ -88,8 +89,12 @@ function FaqItem({ item, isOpen, onToggle }) {
   )
 }
 
+const homeFaqs = homeFaqSection.featuredIds
+  .map((id) => resourcesFaqs.find((item) => item.id === id))
+  .filter(Boolean)
+
 export default function Faq() {
-  const [openId, setOpenId] = useState(faqs.items[0]?.id ?? null)
+  const [openId, setOpenId] = useState(homeFaqs[0]?.id ?? null)
 
   return (
     <section id="faq" className="relative overflow-hidden bg-twilightIndigo py-24 md:py-32">
@@ -103,12 +108,20 @@ export default function Faq() {
         <div className="grid gap-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16 xl:gap-20">
           <AnimateOnScroll variant="fadeRight" className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeading
-              eyebrow={faqs.eyebrow}
-              title={faqs.title}
-              description={faqs.description}
+              eyebrow={homeFaqSection.eyebrow}
+              title={homeFaqSection.title}
+              description={homeFaqSection.description}
               className="mb-0 md:mb-0"
               light
             />
+
+            <Link
+              to={`${routes.resources}#faq`}
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-aliceBlue/80 transition-colors hover:text-white"
+            >
+              View more
+              <span aria-hidden>→</span>
+            </Link>
 
             <div className="mt-10 hidden rounded-2xl border border-twilightIndigo/10 bg-white/80 p-6 backdrop-blur-sm lg:block">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-twilightIndigo">
@@ -129,7 +142,7 @@ export default function Faq() {
 
           <AnimateOnScroll variant="fadeLeft" delay={0.1}>
           <Stagger className="divide-y divide-twilightIndigo/10 rounded-[1.75rem] border border-twilightIndigo/10 bg-white/80 p-2 shadow-[0_24px_80px_-48px_rgba(31,50,88,0.45)] backdrop-blur-sm md:p-3">
-            {faqs.items.map((item) => (
+            {homeFaqs.map((item) => (
               <StaggerItem key={item.id}>
               <FaqItem
                 item={item}
