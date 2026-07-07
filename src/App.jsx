@@ -5,6 +5,7 @@ import ServicesPage from './pages/services'
 import ServiceDetailPage from './pages/services/detail'
 import AboutPage from './pages/about'
 import CareersPage from './pages/careers'
+import CareerJobDetailPage from './pages/careers/detail'
 import ResourcesPage from './pages/resources'
 import TermsOfUsePage from './pages/legal/terms-of-use'
 import PrivacyPolicyPage from './pages/legal/privacy-policy'
@@ -21,6 +22,7 @@ function App() {
           <Route path="services/:slug" element={<ServiceDetailPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="careers" element={<CareersPage />} />
+          <Route path="careers/:slug" element={<CareerJobDetailPage />} />
           <Route path="resources" element={<ResourcesPage />} />
           <Route path="legal/terms-of-use" element={<TermsOfUsePage />} />
           <Route path="legal/privacy-policy" element={<PrivacyPolicyPage />} />

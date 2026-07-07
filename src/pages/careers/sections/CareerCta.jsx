@@ -26,8 +26,8 @@ export default function CareerCta() {
             </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Button href={`mailto:${company.email}?subject=${encodeURIComponent('Career Inquiry')}`}>
-                Apply now
+              <Button to={{ pathname: routes.careers, hash: 'open-roles' }}>
+                View open roles
               </Button>
               <Button to={{ pathname: routes.home, hash: 'contact' }} variant="secondary">
                 Contact us
