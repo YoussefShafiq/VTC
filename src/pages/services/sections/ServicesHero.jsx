@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { routes, servicesPage } from '../../../data/content'
-import { SITE_BACKGROUND_IMAGE } from '../../../lib/images'
+import { TOP_VIEW_IMAGE } from '../../../lib/images'
 import { fadeUp, staggerContainer, transition } from '../../../lib/motion'
 
 export default function ServicesHero() {
@@ -11,7 +11,7 @@ export default function ServicesHero() {
     <section className="relative overflow-hidden bg-twilightIndigo pb-28 pt-40 text-white md:pb-32 md:pt-48">
       <div
         className="absolute inset-0 bg-cover bg-[center_35%] bg-no-repeat"
-        style={{ backgroundImage: `url(${SITE_BACKGROUND_IMAGE})`, backgroundPosition: 'center center' }}
+        style={{ backgroundImage: `url(${TOP_VIEW_IMAGE})`, backgroundPosition: 'center center' }}
         aria-hidden
       />
       <div className="absolute inset-0 bg-gradient-to-r from-twilightIndigo/95 via-twilightIndigo/82 to-twilightIndigo/60" aria-hidden />

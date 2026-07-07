@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 import { routes } from '../../../../data/content'
 import { roleIcons } from '../../../../lib/careerIcons'
-import { FLEET_IMAGE } from '../../../../lib/images'
+import { TOP_VIEW_IMAGE } from '../../../../lib/images'
 
 export default function JobHero({ role }) {
   return (
     <section className="relative overflow-hidden bg-twilightIndigo pb-20 pt-36 text-white md:pb-24 md:pt-44">
       <div
         className="absolute inset-0 bg-cover bg-[center_40%] bg-no-repeat"
-        style={{ backgroundImage: `url(${FLEET_IMAGE})` }}
+        style={{ backgroundImage: `url(${TOP_VIEW_IMAGE})` }}
         aria-hidden
       />
       <div className="absolute inset-0 bg-gradient-to-r from-twilightIndigo/95 via-twilightIndigo/82 to-twilightIndigo/65" aria-hidden />

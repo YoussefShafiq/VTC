@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { hero, company, routes } from '../../../data/content'
-import { FLEET_IMAGE, HERO_TRUCK_IMAGE, HERO_SIDE_IMAGE } from '../../../lib/images'
+import { TOP_VIEW_IMAGE, HERO_SIDE_IMAGE } from '../../../lib/images'
 import Button from '../../../components/ui/Button'
 import { fadeLeft, fadeUp, staggerContainer, transition } from '../../../lib/motion'
 // import HeroModel from './HeroModel'
@@ -76,7 +76,7 @@ export default function Hero() {
     <section className="relative overflow-hidden border-b border-white/10 bg-twilightIndigo">
       <div
         className="absolute inset-0 bg-cover bg-[center_35%] bg-no-repeat"
-        style={{ backgroundImage: `url(${FLEET_IMAGE})` }}
+        style={{ backgroundImage: `url(${TOP_VIEW_IMAGE})` }}
         aria-hidden
       />
       <div
