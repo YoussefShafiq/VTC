@@ -5,7 +5,7 @@ import AnimateOnScroll from '../../../components/ui/AnimateOnScroll'
 
 export default function CtaBanner() {
   return (
-    <section id="contact" className="bg-white py-24 md:py-28">
+    <section id="request-a-quote" className="bg-white py-24 md:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <AnimateOnScroll variant="scaleUp">
         <div className="relative overflow-hidden rounded-2xl border border-twilightIndigo/10">

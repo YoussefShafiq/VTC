@@ -29,7 +29,7 @@ export default function CareerCta() {
               <Button to={{ pathname: routes.careers, hash: 'open-roles' }}>
                 View open roles
               </Button>
-              <Button to={{ pathname: routes.home, hash: 'contact' }} variant="secondary">
+              <Button to={{ pathname: routes.home, hash: routes.quoteHash }} variant="secondary">
                 Contact us
               </Button>
             </div>

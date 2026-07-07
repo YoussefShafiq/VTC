@@ -118,7 +118,7 @@ export default function Faq() {
                 Our dispatch and account teams are available for direct support on shipments, leasing, and warehouse programs.
               </p>
               <Link
-                to={{ pathname: routes.home, hash: 'contact' }}
+                to={{ pathname: routes.home, hash: routes.quoteHash }}
                 className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-racingRed transition-colors hover:text-racingRed/80"
               >
                 Request a quote
@@ -151,7 +151,7 @@ export default function Faq() {
             Reach out for shipment updates, equipment leasing, or warehouse support.
           </p>
           <Link
-            to={{ pathname: routes.home, hash: 'contact' }}
+            to={{ pathname: routes.home, hash: routes.quoteHash }}
             className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-racingRed transition-colors hover:text-racingRed/80"
           >
             Request a quote

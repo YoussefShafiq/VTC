@@ -134,7 +134,7 @@ function HelpCard({ className = '' }) {
         Our dispatch team is available for direct support on shipments, leasing, and warehouse programs.
       </p>
       <Link
-        to={{ pathname: routes.home, hash: 'contact' }}
+        to={{ pathname: routes.home, hash: routes.quoteHash }}
         className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-racingRed transition-colors hover:text-racingRed/80"
       >
         Request a quote

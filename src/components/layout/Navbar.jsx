@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import { motion, AnimatePresence } from 'framer-motion'
 import MobileMenu from './MobileMenu'
-import { company, navLinks, routes, services } from '../../data/content'
+import { company, cta, navLinks, routes, services } from '../../data/content'
 import Button from '../ui/Button'
 
 const mobileMenuVariants = {
@@ -146,8 +146,8 @@ export default function Navbar() {
             >
               {company.phone}
             </a>
-            <Button to={{ pathname: routes.home, hash: 'contact' }} className="!px-5 !py-2.5 !text-xs">
-              Contact Us
+            <Button to={{ pathname: routes.home, hash: routes.quoteHash }} className="!px-5 !py-2.5 !text-xs">
+              {cta.navButton}
             </Button>
           </div>
 

@@ -53,12 +53,6 @@ export default function JobRoles() {
                     <Button to={`${routes.careers}/${role.id}`} className="!px-6 !py-2.5 !text-xs">
                       Apply now
                     </Button>
-                    <a
-                      href={`tel:${company.phone}`}
-                      className="text-sm font-semibold text-twilightIndigo/60 transition-colors hover:text-racingRed"
-                    >
-                      Or call {company.phone}
-                    </a>
                   </div>
                 </div>
               </article>

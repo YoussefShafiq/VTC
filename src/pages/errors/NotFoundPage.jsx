@@ -23,7 +23,7 @@ export default function NotFoundPage() {
             Go to Homepage
           </Link>
           {/* <Link
-            to={{ pathname: '/', hash: 'contact' }}
+            to={{ pathname: '/', hash: 'request-a-quote' }}
             className="inline-flex items-center justify-center rounded-full border border-twilightIndigo/15 bg-white px-6 py-3 text-base font-semibold text-twilightIndigo transition hover:border-racingRed hover:text-racingRed"
           >
             Contact Support

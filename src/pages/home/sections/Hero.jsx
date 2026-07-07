@@ -23,7 +23,7 @@ export default function Hero() {
       </p>
 
       <div className="mt-11 flex flex-wrap gap-4">
-        <Button to={{ pathname: routes.home, hash: 'contact' }}>{hero.primaryCta}</Button>
+        <Button to={{ pathname: routes.home, hash: routes.quoteHash }}>{hero.primaryCta}</Button>
         <Button to={routes.services} variant="secondary">
           {hero.secondaryCta}
         </Button>
@@ -126,7 +126,7 @@ export default function Hero() {
                 {hero.subtitle}
               </motion.p>
               <motion.div variants={fadeUp} transition={transition} className="mt-11 flex flex-wrap gap-4">
-                <Button to={{ pathname: routes.home, hash: 'contact' }}>{hero.primaryCta}</Button>
+                <Button to={{ pathname: routes.home, hash: routes.quoteHash }}>{hero.primaryCta}</Button>
                 <Button to={routes.services} variant="secondary">
                   {hero.secondaryCta}
                 </Button>

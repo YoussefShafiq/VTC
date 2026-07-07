@@ -19,6 +19,8 @@ export const routes = {
   about: '/about',
   careers: '/careers',
   resources: '/resources',
+  contact: '/contact',
+  quoteHash: 'request-a-quote',
   termsOfUse: '/legal/terms-of-use',
   privacyPolicy: '/legal/privacy-policy',
   smsTerms: '/legal/sms-terms',
@@ -46,6 +48,7 @@ export const navLinks = [
   { label: 'About Us', href: routes.about },
   { label: 'Careers', href: routes.careers },
   { label: 'Resources', href: routes.resources },
+  { label: 'Contact Us', href: routes.contact },
 ]
 
 export const hero = {
@@ -731,9 +734,37 @@ export const cta = {
   description:
     'Tell us about your freight and we will respond with a tailored quote — port drayage, intermodal, OTR, LTL, warehouse, or specialized moves across the NY/NJ region.',
   button: 'Submit Quote Request',
+  navButton: 'Request a Quote',
   successTitle: 'Quote request received',
   successMessage:
     'Thank you. Our team will review your shipment details and reach out shortly with a tailored quote.',
+}
+
+export const contactPage = {
+  hero: {
+    eyebrow: 'Get in touch',
+    title: 'Contact us',
+    subtitle:
+      'Reach Vital\'s dispatch and account teams for shipment support, partnership inquiries, or general questions about our logistics services.',
+  },
+  form: {
+    endpoint: import.meta.env.VITE_CONTACT_API_URL || '/api/contact',
+    title: 'Send us a message',
+    description: 'Fill out the form and our team will get back to you as soon as possible.',
+    submitLabel: 'Send message',
+    successTitle: 'Message sent',
+    successMessage:
+      'Thank you for contacting Vital Transportation. A member of our team will respond shortly.',
+    subjectOptions: [
+      { value: '', label: 'Select a topic' },
+      { value: 'general', label: 'General inquiry' },
+      { value: 'quote', label: 'Quote request' },
+      { value: 'shipment', label: 'Shipment support' },
+      { value: 'warehouse', label: 'Warehouse services' },
+      { value: 'careers', label: 'Careers' },
+      { value: 'other', label: 'Other' },
+    ],
+  },
 }
 
 export const quotationForm = {

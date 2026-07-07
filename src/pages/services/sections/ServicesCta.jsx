@@ -31,7 +31,7 @@ export default function ServicesCta() {
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Link
-                to={{ pathname: routes.home, hash: 'contact' }}
+                to={{ pathname: routes.home, hash: routes.quoteHash }}
                 className="inline-flex items-center gap-2 rounded-full bg-racingRed px-7 py-3.5 text-sm font-semibold tracking-wide text-white shadow-lg shadow-racingRed/20 transition-all duration-300 hover:bg-racingRed/90"
               >
                 {cta.primaryCta}

@@ -76,7 +76,7 @@ export default function ServiceHero({ service, index, total }) {
             className="mt-10 flex flex-wrap gap-4"
           >
             <Link
-              to={{ pathname: routes.home, hash: 'contact' }}
+              to={{ pathname: routes.home, hash: routes.quoteHash }}
               className="inline-flex items-center gap-2 rounded-full bg-racingRed px-6 py-3 text-sm font-semibold tracking-wide text-white shadow-lg shadow-racingRed/20 transition-all duration-300 hover:bg-racingRed/90"
             >
               Request a quote

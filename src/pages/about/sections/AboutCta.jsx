@@ -29,7 +29,7 @@ export default function AboutCta() {
             </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Button to={{ pathname: routes.home, hash: 'contact' }}>
+              <Button to={{ pathname: routes.home, hash: routes.quoteHash }}>
                 Request a Quote
               </Button>
               <Button to={routes.services} variant="secondary">

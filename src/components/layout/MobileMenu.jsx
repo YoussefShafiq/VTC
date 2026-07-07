@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import { motion } from 'framer-motion'
-import { company, routes } from '../../data/content'
+import { company, cta, routes } from '../../data/content'
 import Button from '../ui/Button'
 
 const menuItemVariants = {
@@ -86,11 +86,11 @@ export default function MobileMenu({ links, serviceLinks, onClose }) {
 
       <motion.div variants={menuItemVariants} className="px-3 pt-2">
         <Button
-          to={{ pathname: routes.home, hash: 'contact' }}
+          to={{ pathname: routes.home, hash: routes.quoteHash }}
           className="w-full"
           onClick={onClose}
         >
-          Contact Us
+          {cta.navButton}
         </Button>
       </motion.div>
     </motion.div>
