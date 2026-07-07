@@ -1,4 +1,4 @@
-import { FLEET_IMAGE } from '../../../../lib/images'
+import { getServiceImage } from '../../../../lib/images'
 import SectionHeading from '../../../../components/ui/SectionHeading'
 import AnimateOnScroll from '../../../../components/ui/AnimateOnScroll'
 import { Stagger, StaggerItem } from '../../../../components/ui/Stagger'
@@ -32,7 +32,7 @@ export default function ServiceBody({ service }) {
       <div
         className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] bg-cover bg-no-repeat opacity-[0.04] lg:block"
         style={{
-          backgroundImage: `url(${FLEET_IMAGE})`,
+          backgroundImage: `url(${getServiceImage(service.id)})`,
           backgroundPosition: service.imagePosition ?? 'center 40%',
         }}
         aria-hidden
@@ -68,7 +68,7 @@ export default function ServiceBody({ service }) {
               <div className="absolute -right-2 -top-2 h-14 w-14 border-r-2 border-t-2 border-racingRed" aria-hidden />
               <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl">
                 <img
-                  src={FLEET_IMAGE}
+                  src={getServiceImage(service.id)}
                   alt={service.title}
                   className="h-full w-full object-cover"
                   style={{ objectPosition: service.imagePosition ?? 'center 40%' }}

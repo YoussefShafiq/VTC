@@ -1,5 +1,5 @@
 import { about, company } from '../../../data/content'
-import { FLEET_IMAGE } from '../../../lib/images'
+import { FLEET_IMAGE, SITE_BACKGROUND_IMAGE, getServiceImage, fleetImagePositions } from '../../../lib/images'
 import SectionHeading from '../../../components/ui/SectionHeading'
 import AnimateOnScroll from '../../../components/ui/AnimateOnScroll'
 import { Stagger, StaggerItem } from '../../../components/ui/Stagger'
@@ -9,7 +9,7 @@ export default function About() {
     <section id="about" className="relative overflow-hidden bg-white py-24 md:py-32">
       <div
         className="pointer-events-none absolute inset-y-0 right-0 hidden w-[45%] bg-cover bg-no-repeat opacity-[0.07] lg:block"
-        style={{ backgroundImage: `url(${FLEET_IMAGE})`, backgroundPosition: 'center 40%' }}
+        style={{ backgroundImage: `url(${SITE_BACKGROUND_IMAGE})`, backgroundPosition: 'center center' }}
         aria-hidden
       />
       <div className="absolute inset-x-0 top-0 h-px bg-twilightIndigo/10" aria-hidden />

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { routes, services, servicesPage } from '../../../data/content'
-import { FLEET_IMAGE } from '../../../lib/images'
+import { getServiceImage } from '../../../lib/images'
 import SectionHeading from '../../../components/ui/SectionHeading'
 import AnimateOnScroll from '../../../components/ui/AnimateOnScroll'
 
@@ -68,7 +68,7 @@ function ServiceRow({ service, index }) {
               <div className="relative overflow-hidden rounded-2xl shadow-[0_20px_60px_-24px_rgba(31,50,88,0.35)]">
                 <div className="relative aspect-[4/3] w-full">
                   <img
-                    src={FLEET_IMAGE}
+                    src={getServiceImage(service.id)}
                     alt=""
                     className="h-full w-full object-cover"
                     style={{ objectPosition: service.imagePosition ?? 'center 40%' }}
