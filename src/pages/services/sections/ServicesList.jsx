@@ -12,7 +12,7 @@ function ServiceRow({ service, index }) {
   return (
     <article
       id={service.id}
-      className={`scroll-mt-28 py-16 md:py-20 ${index % 2 === 0 ? 'bg-white' : 'bg-[#f4f8ff]'}`}
+      className={`scroll-mt-28 overflow-x-hidden py-16 md:py-20 ${index % 2 === 0 ? 'bg-white' : 'bg-[#f4f8ff]'}`}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div
@@ -94,7 +94,7 @@ export default function ServicesList() {
   const { overview } = servicesPage
 
   return (
-    <section className="relative">
+    <section className="relative overflow-x-hidden">
       <div className="border-b border-twilightIndigo/8 bg-white py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeading
