@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { hero, company, routes } from '../../../data/content'
-import { FLEET_IMAGE, HERO_TRUCK_IMAGE } from '../../../lib/images'
+import { FLEET_IMAGE, HERO_TRUCK_IMAGE, HERO_SIDE_IMAGE } from '../../../lib/images'
 import Button from '../../../components/ui/Button'
 import { fadeLeft, fadeUp, staggerContainer, transition } from '../../../lib/motion'
 // import HeroModel from './HeroModel'
@@ -64,7 +64,7 @@ export default function Hero() {
   const rightColumn = (
     <div className="hero-model-frame overflow-visible">
       <img
-        src={HERO_TRUCK_IMAGE}
+        src={HERO_SIDE_IMAGE}
         alt="Vital Transportation fleet truck"
         className="hero-truck-image h-full w-full object-contain object-center"
       />
