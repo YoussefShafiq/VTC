@@ -9,13 +9,13 @@ const highlights = [
     title: 'FAQ library',
     description: '30+ answers across general, shipment, service, billing, and preparation topics — searchable and filterable.',
     href: `${routes.resources}#faq`,
-    status: 'Live',
+    // status: 'Live',
   },
   {
     title: 'Sustainability',
     description: 'How Vital reduces emissions through route planning, a modern fleet, and energy-conscious warehouse operations.',
     href: routes.resources,
-    status: 'Overview',
+    // status: 'Overview',
   },
   {
     title: 'Case studies',
@@ -60,9 +60,11 @@ export default function Resources() {
                   <h3 className="font-display text-xl font-semibold text-white md:text-2xl">
                     {resource.title}
                   </h3>
-                  <span className="rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/50">
-                    {resource.status}
-                  </span>
+                  {resource.status &&
+                    <span className="rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/50">
+                      {resource.status}
+                    </span>
+                  }
                 </div>
                 <p className="text-sm leading-relaxed text-white/55 md:text-base">
                   {resource.description}
