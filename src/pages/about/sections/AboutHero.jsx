@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { aboutPage } from '../../../data/content'
-import { SITE_BACKGROUND_IMAGE } from '../../../lib/images'
+import { TOP_VIEW_IMAGE } from '../../../lib/images'
 import { fadeUp, staggerContainer, transition } from '../../../lib/motion'
 
 export default function AboutHero() {
@@ -10,7 +10,7 @@ export default function AboutHero() {
     <section className="relative overflow-hidden bg-twilightIndigo pb-28 pt-40 text-white md:pt-48 md:pb-32">
       <div
         className="absolute inset-0 bg-cover bg-[center_30%] bg-no-repeat"
-        style={{ backgroundImage: `url(${SITE_BACKGROUND_IMAGE})`, backgroundPosition: 'center center' }}
+        style={{ backgroundImage: `url(${TOP_VIEW_IMAGE})`, backgroundPosition: 'center center' }}
         aria-hidden
       />
       <div className="absolute inset-0 bg-gradient-to-r from-twilightIndigo/95 via-twilightIndigo/80 to-twilightIndigo/60" aria-hidden />

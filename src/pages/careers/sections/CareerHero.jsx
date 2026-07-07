@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { careerPage } from '../../../data/content'
-import { FLEET_IMAGE } from '../../../lib/images'
+import { TOP_VIEW_IMAGE } from '../../../lib/images'
 import { fadeUp, staggerContainer, transition } from '../../../lib/motion'
 
 export default function CareerHero() {
@@ -10,7 +10,7 @@ export default function CareerHero() {
     <section className="relative overflow-hidden bg-twilightIndigo pb-28 pt-40 text-white md:pb-32 md:pt-48">
       <div
         className="absolute inset-0 bg-cover bg-[center_40%] bg-no-repeat"
-        style={{ backgroundImage: `url(${FLEET_IMAGE})` }}
+        style={{ backgroundImage: `url(${TOP_VIEW_IMAGE})` }}
         aria-hidden
       />
       <div className="absolute inset-0 bg-gradient-to-r from-twilightIndigo/95 via-twilightIndigo/82 to-twilightIndigo/65" aria-hidden />
