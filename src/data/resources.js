@@ -63,6 +63,20 @@ export const resourcesPage = {
   },
 }
 
+export const homeFaqSection = {
+  eyebrow: 'FAQ',
+  title: 'Quick answers to get you started',
+  description:
+    'A preview of what shippers ask most — explore the full FAQ library on Resources for 30+ answers across operations, shipping, billing, and preparation.',
+  featuredIds: [
+    'freight-types',
+    'track-shipment',
+    'liftgate',
+    'request-quote',
+    'own-fleet',
+  ],
+}
+
 export const resourcesFaqs = [
   // General
   {

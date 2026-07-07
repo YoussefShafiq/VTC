@@ -797,49 +797,6 @@ export const quotationForm = {
   ],
 }
 
-export const faqs = {
-  eyebrow: 'FAQ',
-  title: 'Answers to common questions',
-  description:
-    'Quick clarity on storage, warehousing, tracking, equipment leasing, and how Vital operates day to day.',
-  items: [
-    {
-      id: 'storage-trailers',
-      question: 'Do you offer storage trailers?',
-      answer:
-        'Absolutely, Vital provides economical and cost-effective storage trailer solutions for your warehousing needs. You can have our storage trailers delivered directly to your site within a 50-mile radius of our headquarters, allowing easy onsite product storage. Plus, we always ensure your cargoes in Vital trailers are fully insured, offering you both efficiency and security in your storage needs.',
-    },
-    {
-      id: 'warehouse-services',
-      question: 'Do you offer Warehouse services?',
-      answer:
-        'Yes, we offer comprehensive warehouse services at Vital. Whether it’s storing, assembling displays, or providing temporary storage for your merchandise. Our expertise in warehouse services is extensive and proven, having successfully managed storage, assembly, and transloading for leading brands such as CVS Pharmacy, Famous Footwear, and Old Navy.',
-    },
-    {
-      id: 'track-shipment',
-      question: 'How to track shipment',
-      answer:
-        'Tracking your shipments with Vital is straightforward and user-friendly. We offer two main methods for shipment tracking:',
-      bullets: [
-        'Access to our Transportation Management System (TMS), where you can view real-time updates.',
-        'Direct communication: You can email or call our dispatcher for immediate confirmations and updates regarding your shipment.',
-      ],
-    },
-    {
-      id: 'leased-equipment',
-      question: 'Inquire about leased equipment',
-      answer:
-        'Vital provides leasing options for 53’ dry vans, which are available for both storage and road use. If you’re interested in leasing equipment or require more information about our leasing terms and conditions, please feel free to contact us directly. We are here to assist you with all your equipment leasing needs.',
-    },
-    {
-      id: 'own-fleet',
-      question: 'Does vital have their own fleet of drivers and vehicles',
-      answer:
-        'Absolutely, Vital boasts its own dedicated fleet of drivers and vehicles. This allows us to maintain high standards of service, ensure consistent quality, and provide reliable, timely deliveries. Our fleet is comprised of well-maintained, modern vehicles operated by professional, trained drivers.',
-    },
-  ],
-}
-
 export const legalContact = {
   email: 'dispatch@vitaltransportcorp.com',
   phone: '(732) 515-9361',
