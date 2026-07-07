@@ -1,5 +1,5 @@
 import { aboutPage, company } from '../../../data/content'
-import { FLEET_IMAGE } from '../../../lib/images'
+import { ABOUT_STORY_IMAGE, FLEET_IMAGE } from '../../../lib/images'
 import SectionHeading from '../../../components/ui/SectionHeading'
 import AnimateOnScroll from '../../../components/ui/AnimateOnScroll'
 import { Stagger, StaggerItem } from '../../../components/ui/Stagger'
@@ -79,7 +79,7 @@ export default function OurStory() {
               <div className="absolute -right-2 -top-2 h-16 w-16 border-r-2 border-t-2 border-racingRed" aria-hidden />
               <div className="aspect-[16/9] w-full overflow-hidden rounded-2xl">
                 <img
-                  src={FLEET_IMAGE}
+                  src={ABOUT_STORY_IMAGE}
                   alt="Vital Transportation fleet"
                   className="h-full w-full object-cover object-[center_40%]"
                 />

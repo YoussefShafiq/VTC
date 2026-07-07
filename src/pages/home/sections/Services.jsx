@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { routes, services } from '../../../data/content'
-import { FLEET_IMAGE, fleetImagePositions } from '../../../lib/images'
+import { FLEET_IMAGE, getServiceImage, fleetImagePositions } from '../../../lib/images'
 import SectionHeading from '../../../components/ui/SectionHeading'
 
 const STEP_VH = 34
@@ -23,7 +23,7 @@ function ServiceContent({ service, index, isActive }) {
       <div className="grid h-full grid-rows-[8.5rem_1fr] lg:grid-cols-2 lg:grid-rows-1">
         <div className="relative flex flex-col justify-end overflow-hidden px-4 pb-3 pt-4 text-white lg:px-8 lg:pb-4 lg:pt-8">
           <img
-            src={FLEET_IMAGE}
+            src={getServiceImage(service.id)}
             alt=""
             className="absolute inset-0 h-full w-full object-cover"
             style={{ objectPosition: fleetImagePositions[index % fleetImagePositions.length] }}

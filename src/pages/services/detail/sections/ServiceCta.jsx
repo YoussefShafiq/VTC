@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { company, routes } from '../../../../data/content'
-import { FLEET_IMAGE } from '../../../../lib/images'
+import { getServiceImage } from '../../../../lib/images'
 import AnimateOnScroll from '../../../../components/ui/AnimateOnScroll'
 
 export default function ServiceCta({ service }) {
@@ -9,7 +9,7 @@ export default function ServiceCta({ service }) {
       <div
         className="absolute inset-0 bg-cover bg-no-repeat"
         style={{
-          backgroundImage: `url(${FLEET_IMAGE})`,
+          backgroundImage: `url(${getServiceImage(service.id)})`,
           backgroundPosition: service.imagePosition ?? 'center 50%',
         }}
         aria-hidden
