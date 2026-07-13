@@ -40,12 +40,12 @@ export default function Hero() {
           </dd>
         </div>
         <div>
-          <dt className="sr-only">Port region</dt>
+          <dt className="sr-only">Service region</dt>
           <dd className="font-display text-2xl font-semibold text-white">
-            NY/NJ
+            13
           </dd>
           <dd className="mt-1 text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
-            Port region
+            States
           </dd>
         </div>
         <div>
@@ -142,9 +142,9 @@ export default function Hero() {
                   <dd className="mt-1 text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">Founded</dd>
                 </div>
                 <div>
-                  <dt className="sr-only">Port region</dt>
-                  <dd className="font-display text-2xl font-semibold text-white">NY/NJ</dd>
-                  <dd className="mt-1 text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">Port region</dd>
+                  <dt className="sr-only">Service region</dt>
+                  <dd className="font-display text-2xl font-semibold text-white">13</dd>
+                  <dd className="mt-1 text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">States</dd>
                 </div>
                 <div>
                   <dt className="sr-only">Dispatch</dt>

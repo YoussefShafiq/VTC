@@ -81,7 +81,7 @@ export default function About() {
                       {company.address.city}, {company.address.state}
                     </p>
                     <p className="mt-2 text-sm leading-relaxed text-white/55">
-                      {company.address.line1} · Centrally located for importers, exporters, and distribution networks across the NY/NJ region.
+                      {company.address.line1} · Centrally located for importers, exporters, and distribution networks across the Northeast & Mid-Atlantic.
                     </p>
                   </div>
                 </div>

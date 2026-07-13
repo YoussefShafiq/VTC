@@ -52,21 +52,28 @@ export const navLinks = [
 ]
 
 export const hero = {
-  eyebrow: 'NY & NJ Port Region · Since 2011',
+  eyebrow: 'Northeast & Mid-Atlantic · Since 2011',
   title: 'Dependable logistics built on clarity, accountability, and follow-through.',
   subtitle:
-    'Vital Transportation Corp. is an asset-based carrier and logistics partner serving the NY/NJ port region and major interstate corridors with drayage, OTR, intermodal, LTL, and warehouse-backed distribution.',
+    'Vital Transportation Corp. is an asset-based carrier and logistics partner serving East Coast ports and major interstate corridors with drayage, OTR, intermodal, LTL, and full warehouse & distribution operations from our Piscataway, NJ facility.',
   primaryCta: 'Request a Quote',
   secondaryCta: 'Explore Solutions',
 }
 
 export const introCards = [
   {
+    title: 'Warehouse & distribution',
+    description:
+      'Storage, cross-docking, transloading, and value-added services from our Piscataway facility — trusted by leading retail brands for inventory staging and fulfillment support.',
+    href: '/services/warehouse',
+    cta: 'Explore warehouse services',
+  },
+  {
     title: 'Port-to-door precision',
     description:
-      'From terminal retrieval to final delivery, Vital manages container flow with real-time dispatch visibility and disciplined execution across every handoff.',
-    href: '/services',
-    cta: 'View capabilities',
+      'From terminal retrieval to final delivery across NY/NJ, Philadelphia, Baltimore, Boston, and other East Coast ports — with real-time dispatch visibility on every handoff.',
+    href: '/services/drayage',
+    cta: 'View port capabilities',
   },
   {
     title: 'Scaled strength, personal service',
@@ -75,26 +82,19 @@ export const introCards = [
     href: '/about',
     cta: 'Why companies choose us',
   },
-  {
-    title: 'Flexible capacity, peak-ready',
-    description:
-      'Whether steady season or surge, Vital maintains the safety certifications, equipment, and warehouse infrastructure to keep your supply chain moving.',
-    href: '/about',
-    cta: 'About Vital',
-  },
 ]
 
 export const about = {
   title: 'A modern carrier with a relationship-driven model',
   paragraphs: [
-    'Vital Transportation Corp. operates from a centrally located facility in Piscataway, New Jersey, supporting importers, exporters, manufacturers, retailers, and distribution networks throughout the region.',
-    'The company provides port drayage, OTR trucking, LTL service, transloading, and warehouse solutions designed to streamline container flow and improve supply chain efficiency — with all required safety and compliance certifications.',
+    'Vital Transportation Corp. operates from a centrally located facility in Piscataway, New Jersey, supporting importers, exporters, manufacturers, retailers, and distribution networks throughout the Northeast and Mid-Atlantic.',
+    'The company provides port drayage across major East Coast terminals, OTR trucking, LTL service, transloading, and warehouse solutions designed to streamline container flow and improve supply chain efficiency.',
     'Vital presents a professional identity built on clarity, transparency, and operational discipline — combining the operational strength of a scaled carrier with the personal attention of a privately run logistics partner.',
   ],
   stats: [
     { value: '2011', label: 'Founded' },
-    { value: 'NY/NJ', label: 'Port presence' },
-    { value: 'HazMat', label: 'Certified ops' },
+    { value: '6+', label: 'East Coast ports' },
+    { value: 'WH', label: 'Warehouse ops' },
     { value: '24/7', label: 'Dispatch support' },
   ],
 }
@@ -106,16 +106,16 @@ export const services = [
     summary:
       'Import and export container movement with terminal retrieval, specialized handling, and port-to-warehouse delivery.',
     description:
-      'Vital manages the complete cycle of import and export container movement from NY/NJ port terminals to warehouses and end customers. With real-time dispatch visibility and a team that knows the ports, we eliminate friction between vessel discharge and final delivery — keeping your supply chain moving without delays.',
+      'Vital manages the complete cycle of import and export container movement from major East Coast port terminals — including New York/New Jersey, Philadelphia, Baltimore, Boston, Wilmington, and Hampton Roads — to warehouses and end customers. With real-time dispatch visibility and a team that knows the ports, we eliminate friction between vessel discharge and final delivery.',
     imagePosition: 'center 35%',
     highlights: [
       {
-        title: 'Terminal expertise',
-        body: 'Deep familiarity with NY and NJ port terminals ensures faster retrieval, accurate documentation, and minimal dwell time on every container move.',
+        title: 'Multi-port expertise',
+        body: 'Deep familiarity with NY/NJ, Philadelphia, Baltimore, Boston, Wilmington, and Hampton Roads terminals ensures faster retrieval, accurate documentation, and minimal dwell time on every container move.',
       },
       {
         title: 'Specialized handling',
-        body: 'Overweight, out-of-gauge, and hazardous containers handled with the right equipment and certified personnel — no job too complex.',
+        body: 'Overweight, out-of-gauge, and complex containers handled with the right equipment and experienced personnel — no job too complex.',
       },
       {
         title: 'End-to-end visibility',
@@ -124,6 +124,7 @@ export const services = [
     ],
     items: [
       'Import and export container movement',
+      'NY/NJ, Philadelphia, Baltimore, Boston, Wilmington & Hampton Roads',
       'Terminal retrieval and returns',
       'Overweight and specialized container handling',
       'Port to warehouse and port to customer delivery',
@@ -256,14 +257,14 @@ export const services = [
     id: 'specialized',
     title: 'Specialized & Final Mile',
     summary:
-      'HazMat-certified transport, final mile delivery, and tailored logistics support for complex operations.',
+      'Specialized transport, final mile delivery, and tailored logistics support for complex operations.',
     description:
-      "Vital's specialized and final mile capabilities handle the freight that requires more than standard equipment or expertise. From HazMat-certified moves with compliant documentation to residential and commercial final mile delivery with liftgate service, we support complex logistics programs with the care they demand.",
+      "Vital's specialized and final mile capabilities handle the freight that requires more than standard equipment or expertise. From complex moves with careful documentation to residential and commercial final mile delivery with liftgate service, we support complex logistics programs with the care they demand.",
     imagePosition: 'center 25%',
     highlights: [
       {
-        title: 'HazMat certified',
-        body: 'Certified drivers, compliant documentation, and secure chain-of-custody handling ensure your hazardous materials move safely and in full regulatory compliance.',
+        title: 'Specialized handling',
+        body: 'Experienced teams, compliant documentation, and secure chain-of-custody handling for freight that demands extra care and precision.',
       },
       {
         title: 'Final mile precision',
@@ -275,7 +276,7 @@ export const services = [
       },
     ],
     items: [
-      'Certified HazMat drivers and compliant documentation',
+      'Specialized freight handling and documentation support',
       'Retail and commercial final mile with liftgate delivery',
       'Appointment-based delivery windows',
       'Customs-related documentation assistance',
@@ -288,14 +289,14 @@ export const services = [
 export const servicesPage = {
   hero: {
     eyebrow: 'Our capabilities',
-    title: 'Logistics services built for the NY/NJ supply chain',
+    title: 'Logistics services built for the East Coast supply chain',
     subtitle:
-      'From port drayage and intermodal to OTR, LTL, warehouse distribution, and specialized final mile — Vital delivers asset-backed capacity with direct accountability on every move.',
+      'From multi-port drayage and intermodal to OTR, LTL, warehouse distribution, and specialized final mile — Vital delivers asset-backed capacity with direct accountability on every move.',
     stats: [
       { value: String(services.length), label: 'Core services' },
       { value: '24/7', label: 'Dispatch' },
-      { value: 'NY/NJ', label: 'Port region' },
-      { value: 'HazMat', label: 'Certified' },
+      { value: '6+', label: 'East Coast ports' },
+      { value: 'WH', label: 'Warehouse ops' },
     ],
   },
   overview: {
@@ -319,8 +320,8 @@ export const whyVital = {
     'Vital Transportation is a modern, people-focused logistics partner built on clarity, professionalism, and dependable execution. Companies choose Vital for consistent performance, practical problem solving, and leadership that stays close to the work.',
   pillars: [
     'Asset-based reliability',
-    'Strong NY and NJ port presence',
-    'HazMat certified operations',
+    'Multi-port East Coast presence',
+    'Full warehouse & distribution operations',
     'Flexible capacity during peak seasons',
     'Professional drivers and dispatch',
     'Real-time communication',
@@ -415,7 +416,7 @@ export const aboutPage = {
     subtitle: 'Safety Without Compromise — at Vital, safety is not just a policy; it\'s our promise. We ensure our staff is protected and your deliveries arrive on time, every time.',
     commitments: [
       'Hands-on driver training and highest safety standards',
-      'HazMat certified drivers and compliant documentation',
+      'DOT-compliant operations and documentation',
       'GPS-enabled fleet monitoring across all vehicles',
       'Secure yard and warehouse infrastructure',
       'Zero-accident environment as a core operational goal',
@@ -537,7 +538,6 @@ export const careerPage = {
         'Minimum 1 year commercial driving experience preferred (training considered for qualified candidates)',
         'Ability to pass DOT physical, drug screen, and background check',
         'Strong communication skills and reliability',
-        'HazMat endorsement a plus',
       ],
     },
     {
@@ -701,9 +701,52 @@ export const careerPage = {
 export const regions = [
   'New Jersey',
   'New York',
-  'NY and NJ Ports',
-  'Regional interstate lanes',
+  'Pennsylvania',
+  'Maryland',
+  'Massachusetts',
+  'Connecticut',
+  'Virginia',
 ]
+
+export const ports = [
+  'Port of New York and New Jersey',
+  'Port of Philadelphia',
+  'Port of Baltimore',
+  'Port of Boston',
+  'Port of Wilmington',
+  'Hampton Roads',
+]
+
+export const serviceRegion = {
+  id: 'service-region',
+  title: 'Northeast & Mid-Atlantic Service Region',
+  eyebrow: 'Where we operate',
+  description:
+    'Vital\'s core service footprint covers U.S. states within approximately 300 miles of our Piscataway, New Jersey headquarters — spanning the Northeast and Mid-Atlantic.',
+  outsideNote:
+    'Need coverage beyond this region? Vital can still help. Contact our team for lanes outside the highlighted area — we coordinate regional and long-haul moves across a broader network.',
+  states: [
+    { id: 'CT', name: 'Connecticut', fips: '09' },
+    { id: 'DE', name: 'Delaware', fips: '10' },
+    { id: 'ME', name: 'Maine', fips: '23' },
+    { id: 'MD', name: 'Maryland', fips: '24' },
+    { id: 'MA', name: 'Massachusetts', fips: '25' },
+    { id: 'NH', name: 'New Hampshire', fips: '33' },
+    { id: 'NJ', name: 'New Jersey', fips: '34' },
+    { id: 'NY', name: 'New York', fips: '36' },
+    { id: 'PA', name: 'Pennsylvania', fips: '42' },
+    { id: 'RI', name: 'Rhode Island', fips: '44' },
+    { id: 'VT', name: 'Vermont', fips: '50' },
+    { id: 'VA', name: 'Virginia', fips: '51' },
+    { id: 'WV', name: 'West Virginia', fips: '54' },
+  ],
+  hq: {
+    label: 'HQ · Piscataway, NJ',
+    // Approximate coordinates for Piscataway, NJ
+    longitude: -74.4643,
+    latitude: 40.5549,
+  },
+}
 
 export const resourceLinks = [
   {
@@ -732,7 +775,7 @@ export const resourceLinks = [
 export const cta = {
   title: 'Partner with Vital for seamless regional logistics',
   description:
-    'Tell us about your freight and we will respond with a tailored quote — port drayage, intermodal, OTR, LTL, warehouse, or specialized moves across the NY/NJ region.',
+    'Tell us about your freight and we will respond with a tailored quote — port drayage, intermodal, OTR, LTL, warehouse, or specialized moves across the Northeast & Mid-Atlantic and beyond.',
   button: 'Submit Quote Request',
   navButton: 'Request a Quote',
   successTitle: 'Quote request received',
@@ -789,7 +832,6 @@ export const quotationForm = {
     { value: 'other', label: 'Other' },
   ],
   specialRequirements: [
-    { value: 'hazmat', label: 'HazMat' },
     { value: 'overweight', label: 'Overweight' },
     { value: 'temp-controlled', label: 'Temperature controlled' },
     { value: 'liftgate', label: 'Liftgate required' },

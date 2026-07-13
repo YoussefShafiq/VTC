@@ -5,9 +5,9 @@ import { FLEET_IMAGE } from '../../../lib/images'
 import { Stagger, StaggerItem } from '../../../components/ui/Stagger'
 
 const cardMeta = [
-  { icon: 'mdi:anchor', accent: 'from-racingRed/20 to-transparent' },
-  { icon: 'mdi:account-group-outline', accent: 'from-aliceBlue/30 to-transparent' },
-  { icon: 'mdi:warehouse', accent: 'from-racingRed/15 to-transparent' },
+  { icon: 'mdi:warehouse', accent: 'from-racingRed/20 to-transparent' },
+  { icon: 'mdi:anchor', accent: 'from-aliceBlue/30 to-transparent' },
+  { icon: 'mdi:account-group-outline', accent: 'from-racingRed/15 to-transparent' },
 ]
 
 export default function IntroCards() {

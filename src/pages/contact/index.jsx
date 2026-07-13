@@ -2,6 +2,7 @@ import { company, cta, routes } from '../../data/content'
 import Button from '../../components/ui/Button'
 import ContactHero from './sections/ContactHero'
 import ContactForm from './sections/ContactForm'
+import ServiceRegionMap from './sections/ServiceRegionMap'
 
 export default function ContactPage() {
   return (
@@ -60,6 +61,25 @@ export default function ContactPage() {
                 </address>
               </div>
 
+              <div className="rounded-2xl border border-twilightIndigo/10 bg-white p-5 md:p-6">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-twilightIndigo/45">
+                  Service footprint
+                </p>
+                <p className="mt-2 font-display text-lg font-semibold text-twilightIndigo">
+                  Northeast &amp; Mid-Atlantic Service Region
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-twilightIndigo/65">
+                  See the states and East Coast ports we cover — and how we help beyond that range.
+                </p>
+                <a
+                  href="#service-region"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-racingRed transition-colors hover:text-racingRed/80"
+                >
+                  View service region map
+                  <span aria-hidden>→</span>
+                </a>
+              </div>
+
               <div className="rounded-2xl border border-racingRed/15 bg-racingRed/5 p-5 md:p-6">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-racingRed">
                   Need a quote?
@@ -79,6 +99,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <ServiceRegionMap />
     </>
   )
 }

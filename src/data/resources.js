@@ -47,7 +47,7 @@ export const resourcesPage = {
       { value: '30+', label: 'FAQ answers' },
       { value: '5', label: 'Topic areas' },
       { value: '24/7', label: 'Dispatch support' },
-      { value: 'NY/NJ', label: 'Port region' },
+      { value: '13', label: 'State region' },
     ],
   },
   sustainability: {
@@ -84,17 +84,17 @@ export const resourcesFaqs = [
     category: 'general',
     question: 'What types of freight does Vital Transportation haul?',
     answer:
-      'Vital handles port drayage and container transport, intermodal and rail-connected moves, over-the-road truckload (dry van and temperature-controlled), LTL and partial truckload, warehouse-backed distribution, and specialized freight including HazMat-certified and final-mile delivery with liftgate service.',
+      'Vital handles port drayage and container transport, intermodal and rail-connected moves, over-the-road truckload (dry van and temperature-controlled), LTL and partial truckload, warehouse-backed distribution, and specialized final-mile delivery with liftgate service.',
   },
   {
     id: 'service-regions',
     category: 'general',
     question: 'What areas or regions does Vital Transportation service?',
     answer:
-      'Vital is headquartered in Piscataway, New Jersey and serves the NY/NJ port region, major interstate corridors, and regional lanes throughout New Jersey, New York, and connected distribution networks across the East Coast.',
+      'Vital is headquartered in Piscataway, New Jersey and serves the Northeast & Mid-Atlantic — covering Connecticut, Delaware, Maine, Maryland, Massachusetts, New Hampshire, New Jersey, New York, Pennsylvania, Rhode Island, Vermont, Virginia, and West Virginia — plus major East Coast ports and interstate corridors. Need coverage beyond this region? Contact us — Vital can still help.',
     bullets: [
-      'NY and NJ port terminals and drayage lanes',
-      'Regional interstate and OTR corridors',
+      'Multi-port East Coast drayage: NY/NJ, Philadelphia, Baltimore, Boston, Wilmington & Hampton Roads',
+      'Northeast & Mid-Atlantic regional lanes',
       'Warehouse and distribution support from Piscataway, NJ',
     ],
   },
@@ -110,7 +110,7 @@ export const resourcesFaqs = [
     category: 'general',
     question: 'What are Vital Transportation\'s safety and compliance standards?',
     answer:
-      'Safety without compromise is a core operational goal at Vital. Our standards include hands-on driver training, HazMat-certified drivers with compliant documentation, GPS-enabled fleet monitoring, secure yard and warehouse infrastructure, and continuously evolving safety methods across all departments.',
+      'Safety without compromise is a core operational goal at Vital. Our standards include hands-on driver training, DOT-compliant operations and documentation, GPS-enabled fleet monitoring, secure yard and warehouse infrastructure, and continuously evolving safety methods across all departments.',
   },
   {
     id: 'dedicated-contact',
@@ -179,7 +179,7 @@ export const resourcesFaqs = [
     category: 'shipment',
     question: 'What information is required on the Bill of Lading (BOL)?',
     answer:
-      'A complete BOL should include shipper and consignee details, pickup and delivery addresses, piece count, weight, freight description, special handling instructions, and any reference numbers. For HazMat or specialized freight, compliant documentation and classification details are required.',
+      'A complete BOL should include shipper and consignee details, pickup and delivery addresses, piece count, weight, freight description, special handling instructions, and any reference numbers. For specialized freight, compliant documentation and classification details are required.',
   },
   {
     id: 'weight-size-limits',
@@ -244,7 +244,7 @@ export const resourcesFaqs = [
     category: 'service',
     question: 'What documentation is required for shipping with Vital Transportation?',
     answer:
-      'Requirements vary by freight type. Standard moves need a complete BOL and contact details. Import/export, HazMat, and specialized freight may require additional customs-related documentation, compliance certificates, or customer-specific paperwork. Dispatch will confirm what is needed for your shipment.',
+      'Requirements vary by freight type. Standard moves need a complete BOL and contact details. Import/export and specialized freight may require additional customs-related documentation, compliance certificates, or customer-specific paperwork. Dispatch will confirm what is needed for your shipment.',
   },
   {
     id: 'storage-trailers',
@@ -281,7 +281,7 @@ export const resourcesFaqs = [
     category: 'pricing',
     question: 'Are accessorial charges applied, and what are they?',
     answer:
-      'Accessorial charges may apply for services beyond standard linehaul — such as liftgate delivery, detention, appointment windows, HazMat handling, or specialized equipment. Your quote and rate confirmation will outline applicable accessorials for your move.',
+      'Accessorial charges may apply for services beyond standard linehaul — such as liftgate delivery, detention, appointment windows, specialized handling, or specialized equipment. Your quote and rate confirmation will outline applicable accessorials for your move.',
   },
   {
     id: 'detention-fees',
@@ -318,7 +318,7 @@ export const resourcesFaqs = [
     category: 'preparation',
     question: 'What are the labeling requirements?',
     answer:
-      'Each handling unit should be clearly labeled with shipper and consignee information, piece count, weight where required, and any special handling instructions. HazMat freight requires compliant labels and documentation per regulatory standards.',
+      'Each handling unit should be clearly labeled with shipper and consignee information, piece count, weight where required, and any special handling instructions. Specialized freight requires compliant labels and documentation per applicable standards.',
   },
   {
     id: 'pickup-preparation',

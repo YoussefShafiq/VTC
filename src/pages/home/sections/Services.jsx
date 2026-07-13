@@ -167,7 +167,7 @@ export default function Services() {
       <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:hidden lg:px-8">
         <SectionHeading
           eyebrow="Core Services"
-          title="End-to-end solutions for the NY/NJ supply chain"
+          title="End-to-end solutions for the East Coast supply chain"
           align="center"
           className="!mb-0"
         />
@@ -179,7 +179,7 @@ export default function Services() {
             <div className="hidden lg:block">
               <SectionHeading
                 eyebrow="Core Services"
-                title="End-to-end solutions for the NY/NJ supply chain"
+                title="End-to-end solutions for the East Coast supply chain"
                 description="Scroll to explore each capability — the panel stays in place while services update."
                 align="center"
                 className="!mb-6"
