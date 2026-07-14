@@ -4,6 +4,7 @@ import HomePage from './pages/home'
 import ServicesPage from './pages/services'
 import ServiceDetailPage from './pages/services/detail'
 import AboutPage from './pages/about'
+import LeadershipPage from './pages/leadership'
 import CareersPage from './pages/careers'
 import CareerJobDetailPage from './pages/careers/detail'
 import ResourcesPage from './pages/resources'
@@ -22,6 +23,7 @@ function App() {
           <Route path="services" element={<ServicesPage />} />
           <Route path="services/:slug" element={<ServiceDetailPage />} />
           <Route path="about" element={<AboutPage />} />
+          <Route path="leadership" element={<LeadershipPage />} />
           <Route path="careers" element={<CareersPage />} />
           <Route path="careers/:slug" element={<CareerJobDetailPage />} />
           <Route path="resources" element={<ResourcesPage />} />

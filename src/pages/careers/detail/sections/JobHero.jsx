@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom'
-import { routes } from '../../../../data/content'
+import { routes, serviceRegion } from '../../../../data/content'
 import { roleIcons } from '../../../../lib/careerIcons'
 import { TOP_VIEW_IMAGE } from '../../../../lib/images'
+import { textWithServiceRegionLink } from '../../../../components/ui/ServiceRegionLink'
 
 export default function JobHero({ role }) {
+  const locationDisplay = role.location.includes(serviceRegion.title)
+    ? textWithServiceRegionLink(
+        role.location,
+        'text-white/75 underline decoration-white/30 underline-offset-2 transition-colors hover:text-white hover:decoration-racingRed',
+      )
+    : role.location
+
   return (
     <section className="relative overflow-hidden bg-twilightIndigo pb-20 pt-36 text-white md:pb-24 md:pt-44">
       <div
@@ -23,13 +31,17 @@ export default function JobHero({ role }) {
                 Home
               </Link>
             </li>
-            <li aria-hidden className="text-white/20">·</li>
+            <li aria-hidden className="text-white/20">
+              ·
+            </li>
             <li>
               <Link to={routes.careers} className="transition-colors hover:text-white/70">
                 Careers
               </Link>
             </li>
-            <li aria-hidden className="text-white/20">·</li>
+            <li aria-hidden className="text-white/20">
+              ·
+            </li>
             <li className="text-white/60">{role.title}</li>
           </ol>
         </nav>
@@ -51,7 +63,7 @@ export default function JobHero({ role }) {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <span className="rounded-full border border-white/15 bg-white/8 px-3 py-1 text-xs font-semibold text-white/75">
-                {role.location}
+                {locationDisplay}
               </span>
               <span className="rounded-full border border-white/15 bg-white/8 px-3 py-1 text-xs font-semibold text-white/75">
                 {role.employmentType}

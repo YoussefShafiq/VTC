@@ -26,10 +26,12 @@ const mobileMenuVariants = {
   },
 }
 
-const serviceLinks = services.map((service) => ({
-  label: service.title,
-  href: `${routes.services}/${service.id}`,
-}))
+const serviceLinks = [...services]
+  .map((service) => ({
+    label: service.title,
+    href: `${routes.services}/${service.id}`,
+  }))
+  .sort((a, b) => a.label.localeCompare(b.label))
 
 function NavItem({ link, pathname }) {
   const isActive =

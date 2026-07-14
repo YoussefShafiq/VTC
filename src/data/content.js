@@ -17,6 +17,7 @@ export const routes = {
   home: '/',
   services: '/services',
   about: '/about',
+  leadership: '/leadership',
   careers: '/careers',
   resources: '/resources',
   contact: '/contact',
@@ -27,9 +28,9 @@ export const routes = {
 }
 
 export const legalLinks = [
-  { label: 'Terms of use', href: routes.termsOfUse },
   { label: 'Privacy Policy', href: routes.privacyPolicy },
   { label: 'SMS Terms & Conditions', href: routes.smsTerms },
+  { label: 'Terms of use', href: routes.termsOfUse },
 ]
 
 export const socialMedia = [
@@ -51,8 +52,18 @@ export const navLinks = [
   { label: 'Contact Us', href: routes.contact },
 ]
 
+/** Footer navigation — alphabetized for clean scanning. */
+export const footerNavLinks = [
+  { label: 'About Us', href: routes.about },
+  { label: 'Careers', href: routes.careers },
+  { label: 'Contact Us', href: routes.contact },
+  { label: 'Leadership', href: routes.leadership },
+  { label: 'Resources', href: routes.resources },
+  { label: 'Services', href: routes.services },
+]
+
 export const hero = {
-  eyebrow: 'Northeast & Mid-Atlantic · Since 2011',
+  eyebrow: 'Northeast & Mid-Atlantic Service Region · Since 2011',
   title: 'Dependable logistics built on clarity, accountability, and follow-through.',
   subtitle:
     'Vital Transportation Corp. is an asset-based carrier and logistics partner serving East Coast ports and major interstate corridors with drayage, OTR, intermodal, LTL, and full warehouse & distribution operations from our Piscataway, NJ facility.',
@@ -337,18 +348,21 @@ export const leadership = {
     {
       name: 'Mohamed Koura',
       role: 'Founder & Chief Executive Officer',
+      initials: 'MK',
       bio: 'The mastermind behind Vital Transportation Corp., Mohamed\'s great leadership, operational, and management skills steer the company\'s exponential growth. With more than a decade of logistics experience, including a background as an Operations Supervisor at J.B. Hunt, he leads a nimble and adaptable company committed to customer success. He is bilingual in Arabic and English, which strengthens communication across a diverse workforce and customer base.',
       placeholder: true,
     },
     {
       name: 'Ahmed Koura',
       role: 'Founder & Chief Executive Officer',
+      initials: 'AK',
       bio: 'Ahmed is the backbone of all operations and the driving force behind Vital\'s innovative and technological advancement. His vast operational skills and logistical insights ensure supply chains run smoothly. With a decade of experience at J.B. Hunt and a deep understanding of logistics technology, he optimizes every process — making Vital a reliable and efficient choice in the industry.',
       placeholder: true,
     },
     {
       name: 'Hamid K. Hassan',
       role: 'Founder & Chief Executive Officer',
+      initials: 'HH',
       bio: 'Hamid is the mastermind behind Vital\'s strategic success. His forward-thinking strategies keep Vital adaptable and well-equipped to tackle challenges and embrace new opportunities. Hamid\'s commitment to innovation and risk management ensures Vital stays ahead of traditional logistics, making it a reliable and innovative partner for all freight needs.',
       placeholder: true,
     },
@@ -360,7 +374,7 @@ export const aboutPage = {
     eyebrow: 'Our story · Since 2011',
     title: 'Growing as a team',
     subtitle:
-      'What started as a single truck and a shared vision has grown into a fleet-backed logistics powerhouse trusted by importers, retailers, and distribution networks across the NY/NJ region.',
+      'What started as a single truck and a shared vision has grown into a fleet-backed logistics powerhouse trusted by importers, retailers, and distribution networks across the Northeast & Mid-Atlantic Service Region.',
     stats: [
       { value: '2011', label: 'Founded' },
       { value: '100+', label: 'Trailers' },
@@ -384,7 +398,7 @@ export const aboutPage = {
   },
   values: {
     eyebrow: 'Our values',
-    title: 'Where everything is vital',
+    title: 'Where everything is Vital',
     subtitle: 'What sets Vital Transportation apart is our commitment driven by a singular vision: your success. Our core values are the pillars driving us to deliver services that go beyond expectations.',
     items: [
       {
@@ -468,7 +482,7 @@ export const careerPage = {
     eyebrow: 'What we offer',
     title: 'Built for your growth',
     subtitle:
-      'At Vital, we invest in people the same way we invest in our fleet — with care, consistency, and a long-term view of success.',
+      'At Vital, we invest in people with the same commitment we bring to our fleet — care, consistency, and a long-term focus on success.',
     items: [
       {
         id: 'pay',
@@ -498,9 +512,9 @@ export const careerPage = {
   },
   opportunities: {
     eyebrow: 'Open roles',
-    title: 'Various kinds of opportunities',
+    title: 'Become a Vital Member of Our Team',
     subtitle:
-      'Explore roles at Vital, from driving and diesel technician to office and warehouse positions, and join our community of highly talented professionals.',
+      'We are hiring CDL Drivers, Diesel Technicians, Office Associates, Warehouse Associates, and Independent Owner-Operators.',
   },
   application: {
     endpoint: import.meta.env.VITE_CAREERS_APPLY_URL || '/api/careers/apply',
@@ -523,7 +537,7 @@ export const careerPage = {
         "Join Vital Transportation's diverse team with opportunities from local New Jersey routes to regional East Coast drives. Open to both new and experienced drivers, find the perfect fit for your career ambitions with us.",
       ctaLine: 'Apply now and steer your future in the right direction!',
       overview: [
-        'Vital operates a company-owned fleet serving the NY/NJ port region and major interstate corridors. Drivers are supported by 24/7 dispatch, well-maintained equipment, and a safety-first culture.',
+        'Vital operates a company-owned fleet serving the Northeast & Mid-Atlantic Service Region and major interstate corridors. Drivers are supported by 24/7 dispatch, well-maintained equipment, and a safety-first culture.',
         'Whether you prefer local New Jersey lanes or regional East Coast runs, we match routes to your experience and career goals.',
       ],
       responsibilities: [
@@ -628,7 +642,7 @@ export const careerPage = {
       id: 'owner-operators',
       title: 'Independent owner operators',
       icon: 'partnership',
-      location: 'NY/NJ Region · Regional lanes',
+      location: 'Northeast & Mid-Atlantic Service Region · Regional lanes',
       employmentType: 'Contract / Partnership',
       description:
         'We appreciate the experience behind independent owner operators. Team up with Vital for our mission of dependable support, consistent service excellence, and a commitment to safe, timely deliveries. Grow with a team that respects your independence.',
@@ -699,12 +713,12 @@ export const careerPage = {
 }
 
 export const regions = [
+  'Connecticut',
+  'Maryland',
+  'Massachusetts',
   'New Jersey',
   'New York',
   'Pennsylvania',
-  'Maryland',
-  'Massachusetts',
-  'Connecticut',
   'Virginia',
 ]
 

@@ -1,7 +1,9 @@
 import { getServiceImage } from '../../../../lib/images'
+import { company, serviceRegion } from '../../../../data/content'
 import SectionHeading from '../../../../components/ui/SectionHeading'
 import AnimateOnScroll from '../../../../components/ui/AnimateOnScroll'
 import { Stagger, StaggerItem } from '../../../../components/ui/Stagger'
+import ServiceRegionLink from '../../../../components/ui/ServiceRegionLink'
 
 function HighlightCard({ item, number }) {
   return (
@@ -78,7 +80,12 @@ export default function ServiceBody({ service }) {
               <div className="absolute inset-x-0 bottom-0 p-5">
                 <div className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-twilightIndigo/88 px-4 py-2 backdrop-blur-sm">
                   <span className="h-1.5 w-1.5 rounded-full bg-racingRed" aria-hidden />
-                  <p className="text-xs font-semibold text-white/80">Piscataway, NJ · NY/NJ Port Region</p>
+                  <p className="text-xs font-semibold text-white/80">
+                    {company.address.city}, {company.address.state} ·{' '}
+                    <ServiceRegionLink className="text-white/90 underline decoration-white/30 underline-offset-2 transition-colors hover:decoration-racingRed">
+                      {serviceRegion.title}
+                    </ServiceRegionLink>
+                  </p>
                 </div>
               </div>
             </div>

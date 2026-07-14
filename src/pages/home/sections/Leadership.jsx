@@ -54,7 +54,7 @@ function MemberAvatar({ member, index, size = 'md' }) {
   )
 }
 
-export default function Leadership() {
+export default function Leadership({ omitHeading = false }) {
   const [ceo, ...team] = leadership.members
 
   return (
@@ -66,11 +66,13 @@ export default function Leadership() {
       />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Leadership"
-          title={leadership.title}
-          description={leadership.subtitle}
-        />
+        {!omitHeading && (
+          <SectionHeading
+            eyebrow="Leadership"
+            title={leadership.title}
+            description={leadership.subtitle}
+          />
+        )}
 
         <AnimateOnScroll>
         <article className="overflow-hidden rounded-2xl border border-twilightIndigo/10 bg-aliceBlue/15">
@@ -86,6 +88,14 @@ export default function Leadership() {
               <p className="mt-3 text-sm leading-relaxed text-twilightIndigo/70 md:text-base">
                 {ceo.bio}
               </p>
+              {ceo.email && (
+                <a
+                  href={`mailto:${ceo.email}`}
+                  className="mt-3 inline-block text-sm font-semibold text-racingRed transition-colors hover:text-racingRed/80"
+                >
+                  {ceo.email}
+                </a>
+              )}
             </div>
           </div>
         </article>
@@ -109,6 +119,14 @@ export default function Leadership() {
                   <p className="mt-2 text-sm leading-relaxed text-twilightIndigo/60">
                     {member.bio}
                   </p>
+                  {member.email && (
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="mt-2 inline-block text-sm font-semibold text-racingRed transition-colors hover:text-racingRed/80"
+                    >
+                      {member.email}
+                    </a>
+                  )}
                 </div>
               </article>
               </StaggerItem>

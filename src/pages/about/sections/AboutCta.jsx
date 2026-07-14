@@ -25,7 +25,7 @@ export default function AboutCta() {
               We don&apos;t just deliver goods — we deliver peace of mind.
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/60 md:text-lg">
-              Choose Vital — choose success, every step, every mile. Let&apos;s talk about your freight needs.
+              Your freight. Our commitment. Success at every step and every mile. Speak with us about your logistics needs.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">

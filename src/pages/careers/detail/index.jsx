@@ -1,6 +1,7 @@
 import { useParams, Navigate } from 'react-router-dom'
 import { routes } from '../../../data/content'
 import { getCareerRole } from '../../../lib/careers'
+import { textWithServiceRegionLink } from '../../../components/ui/ServiceRegionLink'
 import JobHero from './sections/JobHero'
 import JobApplicationForm from './sections/JobApplicationForm'
 
@@ -45,7 +46,7 @@ export default function CareerJobDetailPage() {
                 <div className="mt-4 space-y-4">
                   {role.overview.map((paragraph) => (
                     <p key={paragraph} className="text-sm leading-relaxed text-twilightIndigo/70 md:text-base">
-                      {paragraph}
+                      {textWithServiceRegionLink(paragraph)}
                     </p>
                   ))}
                 </div>

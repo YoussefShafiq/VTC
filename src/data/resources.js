@@ -12,10 +12,10 @@ export const resourcesCategories = [
     accent: 'twilightIndigo',
   },
   {
-    id: 'shipment',
-    label: 'Shipment',
-    description: 'Pickup, delivery, tracking, delays, documentation, and freight handling on the road.',
-    accent: 'racingRed',
+    id: 'pricing',
+    label: 'Pricing & billing',
+    description: 'Quotes, rates, accessorials, detention, and payment options.',
+    accent: 'twilightIndigo',
   },
   {
     id: 'service',
@@ -24,15 +24,15 @@ export const resourcesCategories = [
     accent: 'aliceBlue',
   },
   {
-    id: 'pricing',
-    label: 'Pricing & billing',
-    description: 'Quotes, rates, accessorials, detention, and payment options.',
-    accent: 'twilightIndigo',
-  },
-  {
     id: 'preparation',
     label: 'Shipper preparation',
     description: 'Packaging, labeling, pickup readiness, and oversized freight guidelines.',
+    accent: 'racingRed',
+  },
+  {
+    id: 'shipment',
+    label: 'Shipment',
+    description: 'Pickup, delivery, tracking, delays, documentation, and freight handling on the road.',
     accent: 'racingRed',
   },
 ]
@@ -91,10 +91,10 @@ export const resourcesFaqs = [
     category: 'general',
     question: 'What areas or regions does Vital Transportation service?',
     answer:
-      'Vital is headquartered in Piscataway, New Jersey and serves the Northeast & Mid-Atlantic — covering Connecticut, Delaware, Maine, Maryland, Massachusetts, New Hampshire, New Jersey, New York, Pennsylvania, Rhode Island, Vermont, Virginia, and West Virginia — plus major East Coast ports and interstate corridors. Need coverage beyond this region? Contact us — Vital can still help.',
+      'Vital is headquartered in Piscataway, New Jersey and serves the Northeast & Mid-Atlantic Service Region — covering Connecticut, Delaware, Maine, Maryland, Massachusetts, New Hampshire, New Jersey, New York, Pennsylvania, Rhode Island, Vermont, Virginia, and West Virginia — plus major East Coast ports and interstate corridors. Need coverage beyond this region? Contact us — Vital can still help.',
     bullets: [
       'Multi-port East Coast drayage: NY/NJ, Philadelphia, Baltimore, Boston, Wilmington & Hampton Roads',
-      'Northeast & Mid-Atlantic regional lanes',
+      'Northeast & Mid-Atlantic Service Region regional lanes',
       'Warehouse and distribution support from Piscataway, NJ',
     ],
   },
@@ -274,7 +274,7 @@ export const resourcesFaqs = [
     category: 'pricing',
     question: 'How does Vital Transportation structure pricing?',
     answer:
-      'Pricing is tailored to your lane, equipment type, service level, and freight profile. Vital provides clear quotes based on your shipment details — port drayage, intermodal, OTR, LTL, warehouse, or specialized moves across the NY/NJ region.',
+      'Pricing is tailored to your lane, equipment type, service level, and freight profile. Vital provides clear quotes based on your shipment details — port drayage, intermodal, OTR, LTL, warehouse, or specialized moves across the Northeast & Mid-Atlantic Service Region.',
   },
   {
     id: 'accessorials',

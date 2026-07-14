@@ -1,8 +1,9 @@
-import { aboutPage, company } from '../../../data/content'
+import { aboutPage, company, serviceRegion } from '../../../data/content'
 import { ABOUT_STORY_IMAGE, FLEET_IMAGE } from '../../../lib/images'
 import SectionHeading from '../../../components/ui/SectionHeading'
 import AnimateOnScroll from '../../../components/ui/AnimateOnScroll'
 import { Stagger, StaggerItem } from '../../../components/ui/Stagger'
+import ServiceRegionLink from '../../../components/ui/ServiceRegionLink'
 
 export default function OurStory() {
   const { story } = aboutPage
@@ -89,7 +90,11 @@ export default function OurStory() {
                 <div className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-twilightIndigo/85 px-4 py-2 backdrop-blur-sm">
                   <span className="h-2 w-2 rounded-full bg-racingRed" aria-hidden />
                   <p className="text-xs font-semibold tracking-wide text-white">
-                    Piscataway, NJ · NY/NJ Port Region · Est. {company.since}
+                    Piscataway, NJ ·{' '}
+                    <ServiceRegionLink className="text-white underline decoration-white/30 underline-offset-2 transition-colors hover:decoration-racingRed">
+                      {serviceRegion.title}
+                    </ServiceRegionLink>
+                    {' '}· Est. {company.since}
                   </p>
                 </div>
               </div>

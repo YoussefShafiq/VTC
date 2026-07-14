@@ -5,6 +5,7 @@ import Fuse from 'fuse.js'
 import { resourcesCategories, resourcesFaqs } from '../../../data/resources'
 import { routes } from '../../../data/content'
 import SectionHeading from '../../../components/ui/SectionHeading'
+import { textWithServiceRegionLink } from '../../../components/ui/ServiceRegionLink'
 
 const categoryStyles = {
   general: {
@@ -218,7 +219,7 @@ function FaqAccordionItem({ item, isOpen, onToggle }) {
             <div className="px-5 pb-5 pt-1 md:px-6 md:pb-6">
               <div className="border-l-2 border-racingRed/70 pl-5">
                 <p className="text-sm leading-relaxed text-twilightIndigo/70 md:text-base">
-                  {item.answer}
+                  {textWithServiceRegionLink(item.answer)}
                 </p>
                 {item.bullets?.length > 0 && (
                   <ul className="mt-4 space-y-2.5">
@@ -228,7 +229,7 @@ function FaqAccordionItem({ item, isOpen, onToggle }) {
                         className="flex gap-3 text-sm leading-relaxed text-twilightIndigo/70 md:text-base"
                       >
                         <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-racingRed/80" aria-hidden />
-                        <span>{bullet}</span>
+                        <span>{textWithServiceRegionLink(bullet)}</span>
                       </li>
                     ))}
                   </ul>

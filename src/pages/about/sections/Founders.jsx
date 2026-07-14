@@ -78,6 +78,14 @@ export default function Founders() {
                     <p className="mt-4 text-sm leading-relaxed text-twilightIndigo/65 md:text-base md:leading-relaxed">
                       {member.bio}
                     </p>
+                    {member.email && (
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="mt-3 inline-block text-sm font-semibold text-racingRed transition-colors hover:text-racingRed/80"
+                      >
+                        {member.email}
+                      </a>
+                    )}
                   </div>
                 </div>
               </article>

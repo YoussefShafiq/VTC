@@ -1,7 +1,8 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { hero, company, routes } from '../../../data/content'
+import { hero, company, routes, serviceRegion } from '../../../data/content'
 import { TOP_VIEW_IMAGE, HERO_SIDE_IMAGE } from '../../../lib/images'
 import Button from '../../../components/ui/Button'
+import ServiceRegionLink from '../../../components/ui/ServiceRegionLink'
 import { fadeLeft, fadeUp, staggerContainer, transition } from '../../../lib/motion'
 // import HeroModel from './HeroModel'
 
@@ -10,8 +11,12 @@ export default function Hero() {
 
   const leftColumn = (
   <>
-      <p className="mb-8 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-aliceBlue/80">
-        {hero.eyebrow}
+      <p className="mb-8 inline-flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-aliceBlue/80">
+        <ServiceRegionLink className="text-aliceBlue/80 underline decoration-aliceBlue/30 underline-offset-4 transition-colors hover:text-white hover:decoration-racingRed">
+          {serviceRegion.title}
+        </ServiceRegionLink>
+        <span aria-hidden>·</span>
+        <span>Since {company.since}</span>
       </p>
 
       <h1 className="font-display text-4xl font-semibold leading-[1.06] tracking-tight text-white md:text-5xl lg:text-[3.35rem] lg:leading-[1.05]">

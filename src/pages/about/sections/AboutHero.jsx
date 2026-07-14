@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { aboutPage } from '../../../data/content'
 import { TOP_VIEW_IMAGE } from '../../../lib/images'
+import { textWithServiceRegionLink } from '../../../components/ui/ServiceRegionLink'
 import { fadeUp, staggerContainer, transition } from '../../../lib/motion'
 
 export default function AboutHero() {
@@ -47,7 +48,10 @@ export default function AboutHero() {
             transition={transition}
             className="mt-7 max-w-2xl text-base leading-relaxed text-white/65 md:text-lg"
           >
-            {hero.subtitle}
+            {textWithServiceRegionLink(
+              hero.subtitle,
+              'text-white/80 underline decoration-aliceBlue/35 underline-offset-2 transition-colors hover:text-white hover:decoration-racingRed',
+            )}
           </motion.p>
         </motion.div>
 

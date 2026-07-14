@@ -27,6 +27,19 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* Justify body copy for a neat, aligned reading column. */
+  p.leading-relaxed,
+  li.leading-relaxed {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+
+  .text-center p.leading-relaxed,
+  .text-center li.leading-relaxed {
+    text-align: center;
+  }
+
   #root {
     min-height: 100svh;
   }
