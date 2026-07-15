@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import { company, leadership } from '../../data/content'
-import { TOP_VIEW_IMAGE } from '../../lib/images'
-import { fadeUp, staggerContainer, transition } from '../../lib/motion'
+import { company, leadership } from '../../../data/content'
+import { TOP_VIEW_IMAGE } from '../../../lib/images'
+import { fadeUp, staggerContainer, transition } from '../../../lib/motion'
 
 export default function LeadershipHero() {
   return (

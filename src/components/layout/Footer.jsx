@@ -64,6 +64,57 @@ export default function Footer() {
 
           <div className="lg:col-span-3">
             <p className="mb-5 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-aliceBlue/60">
+              Navigation
+            </p>
+            <ul className="space-y-3">
+              {footerNavLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.href}
+                    className="text-sm text-white/60 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="mb-3 mt-6 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/35">
+              Services
+            </p>
+            <ul className="space-y-2">
+              {serviceLinks.map((child) => (
+                <li key={child.href}>
+                  <Link
+                    to={child.href}
+                    className="text-sm text-white/45 transition-colors hover:text-white/80"
+                  >
+                    {child.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-2">
+            <p className="mb-5 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-aliceBlue/60">
+              Legal
+            </p>
+            <ul className="space-y-3">
+              {legalLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="text-sm text-white/60 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-3">
+            <p className="mb-5 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-aliceBlue/60">
               Contact
             </p>
             <address className="not-italic text-sm leading-relaxed text-white/60">
@@ -103,56 +154,6 @@ export default function Footer() {
             )}
           </div>
 
-          <div className="lg:col-span-2">
-            <p className="mb-5 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-aliceBlue/60">
-              Legal
-            </p>
-            <ul className="space-y-3">
-              {legalLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-white/60 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="lg:col-span-3">
-            <p className="mb-5 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-aliceBlue/60">
-              Navigation
-            </p>
-            <ul className="space-y-3">
-              {footerNavLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-white/60 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p className="mb-3 mt-6 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/35">
-              Services
-            </p>
-            <ul className="space-y-2">
-              {serviceLinks.map((child) => (
-                <li key={child.href}>
-                  <Link
-                    to={child.href}
-                    className="text-sm text-white/45 transition-colors hover:text-white/80"
-                  >
-                    {child.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-white/35 md:flex-row md:items-center md:justify-between">
