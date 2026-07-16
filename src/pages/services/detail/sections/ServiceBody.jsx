@@ -46,7 +46,7 @@ export default function ServiceBody({ service }) {
         <div className="grid items-start gap-16 lg:grid-cols-2 lg:gap-24">
           <AnimateOnScroll variant="fadeRight">
             <SectionHeading eyebrow="What we offer" title="Delivering more than freight" />
-            <p className="text-base leading-relaxed text-twilightIndigo/70 md:text-lg">
+            <p className="text-base leading-relaxed text-twilightIndigo/70 md:text-lg content-body">
               {service.description}
             </p>
 
@@ -54,7 +54,7 @@ export default function ServiceBody({ service }) {
             <div className="mt-10 grid grid-cols-3 gap-4 border-t border-twilightIndigo/8 pt-8">
               {[
                 { value: '24/7', label: 'Dispatch' },
-                { value: 'NY/NJ', label: 'Port coverage' },
+                { value: '6+', label: 'East Coast ports' },
                 { value: '100%', label: 'Asset-based' },
               ].map((stat) => (
                 <div key={stat.label}>

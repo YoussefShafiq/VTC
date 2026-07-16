@@ -4,43 +4,57 @@ import SectionHeading from '../../../components/ui/SectionHeading'
 import AnimateOnScroll from '../../../components/ui/AnimateOnScroll'
 import { Stagger, StaggerItem } from '../../../components/ui/Stagger'
 
-function MemberAvatar({ member, index, size = 'md' }) {
-  const initials = member.name
+function getInitials(name = '') {
+  return name
     .split(' ')
     .map((part) => part[0])
     .join('')
     .slice(0, 2)
+}
 
+function MemberAvatar({ member, index, size = 'md' }) {
+  const initials = member.initials || getInitials(member.name)
   const sizeClass =
     size === 'lg'
       ? 'h-28 w-28 shrink-0 md:h-32 md:w-32'
       : 'h-14 w-14 shrink-0'
+  const showPlaceholder = !member.photo && (member.placeholder !== false)
 
   return (
     <div
       className={`relative overflow-hidden rounded-xl bg-twilightIndigo ${sizeClass}`}
     >
-      <img
-        src={FLEET_IMAGE}
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover"
-        style={{ objectPosition: 'center 40%' }}
-        aria-hidden
-      />
-      <div className="absolute inset-0 bg-twilightIndigo/75" aria-hidden />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span
-          className={`font-display font-semibold text-white/40 ${
-            size === 'lg' ? 'text-3xl md:text-4xl' : 'text-lg'
-          }`}
-        >
-          {initials}
-        </span>
-      </div>
-      {member.placeholder && (
-        <span className="absolute bottom-1.5 left-0 right-0 text-center text-[8px] font-semibold uppercase tracking-wider text-white/35">
-          Photo soon
-        </span>
+      {member.photo ? (
+        <img
+          src={member.photo}
+          alt={member.name}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : (
+        <>
+          <img
+            src={FLEET_IMAGE}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: 'center 40%' }}
+            aria-hidden
+          />
+          <div className="absolute inset-0 bg-twilightIndigo/75" aria-hidden />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span
+              className={`font-display font-semibold text-white/40 ${
+                size === 'lg' ? 'text-3xl md:text-4xl' : 'text-lg'
+              }`}
+            >
+              {initials}
+            </span>
+          </div>
+          {showPlaceholder && (
+            <span className="absolute bottom-1.5 left-0 right-0 text-center text-[8px] font-semibold uppercase tracking-wider text-white/35">
+              Photo soon
+            </span>
+          )}
+        </>
       )}
       {size === 'lg' && (
         <span
@@ -54,8 +68,16 @@ function MemberAvatar({ member, index, size = 'md' }) {
   )
 }
 
+function getPublicMembers() {
+  return [...leadership.members]
+    .filter((member) => member.public !== false)
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+}
+
 export default function Leadership({ omitHeading = false }) {
-  const [ceo, ...team] = leadership.members
+  const members = getPublicMembers()
+  const [ceo, ...team] = members
+  if (!ceo) return null
 
   return (
     <section id="leadership" className="relative overflow-hidden bg-white py-16 md:py-24">
@@ -75,60 +97,58 @@ export default function Leadership({ omitHeading = false }) {
         )}
 
         <AnimateOnScroll>
-        <article className="overflow-hidden rounded-2xl border border-twilightIndigo/10 bg-aliceBlue/15">
-          <div className="flex flex-col gap-6 p-6 md:flex-row md:items-center md:gap-8 md:p-8">
-            <MemberAvatar member={ceo} index={0} size="lg" />
-            <div className="min-w-0 flex-1">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-racingRed">
-                {ceo.role}
-              </p>
-              <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight text-twilightIndigo md:text-3xl">
-                {ceo.name}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-twilightIndigo/70 md:text-base">
-                {ceo.bio}
-              </p>
-              {ceo.email && (
-                <a
-                  href={`mailto:${ceo.email}`}
-                  className="mt-3 inline-block text-sm font-semibold text-racingRed transition-colors hover:text-racingRed/80"
-                >
-                  {ceo.email}
-                </a>
-              )}
+          <article className="overflow-hidden rounded-2xl border border-twilightIndigo/10 bg-aliceBlue/15">
+            <div className="flex flex-col gap-6 p-6 md:flex-row md:items-center md:gap-8 md:p-8">
+              <MemberAvatar member={ceo} index={0} size="lg" />
+              <div className="min-w-0 flex-1 content-body">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-racingRed">
+                  {ceo.role}
+                </p>
+                <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight text-twilightIndigo md:text-3xl">
+                  {ceo.name}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-twilightIndigo/70 md:text-base">
+                  {ceo.bio}
+                </p>
+                {ceo.email && (
+                  <a
+                    href={`mailto:${ceo.email}`}
+                    className="mt-3 inline-block text-sm font-semibold text-racingRed transition-colors hover:text-racingRed/80"
+                  >
+                    {ceo.email}
+                  </a>
+                )}
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
         </AnimateOnScroll>
 
         {team.length > 0 && (
           <Stagger className="mt-4 grid gap-4 sm:grid-cols-2">
             {team.map((member, index) => (
-              <StaggerItem key={`${member.name}-${index}`}>
-              <article
-                className="flex h-full items-start gap-4 rounded-2xl border border-twilightIndigo/8 bg-white p-5 md:p-6"
-              >
-                <MemberAvatar member={member} index={index + 1} size="sm" />
-                <div className="min-w-0">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-racingRed">
-                    {member.role}
-                  </p>
-                  <h3 className="mt-1 font-display text-lg font-semibold text-twilightIndigo">
-                    {member.name}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-twilightIndigo/60">
-                    {member.bio}
-                  </p>
-                  {member.email && (
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="mt-2 inline-block text-sm font-semibold text-racingRed transition-colors hover:text-racingRed/80"
-                    >
-                      {member.email}
-                    </a>
-                  )}
-                </div>
-              </article>
+              <StaggerItem key={member.id || `${member.name}-${index}`}>
+                <article className="flex h-full items-start gap-4 rounded-2xl border border-twilightIndigo/8 bg-white p-5 md:p-6">
+                  <MemberAvatar member={member} index={index + 1} size="sm" />
+                  <div className="min-w-0 content-body">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-racingRed">
+                      {member.role}
+                    </p>
+                    <h3 className="mt-1 font-display text-lg font-semibold text-twilightIndigo">
+                      {member.name}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-twilightIndigo/60">
+                      {member.bio}
+                    </p>
+                    {member.email && (
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="mt-2 inline-block text-sm font-semibold text-racingRed transition-colors hover:text-racingRed/80"
+                      >
+                        {member.email}
+                      </a>
+                    )}
+                  </div>
+                </article>
               </StaggerItem>
             ))}
           </Stagger>

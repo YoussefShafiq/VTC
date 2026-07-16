@@ -4,25 +4,45 @@ import SectionHeading from '../../../components/ui/SectionHeading'
 import AnimateOnScroll from '../../../components/ui/AnimateOnScroll'
 import { Stagger, StaggerItem } from '../../../components/ui/Stagger'
 
+function getInitials(name = '') {
+  return name
+    .split(' ')
+    .map((part) => part[0])
+    .join('')
+    .slice(0, 2)
+}
+
 function FounderAvatar({ member, index }) {
+  const initials = member.initials || getInitials(member.name)
+
   return (
     <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl md:h-28 md:w-28">
-      <img
-        src={FLEET_IMAGE}
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover"
-        style={{ objectPosition: 'center 25%' }}
-        aria-hidden
-      />
-      <div className="absolute inset-0 bg-twilightIndigo/72" aria-hidden />
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-display text-2xl font-semibold text-white/50 md:text-3xl">
-          {member.initials}
-        </span>
-        <span className="mt-1 text-[8px] font-semibold uppercase tracking-wider text-white/30">
-          Photo soon
-        </span>
-      </div>
+      {member.photo ? (
+        <img
+          src={member.photo}
+          alt={member.name}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : (
+        <>
+          <img
+            src={FLEET_IMAGE}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: 'center 25%' }}
+            aria-hidden
+          />
+          <div className="absolute inset-0 bg-twilightIndigo/72" aria-hidden />
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <span className="font-display text-2xl font-semibold text-white/50 md:text-3xl">
+              {initials}
+            </span>
+            <span className="mt-1 text-[8px] font-semibold uppercase tracking-wider text-white/30">
+              Photo soon
+            </span>
+          </div>
+        </>
+      )}
       <span
         className="absolute left-2 top-2 font-display text-[10px] font-semibold text-racingRed"
         aria-hidden
@@ -35,6 +55,9 @@ function FounderAvatar({ member, index }) {
 
 export default function Founders() {
   const { founders } = aboutPage
+  const members = [...founders.members].sort(
+    (a, b) => (a.order ?? 0) - (b.order ?? 0),
+  )
 
   return (
     <section id="leadership" className="relative overflow-hidden bg-white py-24 md:py-32">
@@ -55,15 +78,15 @@ export default function Founders() {
         </AnimateOnScroll>
 
         <Stagger className="space-y-5">
-          {founders.members.map((member, index) => (
-            <StaggerItem key={member.name}>
+          {members.map((member, index) => (
+            <StaggerItem key={member.id || member.name}>
               <article className="group relative overflow-hidden rounded-2xl border border-twilightIndigo/8 bg-white transition-all duration-300 hover:border-twilightIndigo/15 hover:shadow-[0_24px_60px_-24px_rgba(31,50,88,0.18)]">
                 <div className="absolute inset-y-0 left-0 w-0.5 bg-gradient-to-b from-racingRed/60 to-racingRed/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden />
 
                 <div className="flex flex-col gap-6 p-7 md:flex-row md:items-start md:gap-8 md:p-9">
                   <FounderAvatar member={member} index={index} />
 
-                  <div className="min-w-0 flex-1">
+                  <div className="min-w-0 flex-1 content-body">
                     <div className="flex flex-wrap items-start justify-between gap-3">
                       <div>
                         <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-racingRed">

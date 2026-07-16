@@ -8,6 +8,7 @@ import Services from './sections/Services'
 import About from './sections/About'
 import WhyVital from './sections/WhyVital'
 import Leadership from './sections/Leadership'
+import ReviewsTeaser from './sections/ReviewsTeaser'
 
 export default function HomePage() {
   return (
@@ -29,6 +30,10 @@ export default function HomePage() {
       </SectionFade>
 
       <SectionFade>
+        <ReviewsTeaser />
+      </SectionFade>
+
+      <SectionFade>
         <Resources />
       </SectionFade>
 
@@ -46,3 +51,4 @@ export default function HomePage() {
     </>
   )
 }
+

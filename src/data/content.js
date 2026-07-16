@@ -22,6 +22,7 @@ export const routes = {
   resources: '/resources',
   contact: '/contact',
   quoteHash: 'request-a-quote',
+  reviewsHash: 'customer-reviews',
   termsOfUse: '/legal/terms-of-use',
   privacyPolicy: '/legal/privacy-policy',
   smsTerms: '/legal/sms-terms',
@@ -30,8 +31,8 @@ export const routes = {
 export const legalLinks = [
   { label: 'Privacy Policy', href: routes.privacyPolicy },
   { label: 'SMS Terms & Conditions', href: routes.smsTerms },
-  { label: 'Terms of use', href: routes.termsOfUse },
-]
+  { label: 'Terms of Use', href: routes.termsOfUse },
+].sort((a, b) => a.label.localeCompare(b.label))
 
 export const socialMedia = [
   {
@@ -60,7 +61,7 @@ export const footerNavLinks = [
   { label: 'Leadership', href: routes.leadership },
   { label: 'Resources', href: routes.resources },
   { label: 'Services', href: routes.services },
-]
+].sort((a, b) => a.label.localeCompare(b.label))
 
 export const hero = {
   eyebrow: 'Northeast & Mid-Atlantic Service Region · Since 2011',
@@ -75,14 +76,14 @@ export const introCards = [
   {
     title: 'Warehouse & distribution',
     description:
-      'Storage, cross-docking, transloading, and value-added services from our Piscataway facility — trusted by leading retail brands for inventory staging and fulfillment support.',
+      'Storage, cross-docking, transloading, pick and pack, and value-added services from our Piscataway facility — nimble support for local operators and large-scale distribution programs.',
     href: '/services/warehouse',
     cta: 'Explore warehouse services',
   },
   {
     title: 'Port-to-door precision',
     description:
-      'From terminal retrieval to final delivery across NY/NJ, Philadelphia, Baltimore, Boston, and other East Coast ports — with real-time dispatch visibility on every handoff.',
+      'From terminal retrieval to final delivery across East Coast ports including New York/New Jersey, Philadelphia, Baltimore, Boston, and beyond — with real-time dispatch visibility on every handoff.',
     href: '/services/drayage',
     cta: 'View port capabilities',
   },
@@ -237,18 +238,18 @@ export const services = [
     id: 'warehouse',
     title: 'Warehouse & Distribution',
     summary:
-      'Short and long-term storage, cross-docking, transloading, and value-added services for importers and e-commerce.',
+      'Short and long-term storage, cross-docking, transloading, pick and pack, and value-added services for importers and e-commerce.',
     description:
-      "Vital's Piscataway, NJ warehouse facility supports the full range of storage and distribution needs — from short-term overflow to long-term inventory management. We have successfully managed storage, assembly, and transloading programs for major retail brands including CVS Pharmacy, Famous Footwear, and Old Navy.",
+      'Our warehousing service is a core part of our operation, supporting everything from short-term overflow to long-term inventory programs. Our team manages daily storage, assembly, transloading, and cross-dock activity, fully integrated with our transportation network. We are built to be nimble and agile, handling the needs of small local companies as well as operations with the scale and complexity of global brands. Warehousing is central to how we operate and a key reason customers rely on Vital for dependable regional distribution.',
     imagePosition: 'center 65%',
     highlights: [
       {
         title: 'Flexible storage terms',
-        body: 'Short and long-term storage solutions designed to scale with your inventory needs — ideal for importers managing seasonal volume and e-commerce overflow.',
+        body: 'Short and long-term storage solutions designed to scale with your inventory needs — from local overflow programs to complex multi-SKU distribution.',
       },
       {
         title: 'Value-added services',
-        body: 'Palletizing, labeling, display assembly, and custom packaging services that prepare your product for retail distribution without a separate stop.',
+        body: 'Palletizing, labeling, display assembly, pick and pack fulfillment, and custom packaging that prepare product for distribution without a separate stop.',
       },
       {
         title: 'Cross-dock & transload',
@@ -262,6 +263,7 @@ export const services = [
       'Freight consolidation and deconsolidation',
       'Inventory staging for retail and e-commerce',
       'Transload to truck programs for importers',
+      'Pick and pack fulfillment',
     ],
   },
   {
@@ -346,24 +348,39 @@ export const leadership = {
   subtitle: 'Experienced operators committed to staying close to the work and the customer.',
   members: [
     {
+      id: 'mohamed-koura',
       name: 'Mohamed Koura',
       role: 'Founder & Chief Executive Officer',
       initials: 'MK',
       bio: 'The mastermind behind Vital Transportation Corp., Mohamed\'s great leadership, operational, and management skills steer the company\'s exponential growth. With more than a decade of logistics experience, including a background as an Operations Supervisor at J.B. Hunt, he leads a nimble and adaptable company committed to customer success. He is bilingual in Arabic and English, which strengthens communication across a diverse workforce and customer base.',
+      photo: null,
+      email: null,
+      order: 1,
+      public: true,
       placeholder: true,
     },
     {
+      id: 'ahmed-koura',
       name: 'Ahmed Koura',
       role: 'Founder & Chief Executive Officer',
       initials: 'AK',
       bio: 'Ahmed is the backbone of all operations and the driving force behind Vital\'s innovative and technological advancement. His vast operational skills and logistical insights ensure supply chains run smoothly. With a decade of experience at J.B. Hunt and a deep understanding of logistics technology, he optimizes every process — making Vital a reliable and efficient choice in the industry.',
+      photo: null,
+      email: null,
+      order: 2,
+      public: true,
       placeholder: true,
     },
     {
+      id: 'hamid-hassan',
       name: 'Hamid K. Hassan',
       role: 'Founder & Chief Executive Officer',
       initials: 'HH',
       bio: 'Hamid is the mastermind behind Vital\'s strategic success. His forward-thinking strategies keep Vital adaptable and well-equipped to tackle challenges and embrace new opportunities. Hamid\'s commitment to innovation and risk management ensures Vital stays ahead of traditional logistics, making it a reliable and innovative partner for all freight needs.',
+      photo: null,
+      email: null,
+      order: 3,
+      public: true,
       placeholder: true,
     },
   ],
@@ -387,12 +404,12 @@ export const aboutPage = {
     paragraphs: [
       'With previous experience at J.B. Hunt and more than 45 years of combined trucking industry wisdom, the founding team entered the logistics industry with a vision to revolutionize it.',
       'What started with a single truck turned into a fleet of over 100 tractor-trailers, 25 tractors, 50 adept drivers, and 4 box trucks — a true story of resilience, innovation, and an unwavering focus on customer satisfaction.',
-      'In 2017, the company expanded into warehouse operations, providing storage, assembly, and transloading services. Vital has since managed programs for leading brands including CVS Pharmacy, Famous Footwear, and Old Navy.',
-      'Today, Vital has earned the trust of its customers and cemented its reputation by consistently ranking among the top 100 carriers for industry leaders like Trinity, C.H. Robinson, and Total Quality Logistics.',
+      'In 2017, the company expanded into warehouse operations, providing storage, assembly, and transloading services. Vital has since supported inventory and distribution programs for national and regional retailers as well as smaller local companies — with the agility to scale from short-term overflow to long-term programs.',
+      'Today, Vital has earned the trust of its customers and cemented its reputation by consistently ranking among the top 100 carriers working with major brokerage and logistics partners across the industry.',
     ],
     milestones: [
       { year: '2011', label: 'Company founded', detail: 'Launched with a single truck and a vision to build a better logistics partner.' },
-      { year: '2017', label: 'Warehouse expansion', detail: 'Grew into full warehouse operations — storage, assembly, and transloading for major retail brands.' },
+      { year: '2017', label: 'Warehouse expansion', detail: 'Grew into full warehouse operations — storage, assembly, transloading, and value-added services for shippers of every size.' },
       { year: 'Today', label: 'Regional leader', detail: 'Top-100 rated carrier with 100+ trailers, 50+ professional drivers, and growing.' },
     ],
   },
@@ -442,26 +459,10 @@ export const aboutPage = {
     eyebrow: 'Leadership',
     title: 'Meet the team',
     subtitle: 'Three founders. Over 45 years of combined industry wisdom. One shared commitment to delivering peace of mind with every shipment.',
-    members: [
-      {
-        name: 'Mohamed Koura',
-        role: 'Founder & Chief Executive Officer',
-        bio: 'The mastermind behind Vital Transportation Corp., Mohamed\'s great leadership, operational, and management skills steer the company\'s exponential growth. With more than a decade of logistics experience, including a background as an Operations Supervisor at J.B. Hunt, he leads a nimble and adaptable company committed to customer success. He is bilingual in Arabic and English, which strengthens communication across a diverse workforce and customer base.',
-        initials: 'MK',
-      },
-      {
-        name: 'Ahmed Koura',
-        role: 'Founder & Chief Executive Officer',
-        bio: 'Ahmed is the backbone of all operations and the driving force behind Vital\'s innovative and technological advancement. His vast operational skills and logistical insights ensure supply chains run smoothly. With a decade of experience at J.B. Hunt and a deep understanding of logistics technology, he optimizes every process — making Vital a reliable and efficient choice in the industry.',
-        initials: 'AK',
-      },
-      {
-        name: 'Hamid K. Hassan',
-        role: 'Founder & Chief Executive Officer',
-        bio: 'Hamid is the mastermind behind Vital\'s strategic success. His forward-thinking strategies keep Vital adaptable and well-equipped to tackle challenges and embrace new opportunities. Hamid\'s commitment to innovation and risk management ensures Vital stays ahead of traditional logistics, making it a reliable and innovative partner for all freight needs.',
-        initials: 'HH',
-      },
-    ],
+    /** Mirrors `leadership.members` shape for dashboard/CMS updates. */
+    get members() {
+      return leadership.members.filter((member) => member.public !== false)
+    },
   },
 }
 
@@ -720,7 +721,7 @@ export const regions = [
   'New York',
   'Pennsylvania',
   'Virginia',
-]
+].sort((a, b) => a.localeCompare(b))
 
 export const ports = [
   'Port of New York and New Jersey',
@@ -861,7 +862,7 @@ export const legalContact = {
 
 export const legalPages = {
   termsOfUse: {
-    title: 'Terms of use',
+    title: 'Terms of Use',
     eyebrow: 'Legal',
     intro: [
       'Welcome to Vital Transportation Corp.',

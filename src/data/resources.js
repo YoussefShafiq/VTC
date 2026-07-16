@@ -24,15 +24,15 @@ export const resourcesCategories = [
     accent: 'aliceBlue',
   },
   {
-    id: 'preparation',
-    label: 'Shipper preparation',
-    description: 'Packaging, labeling, pickup readiness, and oversized freight guidelines.',
-    accent: 'racingRed',
-  },
-  {
     id: 'shipment',
     label: 'Shipment',
     description: 'Pickup, delivery, tracking, delays, documentation, and freight handling on the road.',
+    accent: 'racingRed',
+  },
+  {
+    id: 'preparation',
+    label: 'Shipper preparation',
+    description: 'Packaging, labeling, pickup readiness, and oversized freight guidelines.',
     accent: 'racingRed',
   },
 ]
@@ -258,7 +258,7 @@ export const resourcesFaqs = [
     category: 'service',
     question: 'Do you offer warehouse services?',
     answer:
-      'Yes. Vital offers comprehensive warehouse services including storage, display assembly, and temporary merchandise staging. We have successfully managed programs for leading brands such as CVS Pharmacy, Famous Footwear, and Old Navy.',
+      'Yes. Vital offers comprehensive warehouse services including storage, display assembly, temporary merchandise staging, and pick and pack fulfillment. We support shippers of every size — from small local companies to large-scale retail and distribution programs — with the agility to pivot as your volume changes.',
   },
   {
     id: 'leased-equipment',

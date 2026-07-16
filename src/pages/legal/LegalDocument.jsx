@@ -140,7 +140,7 @@ export default function LegalDocument({ page }) {
               </div>
             </aside>
 
-            <div className="lg:col-span-9">
+            <div className="lg:col-span-9 content-body">
               <div className="rounded-2xl border border-twilightIndigo/8 bg-white p-6 shadow-[0_8px_32px_-12px_rgba(31,50,88,0.1)] md:p-10 lg:p-12">
                 {page.intro?.map((paragraph, index) => (
                   <p

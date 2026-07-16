@@ -13,6 +13,7 @@ function getInitials(name) {
 
 function MemberAvatar({ member, index }) {
   const initials = member.initials || getInitials(member.name)
+  const showPlaceholder = !member.photo
 
   return (
     <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl md:h-28 md:w-28">
@@ -36,9 +37,11 @@ function MemberAvatar({ member, index }) {
             <span className="font-display text-2xl font-semibold text-white/50 md:text-3xl">
               {initials}
             </span>
-            <span className="mt-1 text-[8px] font-semibold uppercase tracking-wider text-white/30">
-              Photo soon
-            </span>
+            {showPlaceholder && (
+              <span className="mt-1 text-[8px] font-semibold uppercase tracking-wider text-white/30">
+                Photo soon
+              </span>
+            )}
           </div>
         </>
       )}
@@ -52,7 +55,15 @@ function MemberAvatar({ member, index }) {
   )
 }
 
+function getPublicMembers() {
+  return [...leadership.members]
+    .filter((member) => member.public !== false)
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+}
+
 export default function LeadershipTeam() {
+  const members = getPublicMembers()
+
   return (
     <section className="relative overflow-hidden bg-white py-24 md:py-32">
       <div className="absolute inset-x-0 top-0 h-px bg-twilightIndigo/10" aria-hidden />
@@ -69,7 +80,7 @@ export default function LeadershipTeam() {
               Meet the team
             </p>
             <h2 className="font-display text-3xl font-semibold leading-[1.08] tracking-tight text-twilightIndigo md:text-4xl">
-              Three founders. One shared commitment.
+              Experienced operators. One shared commitment.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-twilightIndigo/65 md:text-lg">
               Over 45 years of combined industry wisdom — delivering peace of mind with every shipment.
@@ -78,8 +89,8 @@ export default function LeadershipTeam() {
         </AnimateOnScroll>
 
         <Stagger className="space-y-5">
-          {leadership.members.map((member, index) => (
-            <StaggerItem key={member.name}>
+          {members.map((member, index) => (
+            <StaggerItem key={member.id || member.name}>
               <article className="group relative overflow-hidden rounded-2xl border border-twilightIndigo/8 bg-white transition-all duration-300 hover:border-twilightIndigo/15 hover:shadow-[0_24px_60px_-24px_rgba(31,50,88,0.18)]">
                 <div
                   className="absolute inset-y-0 left-0 w-0.5 bg-gradient-to-b from-racingRed/60 to-racingRed/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -89,7 +100,7 @@ export default function LeadershipTeam() {
                 <div className="flex flex-col gap-6 p-7 md:flex-row md:items-start md:gap-8 md:p-9">
                   <MemberAvatar member={member} index={index} />
 
-                  <div className="min-w-0 flex-1">
+                  <div className="min-w-0 flex-1 content-body">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-racingRed">
                       {member.role}
                     </p>

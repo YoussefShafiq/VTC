@@ -27,16 +27,20 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Justify body copy for a neat, aligned reading column. */
+  /* Justify long reading copy for a neat, aligned column. */
   p.leading-relaxed,
-  li.leading-relaxed {
+  li.leading-relaxed,
+  .content-body p,
+  .content-body li {
     text-align: justify;
     text-justify: inter-word;
     hyphens: auto;
   }
 
   .text-center p.leading-relaxed,
-  .text-center li.leading-relaxed {
+  .text-center li.leading-relaxed,
+  .text-center .content-body p,
+  .text-center .content-body li {
     text-align: center;
   }
 

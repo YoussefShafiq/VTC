@@ -149,6 +149,14 @@ function getCategoryMeta(categoryId) {
   return resourcesCategories.find((c) => c.id === categoryId) ?? resourcesCategories[1]
 }
 
+/** Keep "All topics" first; sort remaining category chips A–Z. */
+const sortedResourcesCategories = [
+  resourcesCategories[0],
+  ...resourcesCategories
+    .slice(1)
+    .sort((a, b) => a.label.localeCompare(b.label)),
+]
+
 function FaqAccordionItem({ item, isOpen, onToggle }) {
   const panelId = useId()
   const buttonId = useId()
@@ -317,7 +325,7 @@ export default function ResourcesFaq() {
             onChange={handleSearchChange}
           />
           <CategoryFilters
-            categories={resourcesCategories}
+            categories={sortedResourcesCategories}
             activeCategory={activeCategory}
             categoryCounts={categoryCounts}
             onSelect={handleCategorySelect}
@@ -335,7 +343,7 @@ export default function ResourcesFaq() {
                 onChange={handleSearchChange}
               />
               <CategoryFilters
-                categories={resourcesCategories}
+                categories={sortedResourcesCategories}
                 activeCategory={activeCategory}
                 categoryCounts={categoryCounts}
                 onSelect={handleCategorySelect}
